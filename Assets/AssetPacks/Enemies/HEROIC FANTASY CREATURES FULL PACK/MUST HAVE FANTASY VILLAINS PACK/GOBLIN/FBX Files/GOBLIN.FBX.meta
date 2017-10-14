@@ -1,0 +1,958 @@
+fileFormatVersion: 2
+guid: 369bf22314485f2499b7991776c86074
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: GOBLIN_ R Foot
+    100002: GOBLIN_ Head
+    100004: forearm_armor_R
+    100006: sword
+    100008: GOBLIN_ L Thigh
+    100010: GOBLIN_ L Toe0
+    100012: GOBLIN_ L Foot
+    100014: GOBLIN_ L Calf
+    100016: //RootNode
+    100018: leg_armor_R
+    100020: slingshot
+    100022: leg_armor_L
+    100024: GOBLIN_ R Calf
+    100026: GOBLIN_ R Thigh
+    100028: dagger_R
+    100030: GOBLIN_ R Toe0
+    100032: GOBLIN_ R Hand
+    100034: shield
+    100036: forearm_armor_L
+    100038: stone
+    100040: Factice004
+    100042: Factice003
+    100044: Factice005
+    100046: Factice002
+    100048: Factice001
+    100050: slingshot_body
+    100052: dagger_L
+    100054: GOBLIN_ L Hand
+    100056: GOBLIN_ Neck
+    100058: GOBLIN_ Spine1
+    100060: GOBLIN_ Spine
+    100062: GOBLIN_ Pelvis
+    100064: GOBLIN_
+    100066: shoulder_armor
+    100068: GOBLIN
+    100070: GOBLIN_ Queue de cheval 1
+    100072: GOBLIN_ R Finger32
+    100074: GOBLIN_ R Finger31
+    100076: GOBLIN_ R Finger3
+    100078: GOBLIN_ R Finger22
+    100080: GOBLIN_ R Finger21
+    100082: GOBLIN_ R Finger2
+    100084: GOBLIN_ R Finger12
+    100086: GOBLIN_ R Finger11
+    100088: GOBLIN_ R Finger1
+    100090: GOBLIN_ R Finger02
+    100092: GOBLIN_ R Finger01
+    100094: GOBLIN_ R Finger0
+    100096: GOBLIN_ R Forearm
+    100098: GOBLIN_ R UpperArm
+    100100: GOBLIN_ R Clavicle
+    100102: slingshot_rope_middle
+    100104: GOBLIN_ L Finger32
+    100106: GOBLIN_ L Finger31
+    100108: GOBLIN_ L Finger3
+    100110: GOBLIN_ L Finger22
+    100112: GOBLIN_ L Finger21
+    100114: GOBLIN_ L Finger2
+    100116: GOBLIN_ L Finger12
+    100118: GOBLIN_ L Finger11
+    100120: GOBLIN_ L Finger1
+    100122: GOBLIN_ L Finger02
+    100124: GOBLIN_ L Finger01
+    100126: GOBLIN_ L Finger0
+    100128: GOBLIN_ L Forearm
+    100130: GOBLIN_ L UpperArm
+    100132: GOBLIN_ L Clavicle
+    100134: GOBLIN_BODY
+    100136: slingshot_rope_L
+    100138: slingshot_rope_R
+    400000: GOBLIN_ R Foot
+    400002: GOBLIN_ Head
+    400004: forearm_armor_R
+    400006: sword
+    400008: GOBLIN_ L Thigh
+    400010: GOBLIN_ L Toe0
+    400012: GOBLIN_ L Foot
+    400014: GOBLIN_ L Calf
+    400016: //RootNode
+    400018: leg_armor_R
+    400020: slingshot
+    400022: leg_armor_L
+    400024: GOBLIN_ R Calf
+    400026: GOBLIN_ R Thigh
+    400028: dagger_R
+    400030: GOBLIN_ R Toe0
+    400032: GOBLIN_ R Hand
+    400034: shield
+    400036: forearm_armor_L
+    400038: stone
+    400040: Factice004
+    400042: Factice003
+    400044: Factice005
+    400046: Factice002
+    400048: Factice001
+    400050: slingshot_body
+    400052: dagger_L
+    400054: GOBLIN_ L Hand
+    400056: GOBLIN_ Neck
+    400058: GOBLIN_ Spine1
+    400060: GOBLIN_ Spine
+    400062: GOBLIN_ Pelvis
+    400064: GOBLIN_
+    400066: shoulder_armor
+    400068: GOBLIN
+    400070: GOBLIN_ Queue de cheval 1
+    400072: GOBLIN_ R Finger32
+    400074: GOBLIN_ R Finger31
+    400076: GOBLIN_ R Finger3
+    400078: GOBLIN_ R Finger22
+    400080: GOBLIN_ R Finger21
+    400082: GOBLIN_ R Finger2
+    400084: GOBLIN_ R Finger12
+    400086: GOBLIN_ R Finger11
+    400088: GOBLIN_ R Finger1
+    400090: GOBLIN_ R Finger02
+    400092: GOBLIN_ R Finger01
+    400094: GOBLIN_ R Finger0
+    400096: GOBLIN_ R Forearm
+    400098: GOBLIN_ R UpperArm
+    400100: GOBLIN_ R Clavicle
+    400102: slingshot_rope_middle
+    400104: GOBLIN_ L Finger32
+    400106: GOBLIN_ L Finger31
+    400108: GOBLIN_ L Finger3
+    400110: GOBLIN_ L Finger22
+    400112: GOBLIN_ L Finger21
+    400114: GOBLIN_ L Finger2
+    400116: GOBLIN_ L Finger12
+    400118: GOBLIN_ L Finger11
+    400120: GOBLIN_ L Finger1
+    400122: GOBLIN_ L Finger02
+    400124: GOBLIN_ L Finger01
+    400126: GOBLIN_ L Finger0
+    400128: GOBLIN_ L Forearm
+    400130: GOBLIN_ L UpperArm
+    400132: GOBLIN_ L Clavicle
+    400134: GOBLIN_BODY
+    400136: slingshot_rope_L
+    400138: slingshot_rope_R
+    2300000: forearm_armor_R
+    2300002: sword
+    2300004: leg_armor_R
+    2300008: leg_armor_L
+    2300010: dagger_R
+    2300012: shield
+    2300014: forearm_armor_L
+    2300016: stone
+    2300018: dagger_L
+    3300000: forearm_armor_R
+    3300002: sword
+    3300004: leg_armor_R
+    3300008: leg_armor_L
+    3300010: dagger_R
+    3300012: shield
+    3300014: forearm_armor_L
+    3300016: stone
+    3300018: dagger_L
+    4300000: GOBLIN
+    4300002: shoulder_armor
+    4300004: dagger_L
+    4300006: stone
+    4300008: forearm_armor_L
+    4300010: shield
+    4300012: dagger_R
+    4300014: sword
+    4300016: forearm_armor_R
+    4300018: leg_armor_L
+    4300020: leg_armor_R
+    4300022: slingshot
+    4300024: GOBLIN_BODY
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: GOBLIN
+    13700002: slingshot
+    13700004: shoulder_armor
+    13700006: GOBLIN_BODY
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: GOBLIN_ Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Toe0
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Toe0
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger0
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger01
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger02
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger11
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger12
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger2
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger21
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger22
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger3
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger31
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ L Finger32
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger0
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger01
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger02
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger11
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger12
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger2
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger21
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger22
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger3
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger31
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GOBLIN_ R Finger32
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: GOBLIN(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0.0000004776451, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GOBLIN_
+      parentName: GOBLIN(Clone)
+      position: {x: -0, y: 0.8902521, z: 0}
+      rotation: {x: -0.50000036, y: 0.49999967, z: 0.49999967, w: 0.50000036}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GOBLIN_ Pelvis
+      parentName: GOBLIN_
+      position: {x: 0, y: 0, z: 0.037976205}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+      scale: {x: 1.0000008, y: 1.0000005, z: 1.0000008}
+    - name: GOBLIN_ Spine
+      parentName: GOBLIN_ Pelvis
+      position: {x: -0.09223312, y: -0.00016600163, z: 0.00000012813906}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000004, z: 0.99999976}
+    - name: GOBLIN_ Spine1
+      parentName: GOBLIN_ Spine
+      position: {x: -0.20852669, y: -0.00016604445, z: -4.6054083e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: GOBLIN_ Neck
+      parentName: GOBLIN_ Spine1
+      position: {x: -0.2085733, y: -0.000071400405, z: -1.9802428e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000001}
+    - name: GOBLIN_ Head
+      parentName: GOBLIN_ Neck
+      position: {x: -0.10695335, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000002}
+    - name: GOBLIN_ Queue de cheval 1
+      parentName: GOBLIN_ Head
+      position: {x: -0.019187622, y: 0.009444417, z: -0.00000007806095}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999964, y: 0.9999995, z: 1.0000005}
+    - name: GOBLIN_ L Clavicle
+      parentName: GOBLIN_ Neck
+      position: {x: -0.000000076293944, y: 0.00008499145, z: 0.03789876}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
+      scale: {x: 1.0000005, y: 1.000001, z: 1.0000004}
+    - name: GOBLIN_ L UpperArm
+      parentName: GOBLIN_ L Clavicle
+      position: {x: -0.1477395, y: -4.5474734e-15, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000004}
+    - name: GOBLIN_ L Forearm
+      parentName: GOBLIN_ L UpperArm
+      position: {x: -0.3251793, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999905, y: 0.99999946, z: 0.9999995}
+    - name: forearm_armor_L
+      parentName: GOBLIN_ L Forearm
+      position: {x: -0.103577726, y: -0.0144047355, z: 0.0047023008}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: -1.0143163, y: -0.9993814, z: -0.9864958}
+    - name: shield
+      parentName: GOBLIN_ L Forearm
+      position: {x: -0.21873519, y: -0.002512703, z: 0.03249649}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1.161891, z: 1.0000005}
+    - name: GOBLIN_ L Hand
+      parentName: GOBLIN_ L Forearm
+      position: {x: -0.23429075, y: -0.000000038146972, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000006}
+    - name: dagger_L
+      parentName: GOBLIN_ L Hand
+      position: {x: -0.08292663, y: 0.009351654, z: -0.014863748}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+    - name: slingshot_body
+      parentName: GOBLIN_ L Hand
+      position: {x: -0.08619804, y: 0.024269866, z: 0.08002094}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999997, y: 0.9999997, z: 1.0000001}
+    - name: Factice001
+      parentName: slingshot_body
+      position: {x: -0.28673366, y: 0.07477806, z: -0.013339576}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Factice002
+      parentName: slingshot_body
+      position: {x: -0.28672886, y: -0.069932096, z: -0.013338852}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Factice005
+      parentName: slingshot_body
+      position: {x: -0.2867312, y: -0.00006484985, z: -0.057320595}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Factice003
+      parentName: Factice005
+      position: {x: 0.05856926, y: -0.005737686, z: -0.00000018119812}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Factice004
+      parentName: Factice005
+      position: {x: -0.050810087, y: -0.005737648, z: -0.00000022888183}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: slingshot_rope_middle
+      parentName: Factice005
+      position: {x: -0, y: -0.036356352, z: -0.013232803}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000006, y: 1.0000012, z: 1.0000005}
+    - name: stone
+      parentName: slingshot_rope_middle
+      position: {x: -0.0033998108, y: 0.000055160523, z: -0.0022218323}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: slingshot_rope_R
+      parentName: slingshot_body
+      position: {x: -0.2867336, y: 0.07477813, z: -0.013339576}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000015, y: 1.0000014, z: 1.0000006}
+    - name: slingshot_rope_L
+      parentName: slingshot_body
+      position: {x: -0.28672886, y: -0.069932096, z: -0.013338852}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000011, y: 1.0000008, z: 1.0000011}
+    - name: GOBLIN_ L Finger3
+      parentName: GOBLIN_ L Hand
+      position: {x: -0.0972987, y: -0.005621185, z: 0.039433174}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: GOBLIN_ L Finger31
+      parentName: GOBLIN_ L Finger3
+      position: {x: -0.029177437, y: 0, z: -0.000000009536743}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1.0000004}
+    - name: GOBLIN_ L Finger32
+      parentName: GOBLIN_ L Finger31
+      position: {x: -0.0377161, y: 0, z: 0.000000009536743}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999997, y: 1.0000005, z: 1.0000006}
+    - name: GOBLIN_ L Finger2
+      parentName: GOBLIN_ L Hand
+      position: {x: -0.0999089, y: -0.010044555, z: -0.001815567}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000008}
+    - name: GOBLIN_ L Finger21
+      parentName: GOBLIN_ L Finger2
+      position: {x: -0.04326286, y: 0, z: 0.000000009536743}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000012, z: 1.000001}
+    - name: GOBLIN_ L Finger22
+      parentName: GOBLIN_ L Finger21
+      position: {x: -0.039718207, y: 0, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000006}
+    - name: GOBLIN_ L Finger1
+      parentName: GOBLIN_ L Hand
+      position: {x: -0.097336575, y: -0.011644897, z: -0.043763943}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999964, y: 1.0000007, z: 1.000001}
+    - name: GOBLIN_ L Finger11
+      parentName: GOBLIN_ L Finger1
+      position: {x: -0.033966523, y: -0.00000015258789, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000007, z: 1.000001}
+    - name: GOBLIN_ L Finger12
+      parentName: GOBLIN_ L Finger11
+      position: {x: -0.037950095, y: 0, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999976, y: 0.99999976, z: 0.99999976}
+    - name: GOBLIN_ L Finger0
+      parentName: GOBLIN_ L Hand
+      position: {x: -0.028347187, y: -0.0037765503, z: -0.02662404}
+      rotation: {x: 0, y: 0.3826835, z: 0, w: -0.9238795}
+      scale: {x: 1, y: 1.0000007, z: 1.0000001}
+    - name: GOBLIN_ L Finger01
+      parentName: GOBLIN_ L Finger0
+      position: {x: -0.043152083, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000007, z: 1.0000002}
+    - name: GOBLIN_ L Finger02
+      parentName: GOBLIN_ L Finger01
+      position: {x: -0.04538948, y: 0.000000038146972, z: -0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999999, y: 1.0000006, z: 1.0000002}
+    - name: GOBLIN_ R Clavicle
+      parentName: GOBLIN_ Neck
+      position: {x: -0.000000076293944, y: 0.00008522034, z: -0.03789876}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: 0.7071068, w: -0.000000030908623}
+      scale: {x: 1.0000029, y: 1.0000018, z: 1.0000013}
+    - name: GOBLIN_ R UpperArm
+      parentName: GOBLIN_ R Clavicle
+      position: {x: -0.1477395, y: 1.364242e-14, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000017, y: 1.0000014, z: 1.0000004}
+    - name: GOBLIN_ R Forearm
+      parentName: GOBLIN_ R UpperArm
+      position: {x: -0.3251793, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999976, y: 0.9999996, z: 0.9999995}
+    - name: forearm_armor_R
+      parentName: GOBLIN_ R Forearm
+      position: {x: -0.10385746, y: -0.014214649, z: -0.0048768613}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0143162, y: 0.9993813, z: 0.9864958}
+    - name: GOBLIN_ R Hand
+      parentName: GOBLIN_ R Forearm
+      position: {x: -0.23429076, y: -0.000000019073486, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 1.0000014, y: 1.000002, z: 1.0000001}
+    - name: dagger_R
+      parentName: GOBLIN_ R Hand
+      position: {x: -0.077059016, y: 0.018247833, z: 0.01686529}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1.0000002}
+    - name: sword
+      parentName: GOBLIN_ R Hand
+      position: {x: -0.08586189, y: 0.017862549, z: -0.007620706}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000002}
+    - name: GOBLIN_ R Finger0
+      parentName: GOBLIN_ R Hand
+      position: {x: -0.028347187, y: -0.0037767028, z: 0.02662402}
+      rotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
+      scale: {x: 1.0000006, y: 0.9999999, z: 1.0000002}
+    - name: GOBLIN_ R Finger01
+      parentName: GOBLIN_ R Finger0
+      position: {x: -0.043152045, y: 0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000005}
+    - name: GOBLIN_ R Finger02
+      parentName: GOBLIN_ R Finger01
+      position: {x: -0.04538948, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999875, y: 0.9999993, z: 0.9999986}
+    - name: GOBLIN_ R Finger1
+      parentName: GOBLIN_ R Hand
+      position: {x: -0.0973365, y: -0.01164505, z: 0.04376395}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000012, y: 1.000001, z: 1.0000001}
+    - name: GOBLIN_ R Finger11
+      parentName: GOBLIN_ R Finger1
+      position: {x: -0.033966444, y: 0, z: -0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999946, y: 0.9999997, z: 1.0000001}
+    - name: GOBLIN_ R Finger12
+      parentName: GOBLIN_ R Finger11
+      position: {x: -0.037950173, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000006, y: 1.000001, z: 1.0000002}
+    - name: GOBLIN_ R Finger2
+      parentName: GOBLIN_ R Hand
+      position: {x: -0.0999089, y: -0.010044555, z: 0.0018155384}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000008, z: 1.0000004}
+    - name: GOBLIN_ R Finger21
+      parentName: GOBLIN_ R Finger2
+      position: {x: -0.04326286, y: 0, z: -0.000000028610229}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000008, y: 1.0000004, z: 0.9999999}
+    - name: GOBLIN_ R Finger22
+      parentName: GOBLIN_ R Finger21
+      position: {x: -0.039718132, y: 0, z: 0.000000028610229}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.000001, y: 1.0000007, z: 1.0000004}
+    - name: GOBLIN_ R Finger3
+      parentName: GOBLIN_ R Hand
+      position: {x: -0.0972987, y: -0.005621185, z: -0.039433192}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1}
+    - name: GOBLIN_ R Finger31
+      parentName: GOBLIN_ R Finger3
+      position: {x: -0.029177437, y: 0, z: -0.000000047683713}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1}
+    - name: GOBLIN_ R Finger32
+      parentName: GOBLIN_ R Finger31
+      position: {x: -0.037715986, y: -0.00000015258789, z: 0.000000028610229}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000018, y: 1.0000021, z: 1}
+    - name: GOBLIN_ L Thigh
+      parentName: GOBLIN_ Pelvis
+      position: {x: 0.000000076293944, y: 0.00000015013923, z: 0.08020266}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000008}
+    - name: GOBLIN_ L Calf
+      parentName: GOBLIN_ L Thigh
+      position: {x: -0.40101275, y: -1.4901161e-10, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000008}
+    - name: leg_armor_L
+      parentName: GOBLIN_ L Calf
+      position: {x: -0.2340095, y: -0.008218443, z: 0.0068866536}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: GOBLIN_ L Foot
+      parentName: GOBLIN_ L Calf
+      position: {x: -0.40101275, y: 0.0000000023841857, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999996, y: 0.9999997, z: 0.99999946}
+    - name: GOBLIN_ L Toe0
+      parentName: GOBLIN_ L Foot
+      position: {x: -0.09916558, y: 0.16469145, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000005}
+    - name: GOBLIN_ R Thigh
+      parentName: GOBLIN_ Pelvis
+      position: {x: -0.000000076293944, y: -0.00000007231091, z: -0.08020266}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000006}
+    - name: GOBLIN_ R Calf
+      parentName: GOBLIN_ R Thigh
+      position: {x: -0.40101272, y: 1.4901161e-10, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000004}
+    - name: leg_armor_R
+      parentName: GOBLIN_ R Calf
+      position: {x: -0.23400958, y: -0.008218935, z: -0.0068868445}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: GOBLIN_ R Foot
+      parentName: GOBLIN_ R Calf
+      position: {x: -0.40101275, y: 0.0000000023841857, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000007, y: 1.0000004, z: 1.0000002}
+    - name: GOBLIN_ R Toe0
+      parentName: GOBLIN_ R Foot
+      position: {x: -0.09916558, y: 0.16469142, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GOBLIN_BODY
+      parentName: GOBLIN(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shoulder_armor
+      parentName: GOBLIN(Clone)
+      position: {x: -0, y: 1.2559308, z: 0.12548184}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: slingshot
+      parentName: GOBLIN(Clone)
+      position: {x: -0.69258803, y: 1.120819, z: 0.20635527}
+      rotation: {x: -0.2530654, y: 0.17852344, z: -0.6174686, w: 0.7230628}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.9999999}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 1
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
