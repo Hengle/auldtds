@@ -419,7 +419,6 @@ MonoBehaviour:
     unitID: 0
     unitClass: 0
     unitIsAlive: 1
-    unitPrefix: 
     unitCost: 30
     unitLevel: 0
     heroUnit: 0
@@ -433,8 +432,9 @@ MonoBehaviour:
     unitCritScore: 0
     unitCritMultiplier: 0
     unitArmor: 0
+    unitBaseAC: 0
     unitHealthPoints: 100
-    unitTotalHealthPoints: 0
+    unitTotalHealthPoints: 100
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0

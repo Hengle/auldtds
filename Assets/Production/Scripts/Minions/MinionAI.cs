@@ -95,7 +95,7 @@ public class MinionAI : MonoBehaviour {
 	private int minionTreasureCurry;
 	private bool isMinionLooting;
 
-    [Header("Combat Flags")]
+    [Header("Animation Flags")]
     [SerializeField]
     private bool attacking = false;
     [SerializeField]
@@ -132,13 +132,14 @@ public class MinionAI : MonoBehaviour {
 	void Update () 
 	{
 		CheckStates();
-        StartMoving();
+        //StartMoving();
+        Debug.Log(attacking);
 	}
 	#endregion
 
 	#region General Functions
 
-    private void StartMoving()
+    /*private void StartMoving()
     {
         if (moving==false && !attacking)
         {
@@ -150,22 +151,8 @@ public class MinionAI : MonoBehaviour {
         {
             return;
         }
-    }
+    }*/
 
-    /*
-    private void StopMoving()
-    {
-        if (moving==true)
-        {
-            animator.SetTrigger("Moving");
-            
-        }
-        else
-        {
-            return;
-        }
-    }
-    */
 	private void SetNavMeshAgent()
 	{
 		navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -199,14 +186,7 @@ public class MinionAI : MonoBehaviour {
 			}
 			faceTargetOnce = false;
 		}
-	}
-
-    private void AttackOpponent()
-    {
-        animator.SetTrigger("Attack");
-        minionAttack.DoDamage();
-    }
-    
+	} 
 
 	private bool CheckIfMinionIsAlive()
 	{
@@ -233,7 +213,7 @@ public class MinionAI : MonoBehaviour {
             GameObject lootManager = GameObject.Find("LootManager");
             LootTableClass lootTable = lootManager.GetComponent<LootTableClass>();
             lootTable.CalculateLoot(this.transform.position);
-            animator.SetTrigger("Death");
+            //animator.SetTrigger("Death");
             dieOnce = false;
 			navMeshAgent.enabled = false;
 			StartCoroutine(DestroyOnDeath());
@@ -264,10 +244,30 @@ public class MinionAI : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
-	#endregion
+    #endregion
 
-	#region Structure Functions
-	private void CheckStates()
+    #region Animation Functions
+    private void SetWalkTrigger()
+    {
+        animator.SetTrigger("WalkTrigger");
+        Debug.Log("Walking");
+    }
+
+    private void SetIdleTrigger()
+    {
+        animator.SetTrigger("IdleTrigger");
+    }
+
+    private void AttackOpponent()
+    {
+        moving = false;
+        animator.SetTrigger("AttackTrigger");
+        minionAttack.DoDamage();
+    }
+    #endregion
+
+    #region Structure Functions
+    private void CheckStates()
 	{
 		if (state == MinionState.SelectTarget)
 		{
@@ -394,8 +394,8 @@ public class MinionAI : MonoBehaviour {
     private void UnlockUnitTarget()
     {
         lockedOnUnit = false;
-        attacking = false;
-        CancelInvoke();
+        //attacking = false;
+        //CancelInvoke();
     }
 	#endregion
 
@@ -680,9 +680,12 @@ public class MinionAI : MonoBehaviour {
                 if (destinationTarget != saveDestinationTarget)
 				{
 					navMeshAgent.SetDestination(destinationTarget.transform.position);
-                    moving = true;
+                    //moving = true;
+                    //attacking = false;
+                    //SetWalkTrigger();
+                    //CancelInvoke();
                     //Debug.Log("called 681");
-					saveDestinationTarget = destinationTarget;
+                    saveDestinationTarget = destinationTarget;
 				}
 
 				state = MinionState.ReachTarget;
@@ -739,7 +742,7 @@ public class MinionAI : MonoBehaviour {
 		if (CheckIfTargetIsReached())
 		{
 			FaceTarget();
-            moving = false;
+            //moving = false;
             Debug.Log("called 740");
             ActivateDebug("Finaly Reached Final Target");
 			//SetAnimation(reachDestinationAnimation);
@@ -748,7 +751,14 @@ public class MinionAI : MonoBehaviour {
 		else
 		{
 			faceTargetOnce = true;
-			state = MinionState.SelectTarget;
+            CancelInvoke();
+            attacking = false;
+            if (moving == false)
+            {
+                SetWalkTrigger();
+                moving = true;
+            }
+            state = MinionState.SelectTarget;
 		}
 	}
 
@@ -757,10 +767,7 @@ public class MinionAI : MonoBehaviour {
 		if (CheckIfTargetIsReached())
 		{
 			ActivateDebug("Finaly Reached Room Target");
-            moving = false;
-            Debug.Log("called 758");
             FaceTarget();
-			//SetAnimation(reachDestinationAnimation);
 			if (!isMinionLooting)
 			{
 				destinationTarget.GetComponent<RoomEntityIdentifier>().roomTreasureScore -= minionTreasureCurry;
@@ -771,7 +778,14 @@ public class MinionAI : MonoBehaviour {
 		else
 		{
 			faceTargetOnce = true;
-			state = MinionState.SelectTarget;
+            CancelInvoke();
+            attacking = false;
+            if (moving == false)
+            {
+                SetWalkTrigger();
+                moving = true;
+            }
+            state = MinionState.SelectTarget;
 		}
 	}
 
@@ -781,16 +795,25 @@ public class MinionAI : MonoBehaviour {
 		{
 			ActivateDebug("Finaly Reached Block Item Target");
 			FaceTarget();
-            moving = false;
-            Debug.Log("called 782");
-            //SetAnimation(reachBlockItemAnimation);
-            //StartCoroutine(DoDamage(attackSpeed));
+            if (attacking == false)
+            {
+                SetIdleTrigger();
+                InvokeRepeating("AttackOpponent", 0, minionAttributes.minionAttributes.unitCDScore);
+                attacking = true;
+            }
             state = MinionState.SelectTarget;
 		}
 		else
 		{
 			faceTargetOnce = true;
-			state = MinionState.SelectTarget;
+            CancelInvoke();
+            attacking = false;
+            if (moving == false)
+            {
+                SetWalkTrigger();
+                moving = true;
+            }
+            state = MinionState.SelectTarget;
 		}
 	}
 
@@ -800,14 +823,11 @@ public class MinionAI : MonoBehaviour {
 		{
 			ActivateDebug("Finaly Reached RTSUnit");
 			FaceTarget();
-            moving = false;
-            //SetAnimation(reachRTSUnitAnimation);
-            //StartCoroutine(DoDamage(attackSpeed));
+          
             if (attacking == false)
             {
                 lockedOnUnit = true;
-                moving = false;
-                //Debug.Log("called 807");
+                SetIdleTrigger();
                 InvokeRepeating("AttackOpponent", 0, minionAttributes.minionAttributes.unitCDScore);
                 attacking = true;
             }
@@ -816,6 +836,16 @@ public class MinionAI : MonoBehaviour {
 		else
 		{
 			faceTargetOnce = true;
+            if (attacking == true)
+            {
+                CancelInvoke();
+                attacking = false;
+                if (moving == false)
+                {
+                    SetWalkTrigger();
+                    moving = true;
+                }            
+            }
 			state = MinionState.SelectTarget;
 		}
 	}
