@@ -262,7 +262,7 @@ public class MinionAI : MonoBehaviour {
     {
         moving = false;
         animator.SetTrigger("AttackTrigger");
-        minionAttack.DoDamage();
+        //minionAttack.DoDamage();
     }
     #endregion
 
@@ -795,24 +795,24 @@ public class MinionAI : MonoBehaviour {
 		{
 			ActivateDebug("Finaly Reached Block Item Target");
 			FaceTarget();
-            if (attacking == false)
+            /*if (attacking == false)
             {
                 SetIdleTrigger();
                 InvokeRepeating("AttackOpponent", 0, minionAttributes.minionAttributes.unitCDScore);
                 attacking = true;
-            }
+            }*/
             state = MinionState.SelectTarget;
 		}
 		else
 		{
 			faceTargetOnce = true;
-            CancelInvoke();
+            /*CancelInvoke();
             attacking = false;
             if (moving == false)
             {
                 SetWalkTrigger();
                 moving = true;
-            }
+            }*/
             state = MinionState.SelectTarget;
 		}
 	}
