@@ -12,12 +12,18 @@ public class BTN_OnMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public bool activeTooltip = false;
     public float xOffset;
     public float yOffset;
+
+    private RectTransform btnRectTransform;
    
 
     
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        btnRectTransform = GetComponent<RectTransform>();
+        float right = btnRectTransform.offsetMax.x;
+        float top = btnRectTransform.offsetMax.y;
+        Debug.Log("Offsets: " + right + "," + top);
         if (!activeTooltip)
         {
             activeTooltip = true;
