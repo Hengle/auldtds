@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 114983743352487490}
   - component: {fileID: 114564763740503372}
   - component: {fileID: 95835923978039476}
+  - component: {fileID: 114061564271390378}
   m_Layer: 12
   m_Name: GOBLIN_PBR_AI
   m_TagString: Minion
@@ -2573,6 +2574,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114061564271390378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477618140553118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b96fe3f96eee14aab1fa12ba6d96b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthCanvas: {fileID: 1912737887056716}
 --- !u!114 &114129039979398274
 MonoBehaviour:
   m_ObjectHideFlags: 1

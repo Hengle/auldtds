@@ -52,18 +52,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameDifficulty: 0
-  _gameMaxLevels: 0
+  _gameMaxLevels: 20
   _gameMaxHeroUnits: 0
   _profileName: 
   _profileEmail: 
   _profilePUID: 
-  _playerCurrentLevel: 0
+  _playerCurrentLevel: 1
   _playerCurrentLevelXP: 0
   _playerNextLevelXP: 0
+  _gameXPLevels: 
   _minionsKilled: 0
   _bossesDefeated: 0
   _totalTimePlayed: 0
+  _levelTimePlayed: 0
   _treasureGold: 1000
   _treasureMithril: 0
   _treasureIlluminum: 0
-  _totalRoomTreasure: 0
+  _totalRoomTreasure: 1
+  showHealthBars: 1

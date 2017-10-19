@@ -23,7 +23,7 @@ public class GameMainManager : MonoBehaviour
     public gameDifficulty _gameDifficulty;
     public int _gameMaxLevels;
     public int _gameMaxHeroUnits;
-
+    [Space]
     [Header("Player Info")]
     public string _profileName;
     public string _profileEmail;
@@ -32,19 +32,21 @@ public class GameMainManager : MonoBehaviour
     public int _playerCurrentLevelXP;
     public int _playerNextLevelXP;
     public List<int> _gameXPLevels = new List<int>();
-
+    [Space]
     [Header("Player Scores")]
     public int _minionsKilled;
     public int _bossesDefeated;
     public int _totalTimePlayed;
     public float _levelTimePlayed;
-
-
+    [Space]
     [Header("Player Treasury")]
     public int _treasureGold;
     public int _treasureMithril;
     public int _treasureIlluminum;
     public float _totalRoomTreasure;
+    [Space]
+    [Header("Game Variables")]
+    public bool showHealthBars;
 
 
     private void Start()

@@ -29,6 +29,7 @@ public class UserInput : MonoBehaviour
             SetDefaultMouseCursor();
             //MouseActivity();
             PauseGame();
+            ShowHealthBars();
         }
     }
 
@@ -162,6 +163,14 @@ public class UserInput : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    private void ShowHealthBars()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            GameMainManager.Instance.showHealthBars = !GameMainManager.Instance.showHealthBars;
         }
     }
     

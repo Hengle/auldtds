@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 136848415558883400}
   - component: {fileID: 114889333551216368}
   - component: {fileID: 114811876145511678}
+  - component: {fileID: 114868808131201374}
   m_Layer: 10
   m_Name: RTS_Static_Unit_Footman
   m_TagString: RTSUnit
@@ -1250,6 +1251,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textYOffset: 0
+--- !u!114 &114868808131201374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310981355891518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b96fe3f96eee14aab1fa12ba6d96b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthCanvas: {fileID: 1849533984184216}
 --- !u!114 &114889333551216368
 MonoBehaviour:
   m_ObjectHideFlags: 1
