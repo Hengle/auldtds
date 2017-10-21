@@ -6,15 +6,19 @@ public class UnitThreatArea : MonoBehaviour
 {
 
     public GameObject parentUnit;
-    public UnitAnimations myUnitAnim;
+    private UnitAttributes unitAttributes;
+    private Animator unitAnimator;
     public Transform unitTargetTransform;
     public GameObject unitTarget;
+    public bool unitAttacking;
 
 	// Use this for initialization
 	void Start ()
     {
+        unitAttacking = false;
         parentUnit = transform.parent.gameObject;
-        myUnitAnim = transform.parent.GetComponent<UnitAnimations>();
+        unitAttributes = parentUnit.GetComponent<UnitAttributes>();
+        unitAnimator = parentUnit.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -34,21 +38,28 @@ public class UnitThreatArea : MonoBehaviour
                 {
                     unitTargetTransform = other.gameObject.transform;
                     unitTarget = other.gameObject;
-                    myUnitAnim.animStateIdle = false;
-                    myUnitAnim.animStateAttack = true;
+                    if (!unitAttacking)
+                    {
+                        InvokeRepeating("AttackNormal", unitAttributes.unitAttributes.unitCDScore, unitAttributes.unitAttributes.unitCDScore);
+                        unitAttacking = true;
+                    }
+                    //myUnitAnim.animStateIdle = false;
+                    //myUnitAnim.animStateAttack = true;
                     FaceEnemy();
                 }
                 else
                 {
-                    myUnitAnim.animStateAttack = false;
-                    myUnitAnim.animStateIdle = true;
+                    unitAnimator.SetBool("Idle", true);
+                    unitAttacking = false;
+                    CancelInvoke();
                 }
             }
         }
         else
         {
-            myUnitAnim.animStateAttack = false;
-            myUnitAnim.animStateIdle = true;
+            unitAnimator.SetBool("Idle", true);
+            unitAttacking = false;
+            CancelInvoke();
         }
        
     }
@@ -57,8 +68,9 @@ public class UnitThreatArea : MonoBehaviour
     {
         if (other.tag == "Minion")
         {
-            myUnitAnim.animStateAttack = false;
-            myUnitAnim.animStateIdle = true;
+            unitAnimator.SetBool("Idle", true);
+            unitAttacking = false;
+            CancelInvoke();
         }
     }
 
@@ -67,5 +79,10 @@ public class UnitThreatArea : MonoBehaviour
         Vector3 relativePos = unitTargetTransform.position - parentUnit.transform.position;
         Quaternion unitRotation = Quaternion.LookRotation(relativePos);
         parentUnit.transform.rotation = unitRotation;
+    }
+
+    private void AttackNormal()
+    {
+        unitAnimator.SetTrigger("AttackNormal");
     }
 }

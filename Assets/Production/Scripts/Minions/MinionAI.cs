@@ -133,7 +133,6 @@ public class MinionAI : MonoBehaviour {
 	{
 		CheckStates();
         //StartMoving();
-        Debug.Log(attacking);
 	}
 	#endregion
 
@@ -250,7 +249,6 @@ public class MinionAI : MonoBehaviour {
     private void SetWalkTrigger()
     {
         animator.SetTrigger("WalkTrigger");
-        Debug.Log("Walking");
     }
 
     private void SetIdleTrigger()

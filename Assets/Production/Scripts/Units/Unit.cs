@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
     public GameObject unitEnemy;
     private MinionAttributes enemyAttributes;
     public int unitBaseArmor = 10;
+    private AudioSource audioSource;
 
 	// Use this for initialization
 	
@@ -18,6 +19,11 @@ public class Unit : MonoBehaviour
     {
         //Find the enemy
         unitEnemy = GetComponentInChildren<UnitThreatArea>().unitTarget;
+
+        //Get Sound Source and play Sound
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
 
         //Get Current Enemy Attributes
         enemyAttributes = unitEnemy.GetComponent<MinionAttributes>();
