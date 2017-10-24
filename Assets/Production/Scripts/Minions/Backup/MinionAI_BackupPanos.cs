@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MinionAI : MonoBehaviour {
+public class MinionAI_BackupPanos : MonoBehaviour {
 
 	#region Classes
 	[System.Serializable]
@@ -15,15 +15,11 @@ public class MinionAI : MonoBehaviour {
 	#endregion
 
 	#region Properties
-	public enum MinionState {SelectTarget, CheckTarget, Action}
-	public enum ActionState {Move, Idle, AttackTarget}
+	public enum MinionState {SelectTarget, CheckTarget, MoveToTarget, ReachTarget}
 
 	[Header("State")]
 	[SerializeField]
 	private MinionState state;
-	[SerializeField]
-	private ActionState actionState;
-	private ActionState saveActionState;
 
 	[Header("Targets")]
 	public GameObject destinationTarget;
@@ -68,12 +64,23 @@ public class MinionAI : MonoBehaviour {
 	private bool activeDebug;
 
 	[Header("Animations")]
+	[SerializeField]
+	private string walkingAnimation;
+	[SerializeField]
+	private string reachDestinationAnimation;
+	[SerializeField]
+	private string reachBlockItemAnimation;
+	[SerializeField]
+	private string reachRTSUnitAnimation;
+	[SerializeField]
+	private string deathAnimation;
 	private bool dieOnce;
+	private float timeLengthAnimation;
+	private Animation anim;
     private Animator animator;
     private MinionDoDamage minionAttack;
 
 	[Header("Positioning")]
-	[SerializeField]
 	private bool faceTargetOnce;
 	[SerializeField]
 	private float minionReach;
@@ -91,9 +98,10 @@ public class MinionAI : MonoBehaviour {
     [Header("Animation Flags")]
     [SerializeField]
     private bool attacking = false;
-	[SerializeField]
-	private bool removeMinion = false;
-	private bool reachedRoomOrTreasure = false;
+    [SerializeField]
+    private bool moving = false;
+    [SerializeField]
+    private bool idle = false;
     #endregion
 
     #region System Functions
@@ -124,10 +132,26 @@ public class MinionAI : MonoBehaviour {
 	void Update () 
 	{
 		CheckStates();
+        //StartMoving();
 	}
 	#endregion
 
 	#region General Functions
+
+    /*private void StartMoving()
+    {
+        if (moving==false && !attacking)
+        {
+            //Debug.Log("Set Moving");
+            animator.SetTrigger("Moving");
+            moving = true;
+        }
+        else
+        {
+            return;
+        }
+    }*/
+
 	private void SetNavMeshAgent()
 	{
 		navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -222,45 +246,22 @@ public class MinionAI : MonoBehaviour {
     #endregion
 
     #region Animation Functions
-	private void SetWalkTrigger()
+    private void SetWalkTrigger()
     {
-		if (CheckIfActionHasChanged())
-		{
-			animator.SetTrigger("WalkTrigger");
-		}
+        animator.SetTrigger("WalkTrigger");
     }
 
     private void SetIdleTrigger()
     {
-		if (CheckIfActionHasChanged())
-		{
-        	animator.SetTrigger("IdleTrigger");
-		}
+        animator.SetTrigger("IdleTrigger");
     }
 
-    private void SetAttackTrigger()
+    private void AttackOpponent()
     {
-        	animator.SetTrigger("AttackTrigger");
+        moving = false;
+        animator.SetTrigger("AttackTrigger");
+        //minionAttack.DoDamage();
     }
-
-	private void SetDeathTrigger()
-	{
-		animator.SetTrigger("DeathTrigger");
-	}
-
-	private void SetLootTrigger()
-	{
-		if(removeMinion == true)
-		{
-			animator.SetTrigger("LootTrigger");
-			removeMinion = false;
-		}
-	}
-
-	private void MinionRemove()
-	{
-		Destroy(this.gameObject);
-	}
     #endregion
 
     #region Structure Functions
@@ -276,25 +277,15 @@ public class MinionAI : MonoBehaviour {
 			CheckTarget();
 			ActivateDebug("CheckTarget");
 		}
-		else if (state == MinionState.Action)
+		else if (state == MinionState.MoveToTarget)
 		{
-			ActionDecision();
-
-			switch(actionState)
-			{
-			case ActionState.Move:
-				ActionMoveToTarget();
-				state = MinionState.SelectTarget;
-				break;
-			case ActionState.Idle:
-				ActionIdle();
-				state = MinionState.SelectTarget;
-				break;
-			case ActionState.AttackTarget:
-				ActionAttackTarget();
-				state = MinionState.SelectTarget;
-				break;
-			}
+			MoveToTarget();
+			ActivateDebug("MoveToTarget");
+		}
+		else if (state == MinionState.ReachTarget)
+		{
+			ReachTarget();
+			ActivateDebug("Reached Target");
 		}
 	}
 
@@ -401,6 +392,8 @@ public class MinionAI : MonoBehaviour {
     private void UnlockUnitTarget()
     {
         lockedOnUnit = false;
+        //attacking = false;
+        //CancelInvoke();
     }
 	#endregion
 
@@ -593,7 +586,7 @@ public class MinionAI : MonoBehaviour {
 	{
 		if (CheckIfItemIsReachable(destinationTarget))
 		{
-			state = MinionState.Action;
+			state = MinionState.MoveToTarget;
 		}
 		else
 		{
@@ -607,7 +600,7 @@ public class MinionAI : MonoBehaviour {
 		if (CheckIfItemIsReachable(destinationTarget))
 		{
 			ActivateDebug(destinationTarget + "is Reachable");
-			state = MinionState.Action;
+			state = MinionState.MoveToTarget;
 			ActivateDebug("Move to the Room");
 		}
 		else
@@ -625,7 +618,7 @@ public class MinionAI : MonoBehaviour {
 			if (CheckIfItemIsReachable(destinationTarget))
 			{
 				ActivateDebug(destinationTarget + "is Reachable");
-				state = MinionState.Action;
+				state = MinionState.MoveToTarget;
 				ActivateDebug("Move to the BlockItem");
 			}
 			else
@@ -652,7 +645,7 @@ public class MinionAI : MonoBehaviour {
             if (CheckIfItemIsReachable(destinationTarget))
 			{
 				ActivateDebug(destinationTarget + "is Reachable");
-				state = MinionState.Action;
+				state = MinionState.MoveToTarget;
 				ActivateDebug("Move to the UnitRTS");
 			}
 			else
@@ -672,96 +665,48 @@ public class MinionAI : MonoBehaviour {
 	}
 	#endregion
 
-	#region Action Functions
-	private void ActionDecision()
+	#region MoveToTarget Functions
+	private void MoveToTarget()
 	{
-		if(destinationTarget != null)
+            
+        if (destinationTarget != null)
 		{
-			switch(actionState)
+            
+            if (!CheckIfTargetIsReached())
 			{
-			case ActionState.Move:
-				if (CheckIfTargetIsReached())			
+				navMeshAgent.isStopped = false;	//restart moving
+                if (destinationTarget != saveDestinationTarget)
 				{
-					actionState = ActionState.Idle;
+					navMeshAgent.SetDestination(destinationTarget.transform.position);
+                    //moving = true;
+                    //attacking = false;
+                    //SetWalkTrigger();
+                    //CancelInvoke();
+                    //Debug.Log("called 681");
+                    saveDestinationTarget = destinationTarget;
 				}
-				break;
 
-			case ActionState.Idle:
-				if (!CheckIfTargetIsReached())			
-				{
-					actionState = ActionState.Move;
-				}
-				else
-				{
-					actionState = ActionState.AttackTarget;
-				}
-				//faceTargetOnce = true;
-				break;
-
-			case ActionState.AttackTarget:
-				if (!CheckIfTargetIsReached())			
-				{
-					actionState = ActionState.Idle;
-				}
-				break;	
+				state = MinionState.ReachTarget;
+				ActivateDebug("Move To Destination");
+			}
+			else
+			{
+				navMeshAgent.isStopped = true;
+				state = MinionState.ReachTarget;
 			}
 		}
 		else
 		{
-			state = MinionState.SelectTarget;
+            
+            state = MinionState.SelectTarget;
 		}
 	}
-		
-	private bool CheckIfActionHasChanged()
-	{
-		if (saveActionState == actionState)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
+	#endregion
 
-	private void ActionMoveToTarget()
+	#region ReachTarget Functions
+	private void ReachTarget()
 	{
-			navMeshAgent.isStopped = false;	//restart moving
-			saveActionState = actionState;
-	        if (destinationTarget != saveDestinationTarget)
-			{
-				navMeshAgent.SetDestination(destinationTarget.transform.position);
-	            saveDestinationTarget = destinationTarget;
-			}
-			//attacking = false;
-			//CancelInvoke("SetAttackTrigger");
-			//SetWalkTrigger();
-			//faceTargetOnce = true;
-
-	}
-
-	private void ActionIdle()
-	{
-		if (CheckIfTargetIsReached())
-		{
-		navMeshAgent.isStopped = true;
-		SetIdleTrigger();
-		saveActionState = actionState;
-		//faceTargetOnce = true;
-		}
-		else
-		{
-			attacking = false;
-			CancelInvoke("SetAttackTrigger");
-			SetWalkTrigger();
-		}
-	}
-
-	#region AttackTarget Functions
-	private void ActionAttackTarget()
-	{
-		saveActionState = actionState;
-		if(destinationTarget != null)
+		if (destinationTarget != null)
 		{
 			if (destinationTarget.CompareTag("FinalTreasure"))
 			{
@@ -776,122 +721,131 @@ public class MinionAI : MonoBehaviour {
 			else if (destinationTarget.CompareTag("BlockItemPoints"))
 			{
 				ActivateDebug("Reach Block Item");
-				AttackBlockItemTarget();
+				ReachBlockItemTarget();
 			}
 			else if (destinationTarget.CompareTag("RTSUnit"))
 			{
 				ActivateDebug("Reach RTSUnit");
-				AttackRTSUnit();
+				ReachRTSUnit();
 			}
-		}	
-		/*
-		switch(destinationTarget.tag)
+		}
+		else
 		{
-		case "FinalTreasure":
-			ReachFinalTarget();
-			break;
-		case "RoomArea":
-			ReachRoomTarget();
-			break;
-		case "BlockItemPoints":
-			ReachBlockItemTarget();
-			break;
-		case "RTSUnit":
-			AttackRTSUnit();
-			break;
-		}*/
+			state = MinionState.SelectTarget;
+		}
 	}
 
 	private void ReachFinalTarget()
 	{
-		if (reachedRoomOrTreasure == false)
+		if (CheckIfTargetIsReached())
 		{
-			ActivateDebug("Finaly Reached Final Target");
 			FaceTarget();
-			if (!isMinionLooting)
-			{
-				destinationTarget.GetComponent<RoomEntityIdentifier>().roomTreasureScore -= minionTreasureCurry;
-			}
-			reachedRoomOrTreasure = true;
-			removeMinion = true;
-
-			SetLootTrigger();
-			isMinionLooting = true;
+            //moving = false;
+            Debug.Log("called 740");
+            ActivateDebug("Finaly Reached Final Target");
+			//SetAnimation(reachDestinationAnimation);
+			Destroy(this.gameObject, 3.0f);	//Kaput
+		}
+		else
+		{
+			faceTargetOnce = true;
+            CancelInvoke();
+            attacking = false;
+            if (moving == false)
+            {
+                SetWalkTrigger();
+                moving = true;
+            }
+            state = MinionState.SelectTarget;
 		}
 	}
 
 	private void ReachRoomTarget()
 	{
-		if (reachedRoomOrTreasure == false)
+		if (CheckIfTargetIsReached())
 		{
 			ActivateDebug("Finaly Reached Room Target");
-			FaceTarget();
+            FaceTarget();
 			if (!isMinionLooting)
 			{
 				destinationTarget.GetComponent<RoomEntityIdentifier>().roomTreasureScore -= minionTreasureCurry;
 			}
-			reachedRoomOrTreasure = true;
-			removeMinion = true;
-
-			SetLootTrigger();
+			Destroy(this.gameObject, timeLengthAnimation);
 			isMinionLooting = true;
+		}
+		else
+		{
+			faceTargetOnce = true;
+            CancelInvoke();
+            attacking = false;
+            if (moving == false)
+            {
+                SetWalkTrigger();
+                moving = true;
+            }
+            state = MinionState.SelectTarget;
 		}
 	}
 
-	private void AttackBlockItemTarget()
+	private void ReachBlockItemTarget()
 	{
 		if (CheckIfTargetIsReached())
 		{
 			ActivateDebug("Finaly Reached Block Item Target");
 			FaceTarget();
-
-			if (attacking == false)
-			{
-				InvokeRepeating("SetAttackTrigger", 0, minionAttributes.minionAttributes.unitCDScore);
-				attacking = true;
-			}
-
-			if (destinationTarget != saveDestinationTarget)
-			{
-				faceTargetOnce = true;
-				saveDestinationTarget = destinationTarget;
-			}
+            /*if (attacking == false)
+            {
+                SetIdleTrigger();
+                InvokeRepeating("AttackOpponent", 0, minionAttributes.minionAttributes.unitCDScore);
+                attacking = true;
+            }*/
+            state = MinionState.SelectTarget;
 		}
 		else
 		{
-			attacking = false;
-			CancelInvoke("SetAttackTrigger");
 			faceTargetOnce = true;
+            /*CancelInvoke();
+            attacking = false;
+            if (moving == false)
+            {
+                SetWalkTrigger();
+                moving = true;
+            }*/
+            state = MinionState.SelectTarget;
 		}
 	}
 
-	private void AttackRTSUnit()
+	private void ReachRTSUnit()
 	{
 		if (CheckIfTargetIsReached())
 		{
 			ActivateDebug("Finaly Reached RTSUnit");
 			FaceTarget();
-			lockedOnUnit = true;
-
-			if (attacking == false)
-			{
-				InvokeRepeating("SetAttackTrigger", 0, minionAttributes.minionAttributes.unitCDScore);
-				attacking = true;
-			}
-		
-			if (destinationTarget != saveDestinationTarget)
-			{
-				faceTargetOnce = true;
-				saveDestinationTarget = destinationTarget;
-			}	
+          
+            if (attacking == false)
+            {
+                lockedOnUnit = true;
+                SetIdleTrigger();
+                InvokeRepeating("AttackOpponent", 0, minionAttributes.minionAttributes.unitCDScore);
+                attacking = true;
+            }
+			state = MinionState.SelectTarget;
 		}
 		else
 		{
-			attacking = false;
-			CancelInvoke("SetAttackTrigger");
 			faceTargetOnce = true;
+            if (attacking == true)
+            {
+                CancelInvoke();
+                attacking = false;
+                if (moving == false)
+                {
+                    SetWalkTrigger();
+                    moving = true;
+                }            
+            }
+			state = MinionState.SelectTarget;
 		}
 	}
-	#endregion
 	#endregion
 }
