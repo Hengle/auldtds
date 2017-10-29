@@ -82,8 +82,6 @@ GameObject:
   - component: {fileID: 95155081084175080}
   - component: {fileID: 54131906536949920}
   - component: {fileID: 82439808405380040}
-  - component: {fileID: 114529601148477630}
-  - component: {fileID: 114588698058741050}
   - component: {fileID: 114385990043855284}
   - component: {fileID: 114667970886718522}
   - component: {fileID: 136848415558883400}
@@ -1108,57 +1106,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa2e6d31adc5674e9216f60bfc0b01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAttributes:
+  unitBaseAttributes:
     unitID: 0
     unitClass: 0
     unitIsAlive: 1
     unitCost: 50
     unitLevel: 0
     heroUnit: 0
-    unitThreatFactor: 2
+    unitThreatFactor: 1
     unitEXPValue: 0
     unitTreasureFactor: 0
-    unitDespawnTime: 0
-    unitMinDamage: 5
-    unitMaxDamage: 15
-    unitCDScore: 2
-    unitToHitScore: 4
-    unitCritScore: 3
+    unitDespawnTime: 3
+    unitMinDamage: 1
+    unitMaxDamage: 8
+    unitCDScore: 2.5
+    unitToHitScore: 3
+    unitCritScore: 1
     unitCritMultiplier: 2
-    unitArmor: 0
-    unitBaseAC: 0
-    unitHealthPoints: 100
-    unitTotalHealthPoints: 100
+    unitArmor: 3
+    unitBaseAC: 10
+    unitHealthPoints: 20
+    unitTotalHealthPoints: 20
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
---- !u!114 &114529601148477630
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310981355891518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a541cf834c274d4ba5be5ed8f2a76e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animStateIdle: 1
-  animStateAttack: 0
-  animStateMove: 0
-  animStateCharging: 0
-  animStateDeath: 0
---- !u!114 &114588698058741050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310981355891518}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a583ad214d7d14395e42be87ddb040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114600561552515748
 MonoBehaviour:
   m_ObjectHideFlags: 1

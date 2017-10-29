@@ -24,7 +24,7 @@ public class StaticDamages : MonoBehaviour
     public void TakeDamage(int damage, bool critical)
     {
             CombatTextManager.Instance.CreateText(this.transform.position, textYOffset, "-" + damage.ToString(), Color.red, critical);
-            unitAttributes.unitAttributes.unitHealthPoints -= damage;
+            unitAttributes.unitBaseAttributes.unitHealthPoints -= damage;
     }
 
     public void MissDamage(string miss, bool critical)

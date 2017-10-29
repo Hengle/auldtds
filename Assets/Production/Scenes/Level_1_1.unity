@@ -1194,6 +1194,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114594071408826648, guid: d2d67fed078c18f4d970cdb510224809,
+        type: 2}
+      propertyPath: _gameVersion
+      value: 0.0.10.29.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2d67fed078c18f4d970cdb510224809, type: 2}
   m_IsPrefabParent: 0
@@ -16946,11 +16951,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 173991380}
     m_Modifications:
-    - target: {fileID: 114694071767225064, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: enemiesWeightFactorList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4249681613278114, guid: 1da133385f923244abb0512067d6ecab, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17023,47 +17023,6 @@ Prefab:
       propertyPath: unitMenu
       value: 
       objectReference: {fileID: 664732170}
-    - target: {fileID: 114222924944032448, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: setButtonData.Array.data[1].itemLayers.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 114222924944032448, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: setButtonData.Array.data[2].itemLayers.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 114222924944032448, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: setButtonData.Array.data[3].itemLayers.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 114222924944032448, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: setButtonData.Array.data[4].itemLayers.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 114222924944032448, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: setButtonData.Array.data[5].itemLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114694071767225064, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: spawnMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114694071767225064, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: enemiesWeightFactorList.Array.data[1].Enemy
-      value: 
-      objectReference: {fileID: 1502132435558052, guid: f6e397957f0abef4c9456887dfcb60ea,
-        type: 2}
-    - target: {fileID: 114694071767225064, guid: 1da133385f923244abb0512067d6ecab,
-        type: 2}
-      propertyPath: enemiesWeightFactorList.Array.data[1].EnemyWeightFactor
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1da133385f923244abb0512067d6ecab, type: 2}
   m_IsPrefabParent: 0

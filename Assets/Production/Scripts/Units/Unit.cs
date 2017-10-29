@@ -6,14 +6,25 @@ public class Unit : MonoBehaviour
 {
 
     public GameObject unitEnemy;
-    private MinionAttributes enemyAttributes;
-    public int unitBaseArmor = 10;
-    private AudioSource audioSource;
+    private UnitAttributes unitAttributes;
 
-	// Use this for initialization
-	
-    
-    
+    private UnitAttributes enemyAttributes;
+    public int unitBaseArmor = 10;
+
+    private AudioSource audioSource;
+    private Animator unitAnimator;
+
+    // Use this for initialization
+
+    private void Start()
+    {
+        unitAttributes = GetComponent<UnitAttributes>();
+        unitAnimator = GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        CheckUnitIsAlive();
+    }
 
     public void DoDamage()
     {
@@ -26,10 +37,10 @@ public class Unit : MonoBehaviour
         audioSource.Play();
 
         //Get Current Enemy Attributes
-        enemyAttributes = unitEnemy.GetComponent<MinionAttributes>();
-        int toHitScore = unitBaseArmor + enemyAttributes.minionAttributes.unitArmor;
+        enemyAttributes = unitEnemy.GetComponent<UnitAttributes>();
+        int toHitScore = unitBaseArmor + enemyAttributes.unitBaseAttributes.unitArmor;
 
-        if (enemyAttributes.minionAttributes.unitHealthPoints <=0)
+        if (enemyAttributes.unitBaseAttributes.unitHealthPoints <=0)
         {
             //Debug.Log("Enemy is DEAD");
             this.GetComponent<UnitAnimations>().animStateIdle = true;
@@ -38,11 +49,11 @@ public class Unit : MonoBehaviour
         else
         {
             //Get the main attributer as they Currently are.
-            int damageMin = GetComponent<UnitAttributes>().unitAttributes.unitMinDamage;
-            int damageMax = GetComponent<UnitAttributes>().unitAttributes.unitMaxDamage;
-            int toHit = GetComponent<UnitAttributes>().unitAttributes.unitToHitScore;
-            int critChance = GetComponent<UnitAttributes>().unitAttributes.unitCritScore;
-            int critMult = GetComponent<UnitAttributes>().unitAttributes.unitCritMultiplier;
+            int damageMin = GetComponent<UnitAttributes>().unitBaseAttributes.unitMinDamage;
+            int damageMax = GetComponent<UnitAttributes>().unitBaseAttributes.unitMaxDamage;
+            int toHit = GetComponent<UnitAttributes>().unitBaseAttributes.unitToHitScore;
+            int critChance = GetComponent<UnitAttributes>().unitBaseAttributes.unitCritScore;
+            int critMult = GetComponent<UnitAttributes>().unitBaseAttributes.unitCritMultiplier;
             int critScore = 20 - critChance;
             //Roll the Chance to hit.
             int toHitRoll = (Random.Range(1, 21) + toHit);
@@ -74,5 +85,23 @@ public class Unit : MonoBehaviour
                 unitEnemy.GetComponent<MinionDamages>().MissDamage(damageRoll, true);
             }
         }
+    }
+
+    private void CheckUnitIsAlive()
+    {
+        if (unitAttributes.unitBaseAttributes.unitHealthPoints <= 0 && unitAttributes.unitBaseAttributes.unitIsAlive == true)
+        {
+            //Debug.Log("AAARRRGG i am dying");
+            unitAttributes.unitBaseAttributes.unitIsAlive = false;
+
+            unitAnimator.SetTrigger("DeathTrigger");
+            StartCoroutine(DestroyOnDeath());
+        }
+    }
+
+    private IEnumerator DestroyOnDeath()
+    {
+        yield return new WaitForSeconds(unitAttributes.unitBaseAttributes.unitDespawnTime);
+        Destroy(gameObject);
     }
 }

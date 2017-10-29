@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinionDamages : MonoBehaviour
 {
     public float textYOffset = 0;
-    private MinionAttributes minionAttributes;
+    private UnitAttributes unitAttributes;
     //private UnitAnimationPlayer unitAnimPlayer;
     public bool dotEffect = false;
     private Animator animator;
@@ -13,7 +13,7 @@ public class MinionDamages : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-		minionAttributes = this.GetComponent<MinionAttributes>();
+		unitAttributes = this.GetComponent<UnitAttributes>();
         animator = this.GetComponent<Animator>();
         //unitAnimPlayer = this.GetComponent<UnitAnimationPlayer>();
 	}
@@ -21,7 +21,7 @@ public class MinionDamages : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (!minionAttributes.minionAttributes.unitIsAlive)
+        if (!unitAttributes.unitBaseAttributes.unitIsAlive)
         {
             StopDot();
         }
@@ -30,17 +30,17 @@ public class MinionDamages : MonoBehaviour
     public void TakeDamage(int damage, bool critical)
     {
         CombatTextManager.Instance.CreateText(this.transform.position, textYOffset, "-" + damage.ToString(), Color.red, critical);
-        if (minionAttributes.minionAttributes.unitIsAlive)
+        if (unitAttributes.unitBaseAttributes.unitIsAlive)
         {
             animator.SetTrigger("GetHit");
-            minionAttributes.minionAttributes.unitHealthPoints -= damage;
+            unitAttributes.unitBaseAttributes.unitHealthPoints -= damage;
         }
      }
 
     public void MissDamage(string miss, bool critical)
     {
         CombatTextManager.Instance.CreateText(this.transform.position, textYOffset, miss, Color.red, critical);
-        if (minionAttributes.minionAttributes.unitIsAlive)
+        if (unitAttributes.unitBaseAttributes.unitIsAlive)
         {
             animator.SetTrigger("Block");
         }

@@ -48,11 +48,11 @@ public class MinionDoDamage : MonoBehaviour
 			else
 			{
 				//Get the main attributer as they Currently are.
-				int damageMin = GetComponent<MinionAttributes>().minionAttributes.unitMinDamage;
-				int damageMax = GetComponent<MinionAttributes>().minionAttributes.unitMaxDamage;
-				int toHit = GetComponent<MinionAttributes>().minionAttributes.unitToHitScore;
-				int critChance = GetComponent<MinionAttributes>().minionAttributes.unitCritScore;
-				int critMult = GetComponent<MinionAttributes>().minionAttributes.unitCritMultiplier;
+				int damageMin = GetComponent<UnitAttributes>().unitBaseAttributes.unitMinDamage;
+				int damageMax = GetComponent<UnitAttributes>().unitBaseAttributes.unitMaxDamage;
+				int toHit = GetComponent<UnitAttributes>().unitBaseAttributes.unitToHitScore;
+				int critChance = GetComponent<UnitAttributes>().unitBaseAttributes.unitCritScore;
+				int critMult = GetComponent<UnitAttributes>().unitBaseAttributes.unitCritMultiplier;
 				int critScore = 20 - critChance;
 				//Roll the Chance to hit.
 				int toHitRoll = (Random.Range(1, 21) + toHit);
@@ -89,21 +89,21 @@ public class MinionDoDamage : MonoBehaviour
 		{
 			//UnitAttributes  enemyAttributes = new UnitAttributes();
 			UnitAttributes enemyAttributes = minionEnemy.GetComponent<UnitAttributes>();
-			int toHitScore = enemyBaseArmor + enemyAttributes.unitAttributes.unitArmor;
+			int toHitScore = enemyBaseArmor + enemyAttributes.unitBaseAttributes.unitArmor;
 
-			if (enemyAttributes.unitAttributes.unitHealthPoints <=0)
+			if (enemyAttributes.unitBaseAttributes.unitHealthPoints <=0)
 			{
-				Debug.Log("Enemy is DEAD");
+				//Debug.Log("Enemy is DEAD");
 				//NEXT MOVE
 			}
 			else
 			{
 				//Get the main attributer as they Currently are.
-				int damageMin = GetComponent<MinionAttributes>().minionAttributes.unitMinDamage;
-				int damageMax = GetComponent<MinionAttributes>().minionAttributes.unitMaxDamage;
-				int toHit = GetComponent<MinionAttributes>().minionAttributes.unitToHitScore;
-				int critChance = GetComponent<MinionAttributes>().minionAttributes.unitCritScore;
-				int critMult = GetComponent<MinionAttributes>().minionAttributes.unitCritMultiplier;
+				int damageMin = GetComponent<UnitAttributes>().unitBaseAttributes.unitMinDamage;
+				int damageMax = GetComponent<UnitAttributes>().unitBaseAttributes.unitMaxDamage;
+				int toHit = GetComponent<UnitAttributes>().unitBaseAttributes.unitToHitScore;
+				int critChance = GetComponent<UnitAttributes>().unitBaseAttributes.unitCritScore;
+				int critMult = GetComponent<UnitAttributes>().unitBaseAttributes.unitCritMultiplier;
 				int critScore = 20 - critChance;
 				//Roll the Chance to hit.
 				int toHitRoll = (Random.Range(1, 21) + toHit);

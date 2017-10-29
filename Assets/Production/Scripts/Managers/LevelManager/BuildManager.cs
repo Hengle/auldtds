@@ -158,7 +158,7 @@ public class BuildManager : MonoBehaviour {
 
 							if(myItem.GetComponent<UnitAttributes>())
 							{
-								GameMainManager.Instance._treasureGold -= myItem.GetComponent<UnitAttributes>().unitAttributes.unitCost;
+								GameMainManager.Instance._treasureGold -= myItem.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
 							}
 							if(myItem.GetComponent<BlockItemsAttributes>())
 							{

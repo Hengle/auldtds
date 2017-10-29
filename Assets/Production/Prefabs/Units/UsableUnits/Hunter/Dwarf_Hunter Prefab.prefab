@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 412328}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_Back_Left_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - component: {fileID: 438436}
   - component: {fileID: 13789170}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf)Hunter_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 469924}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 back_shield_mount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483482}
   - component: {fileID: 13759182}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunters_Patch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 497536}
   - component: {fileID: 3341288}
   - component: {fileID: 2311028}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Quiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 413624}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 417620}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 450868}
   - component: {fileID: 3373236}
   - component: {fileID: 2355572}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Arrow003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 435882}
   - component: {fileID: 13719480}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455468}
   - component: {fileID: 13733342}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Hood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 457254}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 473534}
   - component: {fileID: 3355488}
   - component: {fileID: 2376766}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Arrow005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 420554}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 456506}
   - component: {fileID: 3317362}
   - component: {fileID: 2391634}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Arrow004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 400092}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 493366}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 447494}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 490324}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 462812}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 436364}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 401268}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 457036}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 445076}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L ForeTwist1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 447230}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469902}
   - component: {fileID: 13704930}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Robe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 425624}
   - component: {fileID: 3329212}
   - component: {fileID: 2351838}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Bow_Main_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 415374}
   - component: {fileID: 3349938}
   - component: {fileID: 2304932}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Bow_animation_controller003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 478828}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 zz_eye_left_lookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 490026}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 463548}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_right03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 499524}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 414088}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 454360}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_left03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 472314}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 476074}
   - component: {fileID: 13730368}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 475722}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 449674}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 467382}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448072}
   - component: {fileID: 13774804}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hanter_Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 445870}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_right02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 470120}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 444102}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 476750}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 RUpArmTwist1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 418632}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 zeye_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 487970}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 467994}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 back_right_Wmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 441386}
   - component: {fileID: 3372310}
   - component: {fileID: 2353478}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Arrow006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495222}
   - component: {fileID: 13763866}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Boots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 446574}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 496142}
   - component: {fileID: 3380866}
   - component: {fileID: 2358838}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Bow 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 477812}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_Back_Left_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 451110}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 470284}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 back_center_Wmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 432006}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 416446}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 460712}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +872,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 416302}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465442}
   - component: {fileID: 13756240}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 491892}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 468440}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 zz_eye_right_lookA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,7 +933,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 420134}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 zJaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +948,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 489984}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R ForeTwist1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 475304}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 441260}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_back_Right_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,7 +993,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 405944}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 Rhand_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1008,7 +1008,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 480398}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 zzz_shoulder_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,7 +1023,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 456274}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 back_left_Wmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,7 +1038,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 477262}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1053,7 +1053,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 466490}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1069,7 +1069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 427798}
   - component: {fileID: 13751514}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 471482}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_left02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 488600}
   - component: {fileID: 136944685584701060}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: Bip01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,7 +1115,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 444050}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L ForeTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1130,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 432422}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_back_Right_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1145,7 +1145,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 496106}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 Rhand_WeaponOpp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1160,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 425772}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,7 +1175,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 427368}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,7 +1191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444624}
   - component: {fileID: 13757918}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Gloves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,7 +1206,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 454098}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 LUpArmTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 422282}
   - component: {fileID: 3318592}
   - component: {fileID: 2352528}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1238,7 +1238,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 402892}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1253,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 468954}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 LUpArmTwist1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1268,7 +1268,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 494482}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 zzz_shoulder_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,7 +1283,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 427882}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 zeye_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,7 +1298,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 443664}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1314,7 +1314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 458104}
   - component: {fileID: 13708220}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Beard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1331,7 +1331,7 @@ GameObject:
   - component: {fileID: 417906}
   - component: {fileID: 3364206}
   - component: {fileID: 2399268}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Scabbard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1347,7 +1347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 440220}
   - component: {fileID: 13732588}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Paints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,7 +1362,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 471428}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1377,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 449496}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_Back_Left_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,7 +1392,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 419298}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 442912}
   - component: {fileID: 3380522}
   - component: {fileID: 2361594}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Sword001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1424,7 +1424,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 499512}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1439,7 +1439,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 410640}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1455,7 +1455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 447838}
   - component: {fileID: 13774370}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Shoulders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,7 +1470,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 412080}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_back_Right_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1485,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 405452}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R ForeTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1500,7 +1500,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 427778}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1517,7 +1517,7 @@ GameObject:
   - component: {fileID: 442492}
   - component: {fileID: 3376430}
   - component: {fileID: 2337142}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Arrow001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1534,7 +1534,7 @@ GameObject:
   - component: {fileID: 447660}
   - component: {fileID: 3318522}
   - component: {fileID: 2334382}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Arrow002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1549,7 +1549,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 499030}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1564,7 +1564,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 454668}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,7 +1579,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 444488}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 skirt_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466898}
   - component: {fileID: 13747084}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 411012}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1625,7 +1625,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 415214}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1640,7 +1640,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 426070}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1655,7 +1655,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 467508}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 54044370672907768}
   - component: {fileID: 136396815104297328}
   - component: {fileID: 114220762929712000}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter Prefab
   m_TagString: RTSUnit
   m_Icon: {fileID: 0}
@@ -1691,7 +1691,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 478954}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1706,7 +1706,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 419382}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1721,7 +1721,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 407106}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 L Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1736,7 +1736,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 472074}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 RUpArmTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1751,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 405088}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Bip01 R Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3218,7 +3218,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147978}
-  m_LocalRotation: {x: 0.6387549, y: -0.25217983, z: 0.311247, w: 0.6569041}
+  m_LocalRotation: {x: 0.63875484, y: -0.2521798, z: 0.31124696, w: 0.65690404}
   m_LocalPosition: {x: -0.025256885, y: 0.010089447, z: -0.030164665}
   m_LocalScale: {x: 1.0000002, y: 1, z: 0.9999997}
   m_Children:
@@ -4749,7 +4749,7 @@ GameObject:
   - component: {fileID: 135363272588207544}
   - component: {fileID: 23693731516227148}
   - component: {fileID: 114804213875851996}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: ThreatArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4766,7 +4766,7 @@ GameObject:
   - component: {fileID: 4828014962277802}
   - component: {fileID: 33383635517293150}
   - component: {fileID: 23248689990134036}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Dwarf_Hunter_Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4781,7 +4781,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4917853117700830}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: arrowSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4958,26 +4958,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa2e6d31adc5674e9216f60bfc0b01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAttributes:
+  unitBaseAttributes:
     unitID: 0
-    unitClass: 0
+    unitClass: 1
     unitIsAlive: 1
-    unitPrefix: Hunter
     unitCost: 100
     unitLevel: 0
     heroUnit: 0
-    unitThreatFactor: 0
+    unitThreatFactor: 2
     unitEXPValue: 0
     unitTreasureFactor: 0
-    unitMinDamage: 8
+    unitDespawnTime: 3
+    unitMinDamage: 5
     unitMaxDamage: 12
-    unitCDScore: 0
+    unitCDScore: 3
     unitToHitScore: 5
     unitCritScore: 3
-    unitCritMultiplier: 4
-    unitArmor: 10
-    unitHealthPoints: 150
-    unitTotalHealthPoints: 150
+    unitCritMultiplier: 3
+    unitArmor: 0
+    unitBaseAC: 10
+    unitHealthPoints: 30
+    unitTotalHealthPoints: 30
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0

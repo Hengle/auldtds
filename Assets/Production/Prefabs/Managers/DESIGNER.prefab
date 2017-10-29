@@ -130,7 +130,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4734516312397500}
-  - component: {fileID: 114598998087535996}
   m_Layer: 0
   m_Name: DarkEffect1
   m_TagString: Untagged
@@ -162,7 +161,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4524176410923630}
-  - component: {fileID: 114158789223245212}
   m_Layer: 0
   m_Name: DirtyEffect3
   m_TagString: Untagged
@@ -715,17 +713,6 @@ MonoBehaviour:
   lootLayer:
     serializedVersion: 2
     m_Bits: 16384
---- !u!114 &114158789223245212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1373121501605528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114222924944032448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,7 +767,7 @@ MonoBehaviour:
     item: {fileID: 1107903531747486, guid: 6281349408a06f647ab1d7b00b258e27, type: 2}
   - itemLayers:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 1024
     itemTags: 1
     isForSpecificPlacement: 0
     selectedTipPrefab: {fileID: 1433171506387370, guid: ca0524cc96b3c5040833d375b69ac967,
@@ -788,7 +775,7 @@ MonoBehaviour:
     item: {fileID: 1202206896023192, guid: c2e34cbf1afddb046b69cf5427141c20, type: 2}
   - itemLayers:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 1024
     itemTags: 1
     isForSpecificPlacement: 0
     selectedTipPrefab: {fileID: 1727041009064888, guid: e00d348aa84729648b669affa3e36a92,
@@ -796,7 +783,7 @@ MonoBehaviour:
     item: {fileID: 1646415019496424, guid: 005c905fd9cfe20409e3c987a97add98, type: 2}
   - itemLayers:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 1024
     itemTags: 1
     isForSpecificPlacement: 0
     selectedTipPrefab: {fileID: 1617627983512304, guid: d7b092a7f5c5ba14eb2a59db84ad9d01,
@@ -804,7 +791,7 @@ MonoBehaviour:
     item: {fileID: 1401650112263290, guid: 0074bd1871f452c42b8c160b645c71bc, type: 2}
   - itemLayers:
       serializedVersion: 2
-      m_Bits: 33024
+      m_Bits: 1024
     itemTags: 2
     isForSpecificPlacement: 0
     selectedTipPrefab: {fileID: 1310981355891518, guid: 1e93b432c5b5ed54b92371aa67ffdcd9,
@@ -812,7 +799,7 @@ MonoBehaviour:
     item: {fileID: 1310981355891518, guid: 9351f8944ecccbf418f0737d37d22119, type: 2}
   - itemLayers:
       serializedVersion: 2
-      m_Bits: 32768
+      m_Bits: 1024
     itemTags: 2
     isForSpecificPlacement: 0
     selectedTipPrefab: {fileID: 191734, guid: 0cc48623c7c8299499bd13b3f0b2244e, type: 2}
@@ -823,17 +810,6 @@ MonoBehaviour:
   trapMenu: {fileID: 0}
   unitMenuActive: 0
   unitMenu: {fileID: 0}
---- !u!114 &114598998087535996
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312720255193696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114694071767225064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -848,15 +824,13 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 4596058918974936}
   - {fileID: 4816946757768034}
-  spawnMode: 3
+  spawnMode: 1
   initialWaitingTime: 10
   timeOfTheWave: 10
   rateBetweenMinions: 0.4
   enemiesWeightFactorList:
   - Enemy: {fileID: 1477618140553118, guid: bcdb5c3a3a7f4224981697fdc2119801, type: 2}
     EnemyWeightFactor: 1
-  - Enemy: {fileID: 1502132435558052, guid: f6e397957f0abef4c9456887dfcb60ea, type: 2}
-    EnemyWeightFactor: 3
   spawnCountWeightFactorList:
   - countWave: 1
     countWaveWeightFactor: 1
@@ -864,9 +838,9 @@ MonoBehaviour:
     countWaveWeightFactor: 2
   - countWave: 3
     countWaveWeightFactor: 3
-  initialWaveWeightFactor: 5
-  waveWeightFactorIncrease: 2
-  waveWeightFactorLevelsToIncrease: 3
+  initialWaveWeightFactor: 50
+  waveWeightFactorIncrease: 10
+  waveWeightFactorLevelsToIncrease: 1
 --- !u!198 &198028994340877598
 ParticleSystem:
   m_ObjectHideFlags: 1

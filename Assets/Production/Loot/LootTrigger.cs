@@ -14,7 +14,7 @@ public class LootTrigger : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Loot Item is active");
+        //Debug.Log("Loot Item is active");
     }
 
     public void AwardLoot()

@@ -73,7 +73,7 @@ public class MinionRadarLowEnd : MonoBehaviour
 			targetRoom = null;
 		}
 
-		if((other.tag == "RTSUnit") && (other.GetComponent<UnitAttributes>().unitAttributes.unitIsAlive == true))
+		if((other.tag == "RTSUnit") && (other.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == true))
 		{
 			UnitInRadar unitInRadarClass = new UnitInRadar();
 			unitInRadarClass.unit = other.gameObject;

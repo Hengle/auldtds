@@ -28,14 +28,14 @@ public class HealthPool : MonoBehaviour
         if (parentObject.gameObject.tag == "Minion")
         {
             //Debug.Log("Minion Detected " + this.name);
-            minionAttributes = parentObject.GetComponent<MinionAttributes>();
-            parentHealth = minionAttributes.minionAttributes.unitHealthPoints;
+            unitAttributes = parentObject.GetComponent<UnitAttributes>();
+            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
         }
         else if (parentObject.gameObject.tag == "RTSUnit")
         {
             //Debug.Log("Unit Detected " + this.name);
             unitAttributes = parentObject.GetComponent<UnitAttributes>();
-            parentHealth = unitAttributes.unitAttributes.unitHealthPoints;
+            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
         }
     }
 
@@ -43,14 +43,14 @@ public class HealthPool : MonoBehaviour
     {
         if (parentObject.gameObject.tag == "Minion")
         {
-            parentHealth = minionAttributes.minionAttributes.unitHealthPoints;
-            float healthCalculation = parentHealth / minionAttributes.minionAttributes.unitTotalHealthPoints;
+            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
+            float healthCalculation = parentHealth / unitAttributes.unitBaseAttributes.unitTotalHealthPoints;
             this.GetComponent<Image>().fillAmount = healthCalculation;
         }
         else if (parentObject.gameObject.tag == "RTSUnit")
         {
-            parentHealth = unitAttributes.unitAttributes.unitHealthPoints;
-            float healthCalculation = parentHealth / unitAttributes.unitAttributes.unitTotalHealthPoints;
+            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
+            float healthCalculation = parentHealth / unitAttributes.unitBaseAttributes.unitTotalHealthPoints;
             this.GetComponent<Image>().fillAmount = healthCalculation;
         }
 

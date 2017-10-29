@@ -438,11 +438,11 @@ GameObject:
   - component: {fileID: 136341269349489798}
   - component: {fileID: 114424464296159778}
   - component: {fileID: 114172252557595756}
-  - component: {fileID: 114983743352487490}
   - component: {fileID: 114564763740503372}
   - component: {fileID: 95835923978039476}
   - component: {fileID: 114061564271390378}
   - component: {fileID: 82007024944165326}
+  - component: {fileID: 114701391964760812}
   m_Layer: 12
   m_Name: GOBLIN_PBR_AI
   m_TagString: Minion
@@ -1919,7 +1919,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477618140553118}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -51.933403, y: 0, z: -5.5600057}
+  m_LocalPosition: {x: -52.34302, y: 0, z: -10.653885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4175820708474860}
@@ -2852,7 +2852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomList: []
   targetRoom: {fileID: 0}
---- !u!114 &114983743352487490
+--- !u!114 &114701391964760812
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2860,30 +2860,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477618140553118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa54390af6f4b204aaff2d67d1e28a29, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fa2e6d31adc5674e9216f60bfc0b01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minionAttributes:
+  unitBaseAttributes:
     unitID: 0
-    unitClass: 0
+    unitClass: 4
     unitIsAlive: 1
     unitCost: 0
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 0
-    unitEXPValue: 150
-    unitTreasureFactor: 2
-    unitDespawnTime: 5
+    unitEXPValue: 0
+    unitTreasureFactor: 0
+    unitDespawnTime: 3
     unitMinDamage: 1
     unitMaxDamage: 6
     unitCDScore: 2
-    unitToHitScore: 5
-    unitCritScore: 0
+    unitToHitScore: 2
+    unitCritScore: 1
     unitCritMultiplier: 2
-    unitArmor: 0
+    unitArmor: 2
     unitBaseAC: 10
-    unitHealthPoints: 50
-    unitTotalHealthPoints: 50
+    unitHealthPoints: 10
+    unitTotalHealthPoints: 10
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0

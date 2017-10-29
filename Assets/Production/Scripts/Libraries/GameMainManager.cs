@@ -23,6 +23,7 @@ public class GameMainManager : MonoBehaviour
     public gameDifficulty _gameDifficulty;
     public int _gameMaxLevels;
     public int _gameMaxHeroUnits;
+    public string _gameVersion = "0.0.10.29.1";
     [Space]
     [Header("Player Info")]
     public string _profileName;

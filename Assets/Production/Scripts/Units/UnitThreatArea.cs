@@ -29,18 +29,18 @@ public class UnitThreatArea : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (parentUnit.GetComponent<UnitAttributes>().unitAttributes.unitIsAlive)
+        if (parentUnit.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive)
         {
             if ((other.tag == "Minion"))
             {
                 //Debug.Log("Attaaaack "+other.name);
-                if (other.GetComponent<MinionAttributes>().minionAttributes.unitIsAlive == true)
+                if (other.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == true)
                 {
                     unitTargetTransform = other.gameObject.transform;
                     unitTarget = other.gameObject;
                     if (!unitAttacking)
                     {
-                        InvokeRepeating("AttackNormal", 0.5f, unitAttributes.unitAttributes.unitCDScore);
+                        InvokeRepeating("AttackNormal", 0.5f, unitAttributes.unitBaseAttributes.unitCDScore);
                         unitAttacking = true;
                     }
                     //myUnitAnim.animStateIdle = false;

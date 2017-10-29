@@ -197,7 +197,7 @@ public class ButtonManager : MonoBehaviour
         if (item.tag == "RTSUnit")
         {
             int itemCosting;
-            itemCosting = item.GetComponent<UnitAttributes>().unitAttributes.unitCost;
+            itemCosting = item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
             return itemCosting;
         }
         else if (item.tag == "BlockItems")

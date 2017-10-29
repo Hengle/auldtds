@@ -17,8 +17,8 @@ public class ArrowImpact : MonoBehaviour
     {
         //parentObjectTransform = this.transform.parent;
         parentObject = gameObject.transform.parent.gameObject.transform.parent.gameObject;
-        minDamage = parentObject.GetComponent<UnitAttributes>().unitAttributes.unitMinDamage;
-        maxDamage = parentObject.GetComponent<UnitAttributes>().unitAttributes.unitMaxDamage;
+        minDamage = parentObject.GetComponent<UnitAttributes>().unitBaseAttributes.unitMinDamage;
+        maxDamage = parentObject.GetComponent<UnitAttributes>().unitBaseAttributes.unitMaxDamage;
         arrowDamage = Random.Range(minDamage, maxDamage + 1);
     }
     // Use this for initialization

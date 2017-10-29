@@ -56,7 +56,7 @@ public class MinionAI : MonoBehaviour
 	private float minionMovingSpeed;
 
 	[Header("MinionAttributes")]
-	private MinionAttributes minionAttributes;
+	private UnitAttributes unitAttributes;
 
 	[Header("BlockItemList")]
 	[SerializeField]
@@ -137,7 +137,7 @@ public class MinionAI : MonoBehaviour
 
 	private void SetMinionAttributes()
 	{
-		minionAttributes = this.GetComponent<MinionAttributes>();
+		unitAttributes = this.GetComponent<UnitAttributes>();
 	}
 
 	private void ActivateDebug(string comment)
@@ -166,7 +166,7 @@ public class MinionAI : MonoBehaviour
 
 	private bool CheckIfMinionIsAlive()
 	{
-		if (minionAttributes.minionAttributes.unitHealthPoints >0 && minionAttributes.minionAttributes.unitIsAlive == true)
+		if (unitAttributes.unitBaseAttributes.unitHealthPoints >0 && unitAttributes.unitBaseAttributes.unitIsAlive == true)
 		{
 			return true;
 		}
@@ -180,7 +180,7 @@ public class MinionAI : MonoBehaviour
 	{
 		if (dieOnce == true)
 		{
-			minionAttributes.minionAttributes.unitIsAlive = false;
+            unitAttributes.unitBaseAttributes.unitIsAlive = false;
             SetDeathTrigger();
             AwardMinionXP();
             AwardGold();
@@ -190,7 +190,7 @@ public class MinionAI : MonoBehaviour
             lootTable.CalculateLoot(this.transform.position);
             dieOnce = false;
 			navMeshAgent.enabled = false;
-            Invoke("DestroyOnDeath", minionAttributes.minionAttributes.unitDespawnTime);
+            Invoke("DestroyOnDeath", unitAttributes.unitBaseAttributes.unitDespawnTime);
         }
 	}
 
@@ -198,12 +198,12 @@ public class MinionAI : MonoBehaviour
     {
         GameObject xpManagerObject = GameObject.Find("XPBarManager");
         XPMan xpMan = xpManagerObject.GetComponent<XPMan>();
-        xpMan.AwardXP(this.GetComponent<MinionAttributes>().minionAttributes.unitEXPValue);
+        xpMan.AwardXP(this.GetComponent<UnitAttributes>().unitBaseAttributes.unitEXPValue);
     }
 
     private void AwardGold()
     {
-        GameMainManager.Instance._treasureGold += this.GetComponent<MinionAttributes>().minionAttributes.unitTreasureFactor;
+        GameMainManager.Instance._treasureGold += this.GetComponent<UnitAttributes>().unitBaseAttributes.unitTreasureFactor;
     }
 
     private void AwardKill()
@@ -426,7 +426,7 @@ public class MinionAI : MonoBehaviour
         {
             if ((unitBlockItemTarget == null) || (unitBlockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == false))
             {
-                if ((unitTarget == null) || (unitTarget.GetComponent<UnitAttributes>().unitAttributes.unitIsAlive == false))
+                if ((unitTarget == null) || (unitTarget.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == false))
                 {
                     UnlockUnitTarget();
                     
@@ -661,7 +661,7 @@ public class MinionAI : MonoBehaviour
 
 	private void CheckRTSUnit()
 	{
-		if ((unitTarget) && (unitTarget.GetComponent<UnitAttributes>().unitAttributes.unitIsAlive == true))
+		if ((unitTarget) && (unitTarget.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == true))
 		{
 
             if (CheckIfItemIsReachable(destinationTarget))
@@ -862,7 +862,7 @@ public class MinionAI : MonoBehaviour
 
 			if (attacking == false)
 			{
-				InvokeRepeating("SetAttackTrigger", 0, minionAttributes.minionAttributes.unitCDScore);
+				InvokeRepeating("SetAttackTrigger", 0, unitAttributes.unitBaseAttributes.unitCDScore);
 				attacking = true;
 			}
 
@@ -890,7 +890,7 @@ public class MinionAI : MonoBehaviour
 
 			if (attacking == false)
 			{
-				InvokeRepeating("SetAttackTrigger", 0, minionAttributes.minionAttributes.unitCDScore);
+				InvokeRepeating("SetAttackTrigger", 0, unitAttributes.unitBaseAttributes.unitCDScore);
 				attacking = true;
 			}
 		
