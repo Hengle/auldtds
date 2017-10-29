@@ -40,7 +40,7 @@ public class UnitThreatArea : MonoBehaviour
                     unitTarget = other.gameObject;
                     if (!unitAttacking)
                     {
-                        InvokeRepeating("AttackNormal", unitAttributes.unitAttributes.unitCDScore, unitAttributes.unitAttributes.unitCDScore);
+                        InvokeRepeating("AttackNormal", 0.5f, unitAttributes.unitAttributes.unitCDScore);
                         unitAttacking = true;
                     }
                     //myUnitAnim.animStateIdle = false;

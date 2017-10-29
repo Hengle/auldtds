@@ -6,10 +6,7 @@ public class LootTrigger : MonoBehaviour
 {
     enum lootAwardType {gold,mithril,rare};
 
-    [SerializeField]
-    private Texture2D defaultCursor;
-    [SerializeField]
-    private Texture2D pickupLootCursor;
+   
     [SerializeField]
     private int lootValue;
     [SerializeField]
@@ -20,7 +17,7 @@ public class LootTrigger : MonoBehaviour
         Debug.Log("Loot Item is active");
     }
 
-    private void AwardLoot()
+    public void AwardLoot()
     {
         if (lootType == lootAwardType.gold)
         {
@@ -41,29 +38,6 @@ public class LootTrigger : MonoBehaviour
             GameMainManager.Instance._treasureMithril += randomMithril;
             Debug.Log("Awarded:" + randomMithril + " mithril");
         }
-        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
         Destroy(gameObject);
-    }
-
-    private void OnMouseEnter()
-    {
-        Debug.Log("loot");
-        Cursor.SetCursor(pickupLootCursor, Vector2.zero, CursorMode.Auto);
-    }
-
-    private void OnMouseExit()
-    {
-        Debug.Log("left loot");
-        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
-    }
-
-    private void OnMouseOver()
-    {
-        Debug.Log("Hovering over loot");
-        if (Input.GetMouseButton(0))
-        {
-            Debug.Log("Clicked on loot");
-            AwardLoot();
-        }
     }
 }

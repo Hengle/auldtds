@@ -15,6 +15,9 @@ TagManager:
   - TreasureItem
   - RoomArea
   - Fire
+  - DoorEntrance
+  - UIButton
+  - LootObject
   layers:
   - Default
   - TransparentFX
@@ -24,16 +27,16 @@ TagManager:
   - UI
   - 
   - 
+  - LevelObjects
+  - EnemyUnitsRadar
+  - FloorLayer
+  - DoorsLayer
+  - EnemyUnits
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Tips
+  - RTSUnits
+  - RTSUnitsThreatArea
+  - LootLayer
   - 
   - 
   - 

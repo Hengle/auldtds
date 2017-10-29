@@ -10,6 +10,7 @@ public class MinionDoDamage : MonoBehaviour
 	private GameObject minionEnemy;
 	//private BlockItemsAttributes enemyAttributes;
 	private int enemyBaseArmor = 10;
+    private AudioSource audioSource;
 	#endregion
 	// Use this for initialization
 	void Start ()
@@ -28,8 +29,11 @@ public class MinionDoDamage : MonoBehaviour
 		//Find the enemy
 		minionEnemy = GetComponent<MinionAI>().destinationTarget;
 
-		//Get Current Enemy Attributes
-		if (minionEnemy.CompareTag("BlockItemPoints"))
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+        
+        //Get Current Enemy Attributes
+        if (minionEnemy.CompareTag("BlockItemPoints"))
 		{
 			minionEnemy = GetComponent<MinionAI>().destinationTarget.transform.parent.parent.gameObject;
 			//BlockItemsAttributes enemyAttributes = new BlockItemsAttributes();
@@ -118,8 +122,8 @@ public class MinionDoDamage : MonoBehaviour
 
 						//Roll the Damage
 						int damageRoll = Random.Range(damageMin, damageMax + 1);
-						//Tell Current enemy to take damage
-						minionEnemy.GetComponent<UnitDamages>().TakeDamage(damageRoll, false);
+                        //Tell Current enemy to take damage
+                        minionEnemy.GetComponent<UnitDamages>().TakeDamage(damageRoll, false);
 					}
 				}
 				else if ((toHitRoll - toHit) < toHitScore)
@@ -127,7 +131,7 @@ public class MinionDoDamage : MonoBehaviour
 
 					string damageRoll = "Miss";
 					//Tell Current enemy to take damage
-					//minionEnemy.GetComponent<UnitDamages>().MissDamage(damageRoll, true);
+					minionEnemy.GetComponent<UnitDamages>().MissDamage(damageRoll, true);
 				}
 			}
 		}

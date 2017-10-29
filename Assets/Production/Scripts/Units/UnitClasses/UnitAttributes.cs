@@ -7,11 +7,13 @@ public class UnitAttributes : MonoBehaviour
 
     public UnitBaseClass unitAttributes = new UnitBaseClass();
     private UnitAnimationPlayer unitAnimPlayer;
+    private Animator unitAnimator;
 
 	// Use this for initialization
 	void Start ()
     {
         unitAnimPlayer = GetComponent<UnitAnimationPlayer>();
+        unitAnimator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -21,12 +23,7 @@ public class UnitAttributes : MonoBehaviour
         {
             //Debug.Log("AAARRRGG i am dying");
             unitAttributes.unitIsAlive = false;
-
-            if (this.gameObject.tag=="Minion")
-            {
-                unitAnimPlayer.CrossFadeAnimation(unitAnimPlayer.dieAnimation);
-                AwardMinionXP();
-            }
+            unitAnimator.SetTrigger("Death");
             StartCoroutine(DestroyOnDeath());
         }
 	}

@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 114564763740503372}
   - component: {fileID: 95835923978039476}
   - component: {fileID: 114061564271390378}
+  - component: {fileID: 82007024944165326}
   m_Layer: 12
   m_Name: GOBLIN_PBR_AI
   m_TagString: Minion
@@ -472,7 +473,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4356756107445486}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Radars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +565,7 @@ GameObject:
   - component: {fileID: 4837416860340834}
   - component: {fileID: 135428740447436734}
   - component: {fileID: 114683671693965642}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: RadarHighEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +770,7 @@ GameObject:
   - component: {fileID: 4794771630424318}
   - component: {fileID: 135144094172076134}
   - component: {fileID: 114170989588122062}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: RadarLowEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1379,8 +1380,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005845992350858}
-  m_LocalRotation: {x: -0.5000004, y: 0.49999967, z: 0.49999967, w: 0.50000036}
-  m_LocalPosition: {x: -0.000000024343974, y: 0.8902521, z: -0.000000049232074}
+  m_LocalRotation: {x: -0.50000036, y: 0.49999967, z: 0.49999967, w: 0.50000036}
+  m_LocalPosition: {x: 0, y: 0.8902521, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4269965880825974}
@@ -2541,6 +2542,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1595322125424068}
   m_Mesh: {fileID: 4300020, guid: 369bf22314485f2499b7991776c86074, type: 3}
+--- !u!82 &82007024944165326
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477618140553118}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9d8583f6b1151f449a8782ca0037915d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95835923978039476
 Animator:
   serializedVersion: 3
@@ -2708,34 +2789,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477618140553118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2295fd001b2f69746b57684bcab04f5b, type: 3}
+  m_Script: {fileID: 11500000, guid: f14219b3c61d076448cac906973ec842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
+  actionState: 0
   destinationTarget: {fileID: 0}
   saveRoomTarget: {fileID: 0}
   blockItemTarget: {fileID: 0}
   unitBlockItemTarget: {fileID: 0}
   finalTarget: {fileID: 0}
-  reachDistance: 0.97414935
+  reachDistance: 0
   unitTarget: {fileID: 0}
-  lockedOnUnit: 1
+  lockedOnUnit: 0
   roomTarget: {fileID: 0}
   lockedRoomTarget: {fileID: 0}
   lockedRoomDestination: {fileID: 0}
   blockItemList: []
   activeDebug: 0
-  walkingAnimation: walkNormalSwordShield
-  reachDestinationAnimation: 3HitComboDaggers
-  reachBlockItemAnimation: attack2SwordShield
-  reachRTSUnitAnimation: attack3SwordShield
-  deathAnimation: deathSwordShield
-  minionReach: 2
+  faceTargetOnce: 0
+  minionReach: 1.5
   attackSpeed: 1
   minionTreasureCurry: 10
-  attacking: 1
-  moving: 0
-  idle: 0
+  attacking: 0
+  removeMinion: 0
 --- !u!114 &114447233904903958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2796,16 +2873,17 @@ MonoBehaviour:
     unitThreatFactor: 0
     unitEXPValue: 150
     unitTreasureFactor: 2
-    unitMinDamage: 8
-    unitMaxDamage: 23
-    unitCDScore: 1.5
+    unitDespawnTime: 5
+    unitMinDamage: 1
+    unitMaxDamage: 6
+    unitCDScore: 2
     unitToHitScore: 5
     unitCritScore: 0
-    unitCritMultiplier: 0
+    unitCritMultiplier: 2
     unitArmor: 0
     unitBaseAC: 10
-    unitHealthPoints: 150
-    unitTotalHealthPoints: 150
+    unitHealthPoints: 50
+    unitTotalHealthPoints: 50
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0

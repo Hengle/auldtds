@@ -5,8 +5,11 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour {
 
 	[Header("Placement Variables")]
+	[SerializeField]
 	private GameObject itemPlacement;
+	[SerializeField]
 	private LayerMask placementLayer;
+	[SerializeField]
 	private GameObject[] placementsAvailable;
 	//[HideInInspector]
 	public GameObject lastPlacedItem;
@@ -17,8 +20,14 @@ public class BuildManager : MonoBehaviour {
 	[SerializeField]
 	private float radius;
 	[SerializeField]
-	private int excludeLayer;
+	private int excludeLayer1;
 	[SerializeField]
+	private int excludeLayer2;
+	[SerializeField]
+	private int excludeLayer3;
+    [SerializeField]
+    private int excludeLayer4;
+    [SerializeField]
 	private int excludeLayerMask;
 	[SerializeField]
 	private Vector3 boxHalfExtents;
@@ -28,17 +37,13 @@ public class BuildManager : MonoBehaviour {
 	private Vector3 boxCenter;
 	[SerializeField]
 	private Vector3 boxDirection;
-	[SerializeField]
-	private int avoidLayer;	//LevelObjects Layer
-	[SerializeField]
-	private int avoidLayerMask;
 
 	[Header("UIManager")]
 	private GameObject uiManager;
 	private ButtonManager buttonManagerScr;
 	public bool isForSpecificPlacement;
 
-#region System Functions
+	#region System Functions
 	void Awake()
 	{
 		ChooseLayer();
@@ -47,9 +52,9 @@ public class BuildManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -66,7 +71,7 @@ public class BuildManager : MonoBehaviour {
 	}
 	#endregion
 
-#region Placement Functions
+	#region Placement Functions
 	private void ItemPlacement()
 	{
 		GetUIManager();
@@ -85,19 +90,19 @@ public class BuildManager : MonoBehaviour {
 					{
 						buttonManagerScr.destroyMouseTip = true;
 						lastPlacedItem = Instantiate(buttonManagerScr.selectedButtonData.item, itemPlacement.transform.position, itemPlacement.transform.rotation);
-                        GameMainManager.Instance._treasureGold -= lastPlacedItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
+						GameMainManager.Instance._treasureGold -= lastPlacedItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
 						lastPlacedItem.GetComponent<BlockItemsAttributes>().savedPlacement = itemPlacement;
 						itemPlacement.SetActive(false);
-                        if (lastPlacedItem.tag == "BlockItems")
-                        {
-                            lastPlacedItem.transform.SetParent(GameObject.Find("StationaryObjects").transform);
-                        }
-                    }
+						if (lastPlacedItem.tag == "BlockItems")
+						{
+							lastPlacedItem.transform.SetParent(GameObject.Find("StationaryObjects").transform);
+						}
+					}
 				}
 			}
 			else
 			{
-				
+
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 				if (buttonManagerScr.selectedButtonData.item.GetComponent<BoxCollider>() != null)
@@ -141,7 +146,7 @@ public class BuildManager : MonoBehaviour {
 						canBePlaced = false;
 					}
 				}
-					
+
 				if (canBePlaced == true)
 				{
 					if (Physics.Raycast(ray, out Hit, 1000, placementLayer))
@@ -178,14 +183,14 @@ public class BuildManager : MonoBehaviour {
 	private void GetLayerFromButton()
 	{
 		GetUIManager();
-		placementLayer = buttonManagerScr.selectedItemLayer;
+		placementLayer = buttonManagerScr.selectedButtonData.itemLayers;
 	}
 
 	private void ShowItemsToBuild()
 	{
 		if(buttonManagerScr.selectedButtonData.isForSpecificPlacement)
 		{
-			placementsAvailable = GameObject.FindGameObjectsWithTag(buttonManagerScr.selectedItemTag.ToString());
+			placementsAvailable = GameObject.FindGameObjectsWithTag(buttonManagerScr.selectedButtonData.itemTags.ToString());
 			for (int i =0; i < placementsAvailable.Length; i++)
 			{
 				if(buttonManagerScr.isItemSelected == true)
@@ -202,9 +207,10 @@ public class BuildManager : MonoBehaviour {
 
 	private void ChooseLayer()
 	{
-		excludeLayer = LayerMask.NameToLayer("BodyOfPlacedItems");
-		avoidLayer = LayerMask.NameToLayer("LevelObjects");
-		excludeLayerMask = 1 << excludeLayer | 1 << avoidLayer;
+		excludeLayer1 = LayerMask.NameToLayer("EnemyUnits");
+		excludeLayer2 = LayerMask.NameToLayer("LevelObjects");
+		excludeLayer3 = LayerMask.NameToLayer("RTSUnits");
+        excludeLayerMask = 1 << excludeLayer1 | 1 << excludeLayer2 | 1 << excludeLayer3;
 	}
-#endregion
+	#endregion
 }

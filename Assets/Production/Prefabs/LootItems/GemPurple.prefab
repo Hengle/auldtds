@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4901601616060076}
   - component: {fileID: 198376814901396100}
   - component: {fileID: 199159328920796298}
-  m_Layer: 14
+  m_Layer: 17
   m_Name: sparkle_ingot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4901501622421856}
   - component: {fileID: 198333380539050590}
   - component: {fileID: 199000745067514812}
-  m_Layer: 14
+  m_Layer: 17
   m_Name: sparkle_ingot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,11 +56,11 @@ GameObject:
   - component: {fileID: 33367334993611134}
   - component: {fileID: 23207828458718534}
   - component: {fileID: 65485875821032030}
-  - component: {fileID: 114176354364454808}
   - component: {fileID: 54045073882985774}
-  m_Layer: 14
+  - component: {fileID: 114132258797907616}
+  m_Layer: 17
   m_Name: GemPurple
-  m_TagString: Untagged
+  m_TagString: LootObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838141039231138}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.544296, y: 0.794, z: -4.610315}
+  m_LocalPosition: {x: -51.89, y: 0, z: -4.18}
   m_LocalScale: {x: 8.551215, y: 8.551217, z: 8.551217}
   m_Children:
   - {fileID: 4901601616060076}
@@ -172,7 +172,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0.000058006488, y: 0.019510996, z: 0.000022999942}
---- !u!114 &114176354364454808
+--- !u!114 &114132258797907616
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -183,8 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34484615936dab4d8803b053a689403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: 5964621fb2d34044088fd8e9ce935c4e, type: 3}
-  pickupLootCursor: {fileID: 2800000, guid: ebeb8cca7a4cc4e4495976a76c6318f9, type: 3}
   lootValue: 100
   lootType: 0
 --- !u!198 &198333380539050590

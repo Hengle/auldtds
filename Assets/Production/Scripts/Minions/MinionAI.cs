@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MinionAI : MonoBehaviour {
+public class MinionAI : MonoBehaviour
+{
 
 	#region Classes
 	[System.Serializable]
@@ -179,19 +180,17 @@ public class MinionAI : MonoBehaviour {
 	{
 		if (dieOnce == true)
 		{
-			//Debug.Log("AAARRRGG i am dying");
 			minionAttributes.minionAttributes.unitIsAlive = false;
-			//SetAnimation(deathAnimation); //animation for dying
+            SetDeathTrigger();
             AwardMinionXP();
             AwardGold();
             AwardKill();
             GameObject lootManager = GameObject.Find("LootManager");
             LootTableClass lootTable = lootManager.GetComponent<LootTableClass>();
             lootTable.CalculateLoot(this.transform.position);
-            //animator.SetTrigger("Death");
             dieOnce = false;
 			navMeshAgent.enabled = false;
-			StartCoroutine(DestroyOnDeath());
+            Invoke("DestroyOnDeath", minionAttributes.minionAttributes.unitDespawnTime);
         }
 	}
 
@@ -212,17 +211,23 @@ public class MinionAI : MonoBehaviour {
         GameMainManager.Instance._minionsKilled += 1;
     }
 
-    private IEnumerator DestroyOnDeath()
-	{
-        CancelInvoke();
-        yield return new WaitForSeconds(2);
-		Destroy(gameObject);
-	}
+    /* private IEnumerator DestroyOnDeath()
+     {
+         CancelInvoke();
+         yield return new WaitForSeconds(2);
+         Destroy(gameObject);
+     }
+     */
+
+    private void DestroyOnDeath()
+    {
+        Destroy(gameObject);
+    }
 
     #endregion
 
     #region Animation Functions
-	private void SetWalkTrigger()
+    private void SetWalkTrigger()
     {
 		if (CheckIfActionHasChanged())
 		{
@@ -240,7 +245,17 @@ public class MinionAI : MonoBehaviour {
 
     private void SetAttackTrigger()
     {
-        	animator.SetTrigger("AttackTrigger");
+        int attackType = Random.Range(1, 3);
+        switch (attackType)
+        {
+            case 1:
+            animator.SetTrigger("AttackTrigger");
+            break;
+
+            case 2:
+            animator.SetTrigger("Attack3Trigger");
+            break;
+        }
     }
 
 	private void SetDeathTrigger()

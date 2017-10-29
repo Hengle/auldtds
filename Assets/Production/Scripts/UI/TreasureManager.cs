@@ -36,6 +36,7 @@ public class TreasureManager : MonoBehaviour
 	void Update ()
     {
         GetGold();
+        GetMithril();
         GetTreasure();
         GetLevelTimePlayed();
     }

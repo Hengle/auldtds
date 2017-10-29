@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4627905251838106}
   - component: {fileID: 198862881689623480}
   - component: {fileID: 199932350852479800}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: sparkle_platinum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 23627862904081916}
   - component: {fileID: 114221136524001318}
   - component: {fileID: 65767515441274256}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: ingot_Mithril
-  m_TagString: Untagged
+  m_TagString: LootObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4761487650267208}
   - component: {fileID: 198214398314257764}
   - component: {fileID: 199457208310013966}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: sparkle_platinum (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,13 +162,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369352905156302}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c34484615936dab4d8803b053a689403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: 5964621fb2d34044088fd8e9ce935c4e, type: 3}
-  pickupLootCursor: {fileID: 2800000, guid: ebeb8cca7a4cc4e4495976a76c6318f9, type: 3}
   lootValue: 1
   lootType: 1
 --- !u!198 &198214398314257764

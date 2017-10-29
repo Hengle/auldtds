@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4623345541529858}
   - component: {fileID: 198581826962038682}
   - component: {fileID: 199633017594198906}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RareDrop_Sparcle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 23919008652161194}
   - component: {fileID: 65558197627280240}
   - component: {fileID: 114546150619879168}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RareDrop
-  m_TagString: Untagged
+  m_TagString: LootObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4476424536524046}
   - component: {fileID: 198695796888423456}
   - component: {fileID: 199016426475281274}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RareDrop_Sparcle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1335943032078716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -167,8 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34484615936dab4d8803b053a689403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: 5964621fb2d34044088fd8e9ce935c4e, type: 3}
-  pickupLootCursor: {fileID: 2800000, guid: ebeb8cca7a4cc4e4495976a76c6318f9, type: 3}
   lootValue: 0
   lootType: 2
 --- !u!198 &198581826962038682

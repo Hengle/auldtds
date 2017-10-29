@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using RTS;
+using UnityEngine.UI;
 
 public class UserInput : MonoBehaviour
 {
@@ -9,8 +10,24 @@ public class UserInput : MonoBehaviour
     public bool gamePaused = false;
     public bool alternateZoom = false;
     public Texture2D moveCameraCursor;
-    public Texture2D defaultCursor;
- 
+
+    [SerializeField]
+    private LayerMask lootTargetLayer;
+
+    [SerializeField]
+    private Texture2D defaultCursor;
+    [SerializeField]
+    private Texture2D pickupLootCursor;
+
+    [SerializeField]
+    private int excludeLayer1;
+  
+
+
+    void Awake()
+    {
+        ChooseLayer();
+    }
 
     // Use this for initialization
     void Start()
@@ -24,6 +41,7 @@ public class UserInput : MonoBehaviour
     {
         if (player && player.humanPlayer)
         {
+            LootRay();
             MoveCamera();
             RotateCamera();
             SetDefaultMouseCursor();
@@ -174,4 +192,33 @@ public class UserInput : MonoBehaviour
         }
     }
     
+
+    private void LootRay()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit Hit;
+        if (Physics.Raycast(ray, out Hit, 1000, lootTargetLayer))
+        {
+            GameObject lootItem = Hit.collider.gameObject;
+            if (lootItem.tag == "LootObject")
+            {
+                Cursor.SetCursor(pickupLootCursor, Vector2.zero, CursorMode.Auto);
+                if (Input.GetMouseButton(0))
+                {
+                    LootTrigger lootObject = lootItem.GetComponent<LootTrigger>();
+                    lootObject.AwardLoot();
+                }
+            }
+        }
+        else
+        {
+            Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    private void ChooseLayer()
+    {
+        excludeLayer1 = LayerMask.NameToLayer("LootLayer");
+        lootTargetLayer = 1 << excludeLayer1;
+    }
 }

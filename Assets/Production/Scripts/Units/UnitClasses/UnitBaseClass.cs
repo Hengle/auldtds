@@ -12,13 +12,13 @@ public class UnitBaseClass
     public unitClassType unitClass;
     [Header("Unit's basic Attributes")]
     public bool unitIsAlive = true;
-    //public string unitPrefix;
     public int unitCost;
     public int unitLevel;
     public bool heroUnit;
     public int unitThreatFactor;
     public int unitEXPValue;
     public int unitTreasureFactor;
+    public float unitDespawnTime;
 
 
     [Header("Unit's Main Abilities")]
