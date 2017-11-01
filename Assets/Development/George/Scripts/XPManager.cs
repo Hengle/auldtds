@@ -21,6 +21,7 @@ public class XPManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        Debug.Log("George Edit");
         numberOfXPBars = xpBarElements.Length;
         xpPerBar = nextLevelXP / numberOfXPBars;
         InitializeXPBars();
