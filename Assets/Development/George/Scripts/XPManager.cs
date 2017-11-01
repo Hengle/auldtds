@@ -24,6 +24,7 @@ public class XPManager : MonoBehaviour
         numberOfXPBars = xpBarElements.Length;
         xpPerBar = nextLevelXP / numberOfXPBars;
         InitializeXPBars();
+		Debug.Log("PSIT");
 	}
 	
 	// Update is called once per frame
