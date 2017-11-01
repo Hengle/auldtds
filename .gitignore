@@ -33,3 +33,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Development/George/Scripts/WorldObjects/Units.meta
+Assets/Development/George/Scripts/WorldObjects/Resources.meta
+Assets/Development/George/Scripts/Player.meta
+Assets/Development/George/RTS/Scripts/Version2.meta
+Assets/Development/George/Scripts/Units.meta
+Assets/Development/George/Scenes/Level_1-1.meta
+Assets/Production/Materials.meta
