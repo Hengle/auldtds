@@ -16951,6 +16951,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 173991380}
     m_Modifications:
+    - target: {fileID: 114039626486514292, guid: 1da133385f923244abb0512067d6ecab,
+        type: 2}
+      propertyPath: LootTable.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4249681613278114, guid: 1da133385f923244abb0512067d6ecab, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17023,6 +17028,26 @@ Prefab:
       propertyPath: unitMenu
       value: 
       objectReference: {fileID: 664732170}
+    - target: {fileID: 114039626486514292, guid: 1da133385f923244abb0512067d6ecab,
+        type: 2}
+      propertyPath: lootLayer.m_Bits
+      value: 131072
+      objectReference: {fileID: 0}
+    - target: {fileID: 114039626486514292, guid: 1da133385f923244abb0512067d6ecab,
+        type: 2}
+      propertyPath: LootTable.Array.data[3].lootItemName
+      value: Gem Rare
+      objectReference: {fileID: 0}
+    - target: {fileID: 114039626486514292, guid: 1da133385f923244abb0512067d6ecab,
+        type: 2}
+      propertyPath: LootTable.Array.data[3].lootItemPrefab
+      value: 
+      objectReference: {fileID: 100000, guid: 2459042e765135d40bf8ccfe64006552, type: 2}
+    - target: {fileID: 114039626486514292, guid: 1da133385f923244abb0512067d6ecab,
+        type: 2}
+      propertyPath: LootTable.Array.data[3].lootItemDropRarity
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1da133385f923244abb0512067d6ecab, type: 2}
   m_IsPrefabParent: 0

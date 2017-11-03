@@ -43,8 +43,9 @@ public class Unit : MonoBehaviour
         if (enemyAttributes.unitBaseAttributes.unitHealthPoints <=0)
         {
             //Debug.Log("Enemy is DEAD");
-            this.GetComponent<UnitAnimations>().animStateIdle = true;
-            this.GetComponent<UnitAnimations>().animStateAttack = false;
+            //this.GetComponent<UnitAnimations>().animStateIdle = true;
+            //this.GetComponent<UnitAnimations>().animStateAttack = false;
+            
         }
         else
         {

@@ -11,10 +11,13 @@ public class LootTrigger : MonoBehaviour
     private int lootValue;
     [SerializeField]
     private lootAwardType lootType;
+    [SerializeField]
+    private float destroyAfterSeconds = 60.0f;
 
     private void Start()
     {
         //Debug.Log("Loot Item is active");
+        Invoke("ExpireLoot", destroyAfterSeconds);
     }
 
     public void AwardLoot()
@@ -38,6 +41,11 @@ public class LootTrigger : MonoBehaviour
             GameMainManager.Instance._treasureMithril += randomMithril;
             Debug.Log("Awarded:" + randomMithril + " mithril");
         }
+        Destroy(gameObject);
+    }
+
+    private void ExpireLoot()
+    {
         Destroy(gameObject);
     }
 }
