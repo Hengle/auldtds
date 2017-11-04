@@ -11,4 +11,7 @@ public class BuffBase
     public int buffAmount;
     public float buffDuration;
     public bool buffPermanent;
+    public string functionName;
+    
+    
 }
