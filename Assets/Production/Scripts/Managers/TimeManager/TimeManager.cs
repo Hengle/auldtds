@@ -33,7 +33,7 @@ public class TimeManager : MonoBehaviour
 
     private void SetTimeScale()
     {
-        GameObjectivesManager GOM = GameObject.Find("GameObjectivesManager").GetComponent<GameObjectivesManager>();
+        //GameObjectivesManager GOM = GameObject.Find("GameObjectivesManager").GetComponent<GameObjectivesManager>();
 
         //if (GOM.gameOver == false)
         //{
