@@ -1117,6 +1117,9 @@ MonoBehaviour:
     unitEXPValue: 0
     unitTreasureFactor: 0
     unitDespawnTime: 3
+    unitSpawnLayer:
+      serializedVersion: 2
+      m_Bits: 1024
     unitMinDamage: 1
     unitMaxDamage: 8
     unitCDScore: 2.5

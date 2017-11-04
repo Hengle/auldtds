@@ -183,14 +183,14 @@ public class BuildManager : MonoBehaviour {
 	private void GetLayerFromButton()
 	{
 		GetUIManager();
-		placementLayer = buttonManagerScr.selectedButtonData.itemLayers;
+		placementLayer = buttonManagerScr.selectedButtonData.whereToSpawnItemLayer;
 	}
 
 	private void ShowItemsToBuild()
 	{
 		if(buttonManagerScr.selectedButtonData.isForSpecificPlacement)
 		{
-			placementsAvailable = GameObject.FindGameObjectsWithTag(buttonManagerScr.selectedButtonData.itemTags.ToString());
+			placementsAvailable = GameObject.FindGameObjectsWithTag(buttonManagerScr.selectedButtonData.placementTag.ToString());
 			for (int i =0; i < placementsAvailable.Length; i++)
 			{
 				if(buttonManagerScr.isItemSelected == true)

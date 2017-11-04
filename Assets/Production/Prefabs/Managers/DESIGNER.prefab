@@ -709,10 +709,13 @@ MonoBehaviour:
     lootItemPrefab: {fileID: 1335943032078716, guid: 5a190a31b4ee0e74bbb65bbadddfb60a,
       type: 2}
     lootItemDropRarity: 5
+  - lootItemName: Gem Rare
+    lootItemPrefab: {fileID: 100000, guid: 2459042e765135d40bf8ccfe64006552, type: 2}
+    lootItemDropRarity: 15
   lootDropChance: 50
   lootLayer:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 131072
 --- !u!114 &114222924944032448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,24 +732,10 @@ MonoBehaviour:
   - itemButton: {fileID: 0}
     itemButtonIndex: 0
     buttonCost: 0
-  - itemButton: {fileID: 0}
-    itemButtonIndex: 1
-    buttonCost: 0
-  - itemButton: {fileID: 0}
-    itemButtonIndex: 2
-    buttonCost: 0
-  - itemButton: {fileID: 0}
-    itemButtonIndex: 3
-    buttonCost: 0
-  - itemButton: {fileID: 0}
-    itemButtonIndex: 4
-    buttonCost: 0
-  - itemButton: {fileID: 0}
-    itemButtonIndex: 5
-    buttonCost: 0
   selectedItemTag: 0
   selectedButtonData:
-    itemLayers:
+    itemButtonIndex: 0
+    whereToSpawnLayers:
       serializedVersion: 2
       m_Bits: 0
     itemTags: 0
@@ -757,53 +746,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   setButtonData:
-  - itemLayers:
+  - itemButtonIndex: 0
+    whereToSpawnLayers:
       serializedVersion: 2
-      m_Bits: 2048
+      m_Bits: 0
     itemTags: 0
-    isForSpecificPlacement: 1
-    selectedTipPrefab: {fileID: 1107903531747486, guid: 6170e2159efdc0a4fb49382e822447f2,
-      type: 2}
-    item: {fileID: 1107903531747486, guid: 6281349408a06f647ab1d7b00b258e27, type: 2}
-  - itemLayers:
-      serializedVersion: 2
-      m_Bits: 1024
-    itemTags: 1
     isForSpecificPlacement: 0
-    selectedTipPrefab: {fileID: 1433171506387370, guid: ca0524cc96b3c5040833d375b69ac967,
-      type: 2}
-    item: {fileID: 1202206896023192, guid: c2e34cbf1afddb046b69cf5427141c20, type: 2}
-  - itemLayers:
-      serializedVersion: 2
-      m_Bits: 1024
-    itemTags: 1
-    isForSpecificPlacement: 0
-    selectedTipPrefab: {fileID: 1727041009064888, guid: e00d348aa84729648b669affa3e36a92,
-      type: 2}
-    item: {fileID: 1646415019496424, guid: 005c905fd9cfe20409e3c987a97add98, type: 2}
-  - itemLayers:
-      serializedVersion: 2
-      m_Bits: 1024
-    itemTags: 1
-    isForSpecificPlacement: 0
-    selectedTipPrefab: {fileID: 1617627983512304, guid: d7b092a7f5c5ba14eb2a59db84ad9d01,
-      type: 2}
-    item: {fileID: 1401650112263290, guid: 0074bd1871f452c42b8c160b645c71bc, type: 2}
-  - itemLayers:
-      serializedVersion: 2
-      m_Bits: 1024
-    itemTags: 2
-    isForSpecificPlacement: 0
-    selectedTipPrefab: {fileID: 1310981355891518, guid: 1e93b432c5b5ed54b92371aa67ffdcd9,
-      type: 2}
-    item: {fileID: 1310981355891518, guid: 9351f8944ecccbf418f0737d37d22119, type: 2}
-  - itemLayers:
-      serializedVersion: 2
-      m_Bits: 1024
-    itemTags: 2
-    isForSpecificPlacement: 0
-    selectedTipPrefab: {fileID: 191734, guid: 0cc48623c7c8299499bd13b3f0b2244e, type: 2}
-    item: {fileID: 191734, guid: 2fc516ada3c30bc448fa990207c2171c, type: 2}
+    selectedTipPrefab: {fileID: 0}
+    item: {fileID: 0}
   destroyMouseTip: 0
   isItemSelected: 0
   trapMenuActive: 0

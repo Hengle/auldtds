@@ -2,69 +2,75 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public enum PlacementTags {DoorPlacement, BlockItemPlacement, MobPlacement};
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class ButtonDataClass
 {
-	//public int itemCost;
-	public LayerMask itemLayers;
-	public PlacementTags itemTags;
-	public bool isForSpecificPlacement;
+	public int itemIndex;
 	public GameObject selectedTipPrefab;
 	public GameObject item;
+	[HideInInspector]
+	public string itemTag;
+	[HideInInspector]
+	public LayerMask whereToSpawnItemLayer;
+	[HideInInspector]
+	public PlacementTags placementTag;
+	[HideInInspector]
+	public bool isForSpecificPlacement;
+	[HideInInspector]
+	public int itemCost;
 }
 
 [System.Serializable]
-public class ButtonIndexSetting
+public class ButtonSettingClass
 {
 	public Button itemButton;
-	public int itemButtonIndex;
-	//[HideInInspector]
-	public int buttonCost;
+	public int setItemIndex;
+	[HideInInspector]
+	public ButtonDataClass setButtonData;
 }
-
-
+	
 public class ButtonManager : MonoBehaviour
 {
-
-	[Header("CashAndPoints")]
-    [SerializeField]
-    private int availableCash;
-	private int isAvailalbleCashEnough;
-
-	[Header("Button Setting")]
+#region Variables
+	[Header("Item Properties")]
 	[SerializeField]
-	private ButtonIndexSetting[] allButtons;
+	private ButtonDataClass[] buttonData;
 
-	[Header("Select Button Variables")]
-	[HideInInspector]
-	public PlacementTags selectedItemTag;
+	[Header("SetButtons")]
+	[SerializeField]
+	private ButtonSettingClass[] buttonSetting;
+
+	[Header("SelectedButton")]
+	private int selectedItemIndex;
 	[HideInInspector]
 	public ButtonDataClass selectedButtonData;
-	[HideInInspector]
-	public LayerMask selectedItemLayer;
-	private int selectedItemIndex;
-	private GameObject selectedItem;
-	[SerializeField]
-	private ButtonDataClass[] setButtonData;
+	//[SerializeField]
+	private string clickedButtonName;
+
+	[Header("Gold")]
+	private int availableCash;
 
 	[Header("Mouse")]
+	private GameObject selectedItem;
+	[HideInInspector]
 	public bool destroyMouseTip;
+	[HideInInspector]
 	public bool isItemSelected;
 
-    [Header("Submenus")]
-    public bool trapMenuActive = false;
-    public GameObject trapMenu;
-    public bool unitMenuActive = false;
-    public GameObject unitMenu;
+	[Header("Submenus")]
+	public bool trapMenuActive = false;
+	public GameObject trapMenu;
+	public bool unitMenuActive = false;
+	public GameObject unitMenu;
+#endregion
 
-
-    #region System Functions
-    // Use this for initialization
-    void Start ()
-    {
+#region System Functions
+	// Use this for initialization
+	void Start ()
+	{
+		SetItemProperties();
 		destroyMouseTip = false;
 		isItemSelected = false;
 	}
@@ -72,19 +78,97 @@ public class ButtonManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-        GetGold();
-        DestroyMouseItem();
-		AssignItemDataToButton();
-		SetSelectedItemLayerAndItemTag();
-        DisableButtons();
+		GetGold();
+		DestroyMouseItem();
+		DisableButtons();
+	}
+#endregion
 
-    }
-	#endregion
+#region Buttons Functions
+	private void SetItemProperties()
+	{
+		for (int i =0; i < buttonData.Length; i++)
+		{
+			buttonData[i].itemTag = buttonData[i].item.tag;
+			if (buttonData[i].itemTag == "RTSUnit")
+			{
+			buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitSpawnLayer;
+			buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.isForSpecificPlacement;
+			buttonData[i].placementTag = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.placementTag;
+			buttonData[i].itemCost = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
+			}
+			else if(buttonData[i].itemTag == "BlockItems")
+			{
+				buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitSpawnLayer;
+				buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.isForSpecificPlacement;
+				buttonData[i].placementTag = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.placementTag;
+				buttonData[i].itemCost = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
+			}
+		}
 
-	#region Mouse Functions
+		for (int j = 0; j < buttonSetting.Length; j++)
+		{
+			for (int z = 0; z < buttonData.Length; z++)
+			{
+				if(buttonData[z].itemIndex == buttonSetting[j].setItemIndex)
+				{
+					buttonSetting[j].setButtonData = buttonData[z];
+				}
+			}
+		}
+	}
+
+	public void ItemSelection()
+	{
+		clickedButtonName = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text;
+
+		for (int i = 0; i < buttonSetting.Length; i++)
+		{
+			if(buttonSetting[i].itemButton.GetComponentInChildren<Text>().text == clickedButtonName)
+			{
+				selectedItemIndex = buttonSetting[i].setItemIndex;
+				selectedButtonData = buttonSetting[i].setButtonData;
+			}
+		}
+	}
+
+	private void DisableButtons()
+	{
+		if (Time.timeScale <1)
+		{
+			for (int i = 0; i < buttonSetting.Length; i++)
+			{
+				buttonSetting[i].itemButton.interactable = false;
+			}                
+		}
+		else
+		{
+			for (int i = 0; i < buttonSetting.Length; i++)
+			{
+				if (buttonSetting[i].setButtonData.itemCost > availableCash)
+				{
+					buttonSetting[i].itemButton.interactable = false;
+				}
+				else
+				{
+					buttonSetting[i].itemButton.interactable = true;
+				}
+			}
+		}
+	}
+#endregion
+
+#region General Functions
+	private void GetGold()
+	{
+		availableCash = GameMainManager.Instance._treasureGold;
+	}
+#endregion
+
+#region Mouse Functions
 	public void InstatiateItem()
 	{
-        Destroy(selectedItem);
+		Destroy(selectedItem);
 		selectedItem = Instantiate(selectedButtonData.selectedTipPrefab, transform.position, Quaternion.identity);
 		isItemSelected = true;
 	}
@@ -98,118 +182,33 @@ public class ButtonManager : MonoBehaviour
 			isItemSelected = false;
 		}
 	}
-    #endregion
+#endregion
 
-    #region Buttons Functions
-
-    private void GetGold()
-    {
-        availableCash = GameMainManager.Instance._treasureGold;
-    }
-    public void ItemSelection(Button clickedButton)
-	{
-		for (int i = 0; i < allButtons.Length; i++)
-		{
-			if(allButtons[i].itemButton == clickedButton)
-			{
-				selectedItemIndex = allButtons[i].itemButtonIndex;
-				selectedButtonData = setButtonData[selectedItemIndex];
-			}
-		}
-	}
-
-	private void AssignItemDataToButton()
-	{
-		for (int i = 0; i < allButtons.Length; i++)
-		{
-			for (int j =0; j < setButtonData.Length; j++)
-			{
-				if(allButtons[i].itemButtonIndex == j)
-				{
-                    allButtons[i].buttonCost = GetItemCost(setButtonData[j].item);
-				}
-			}
-		}
-	}
-
-    private void DisableButtons()
-    {
-        if (Time.timeScale <1)
-        {
-            for (int i = 0; i < allButtons.Length; i++)
-            {
-                allButtons[i].itemButton.interactable = false;
-            }                
-        }
-        else
-        {
-            for (int i = 0; i < allButtons.Length; i++)
-            {
-                if (allButtons[i].buttonCost > availableCash)
-                {
-                    allButtons[i].itemButton.interactable = false;
-                }
-                else
-                {
-                    allButtons[i].itemButton.interactable = true;
-                }
-            }
-        }
-    }
-
-	private void SetSelectedItemLayerAndItemTag()
-	{
-		selectedItemLayer = selectedButtonData.itemLayers;
-		selectedItemTag = selectedButtonData.itemTags; 
-	}
-
-    #endregion
-
-    #region Buttons Functions for Submenus [GA]
+#region Buttons Functions for Submenus [GA]
 	public void ShowMenu(string menuName)
-    {
+	{
 		destroyMouseTip = true;
 
-        if (menuName == "GameActionBar-Units")
-        {
-            if (!unitMenuActive)
-            {
-                unitMenuActive = true;
-                trapMenuActive = false;
-                trapMenu.SetActive(false);
-                unitMenu.SetActive(true);
-            }
-        }
+		if (menuName == "GameActionBar-Units")
+		{
+			if (!unitMenuActive)
+			{
+				unitMenuActive = true;
+				trapMenuActive = false;
+				trapMenu.SetActive(false);
+				unitMenu.SetActive(true);
+			}
+		}
 		if (menuName == "GameActionBar-Traps")
-        {
-            if (!trapMenuActive)
-            {
-                unitMenuActive = false;
-                trapMenuActive = true;
-                unitMenu.SetActive(false);
-                trapMenu.SetActive(true);
-            }
-        }
-    }
-
-    private int GetItemCost(GameObject item)
-    {
-        if (item.tag == "RTSUnit")
-        {
-            int itemCosting;
-            itemCosting = item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
-            return itemCosting;
-        }
-        else if (item.tag == "BlockItems")
-        {
-            int itemCosting;
-            itemCosting = item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
-            return itemCosting;
-        }
-
-        return 0; 
-    }
-    
-
-    #endregion
+		{
+			if (!trapMenuActive)
+			{
+				unitMenuActive = false;
+				trapMenuActive = true;
+				unitMenu.SetActive(false);
+				trapMenu.SetActive(true);
+			}
+		}
+	}
+#endregion
 }

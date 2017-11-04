@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 public enum unitClassType { Footman, Archer, Healer, Hero, Minion, Blocking };
+public enum PlacementTags {None, DoorPlacement};
 
 [System.Serializable]
 public class UnitBaseClass
@@ -20,6 +21,9 @@ public class UnitBaseClass
     public int unitTreasureFactor;
     public float unitDespawnTime;
 
+	public LayerMask unitSpawnLayer;
+	public bool isForSpecificPlacement;
+	public PlacementTags placementTag;
 
     [Header("Unit's Main Abilities")]
     [Range(1, 50)]

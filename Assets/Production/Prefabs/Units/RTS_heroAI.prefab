@@ -1050,26 +1050,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa2e6d31adc5674e9216f60bfc0b01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAttributes:
+  unitBaseAttributes:
     unitID: 0
     unitClass: 0
     unitIsAlive: 1
     unitCost: 0
     unitLevel: 0
     heroUnit: 0
-    unitThreatFactor: 2
+    unitThreatFactor: 0
     unitEXPValue: 0
     unitTreasureFactor: 0
-    unitMinDamage: 6
-    unitMaxDamage: 20
-    unitCDScore: 2
-    unitToHitScore: 4
-    unitCritScore: 3
-    unitCritMultiplier: 4
+    unitDespawnTime: 0
+    unitSpawnLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    isForSpecificPlacement: 0
+    placementTag: 1
+    unitMinDamage: 0
+    unitMaxDamage: 0
+    unitCDScore: 0
+    unitToHitScore: 0
+    unitCritScore: 0
+    unitCritMultiplier: 0
     unitArmor: 0
     unitBaseAC: 0
-    unitHealthPoints: 150
-    unitTotalHealthPoints: 150
+    unitHealthPoints: 0
+    unitTotalHealthPoints: 0
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
@@ -1114,9 +1120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentUnit: {fileID: 0}
-  myUnitAnim: {fileID: 0}
   unitTargetTransform: {fileID: 0}
   unitTarget: {fileID: 0}
+  unitAttacking: 0
 --- !u!114 &114761822439777050
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -425,6 +425,12 @@ MonoBehaviour:
     unitThreatFactor: 0
     unitEXPValue: 0
     unitTreasureFactor: 0
+    unitDespawnTime: 0
+    unitSpawnLayer:
+      serializedVersion: 2
+      m_Bits: 2048
+    isForSpecificPlacement: 1
+    placementTag: 1
     unitMinDamage: 0
     unitMaxDamage: 0
     unitCDScore: 0
