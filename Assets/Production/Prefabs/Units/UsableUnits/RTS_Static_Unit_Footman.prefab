@@ -1111,6 +1111,7 @@ MonoBehaviour:
     unitClass: 0
     unitIsAlive: 1
     unitCost: 50
+    unitCostMithril: 0
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 1
@@ -1120,6 +1121,8 @@ MonoBehaviour:
     unitSpawnLayer:
       serializedVersion: 2
       m_Bits: 1024
+    isForSpecificPlacement: 0
+    placementTag: 0
     unitMinDamage: 1
     unitMaxDamage: 8
     unitCDScore: 2.5

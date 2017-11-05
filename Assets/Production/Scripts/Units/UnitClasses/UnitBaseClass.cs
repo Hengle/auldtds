@@ -14,6 +14,7 @@ public class UnitBaseClass
     [Header("Unit's basic Attributes")]
     public bool unitIsAlive = true;
     public int unitCost;
+	public int unitCostMithril;
     public int unitLevel;
     public bool heroUnit;
     public int unitThreatFactor;

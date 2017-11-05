@@ -20,6 +20,8 @@ public class ButtonDataClass
 	public bool isForSpecificPlacement;
 	[HideInInspector]
 	public int itemCost;
+	[HideInInspector]
+	public int itemCostMithril;
 }
 
 [System.Serializable]
@@ -51,6 +53,7 @@ public class ButtonManager : MonoBehaviour
 
 	[Header("Gold")]
 	private int availableCash;
+	private int availableMithril;
 
 	[Header("Mouse")]
 	private GameObject selectedItem;
@@ -78,7 +81,7 @@ public class ButtonManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		GetGold();
+		GetPlayersCash();
 		DestroyMouseItem();
 		DisableButtons();
 	}
@@ -92,10 +95,11 @@ public class ButtonManager : MonoBehaviour
 			buttonData[i].itemTag = buttonData[i].item.tag;
 			if (buttonData[i].itemTag == "RTSUnit")
 			{
-			buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitSpawnLayer;
-			buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.isForSpecificPlacement;
-			buttonData[i].placementTag = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.placementTag;
-			buttonData[i].itemCost = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
+				buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitSpawnLayer;
+				buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.isForSpecificPlacement;
+				buttonData[i].placementTag = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.placementTag;
+				buttonData[i].itemCost = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
+				buttonData[i].itemCostMithril = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCostMithril;
 			}
 			else if(buttonData[i].itemTag == "BlockItems")
 			{
@@ -103,6 +107,7 @@ public class ButtonManager : MonoBehaviour
 				buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.isForSpecificPlacement;
 				buttonData[i].placementTag = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.placementTag;
 				buttonData[i].itemCost = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
+				buttonData[i].itemCostMithril = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCostMithril;
 			}
 		}
 
@@ -145,7 +150,7 @@ public class ButtonManager : MonoBehaviour
 		{
 			for (int i = 0; i < buttonSetting.Length; i++)
 			{
-				if (buttonSetting[i].setButtonData.itemCost > availableCash)
+				if ((buttonSetting[i].setButtonData.itemCost > availableCash) || (buttonSetting[i].setButtonData.itemCostMithril > availableMithril))
 				{
 					buttonSetting[i].itemButton.interactable = false;
 				}
@@ -159,9 +164,10 @@ public class ButtonManager : MonoBehaviour
 #endregion
 
 #region General Functions
-	private void GetGold()
+	private void GetPlayersCash()
 	{
 		availableCash = GameMainManager.Instance._treasureGold;
+		availableMithril = GameMainManager.Instance._treasureMithril;
 	}
 #endregion
 

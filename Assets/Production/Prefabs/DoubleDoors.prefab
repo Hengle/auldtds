@@ -420,6 +420,7 @@ MonoBehaviour:
     unitClass: 0
     unitIsAlive: 1
     unitCost: 30
+    unitCostMithril: 10
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 0

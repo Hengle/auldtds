@@ -1197,7 +1197,12 @@ Prefab:
     - target: {fileID: 114594071408826648, guid: d2d67fed078c18f4d970cdb510224809,
         type: 2}
       propertyPath: _gameVersion
-      value: 0.0.10.29.3
+      value: 0.0.11.5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594071408826648, guid: d2d67fed078c18f4d970cdb510224809,
+        type: 2}
+      propertyPath: _treasureMithril
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2d67fed078c18f4d970cdb510224809, type: 2}
@@ -17011,8 +17016,10 @@ MonoBehaviour:
     whereToSpawnItemLayer:
       serializedVersion: 2
       m_Bits: 0
+    placementTag: 0
     isForSpecificPlacement: 0
     itemCost: 0
+    itemCostMithril: 0
   - itemIndex: 2
     selectedTipPrefab: {fileID: 1107903531747486, guid: 6170e2159efdc0a4fb49382e822447f2,
       type: 2}
@@ -17021,8 +17028,10 @@ MonoBehaviour:
     whereToSpawnItemLayer:
       serializedVersion: 2
       m_Bits: 0
+    placementTag: 0
     isForSpecificPlacement: 0
     itemCost: 0
+    itemCostMithril: 0
   buttonSetting:
   - itemButton: {fileID: 1402824932}
     setItemIndex: 1
@@ -17034,8 +17043,10 @@ MonoBehaviour:
       whereToSpawnItemLayer:
         serializedVersion: 2
         m_Bits: 0
+      placementTag: 0
       isForSpecificPlacement: 0
       itemCost: 0
+      itemCostMithril: 0
   - itemButton: {fileID: 904172321}
     setItemIndex: 2
     setButtonData:
@@ -17046,8 +17057,10 @@ MonoBehaviour:
       whereToSpawnItemLayer:
         serializedVersion: 2
         m_Bits: 0
+      placementTag: 0
       isForSpecificPlacement: 0
       itemCost: 0
+      itemCostMithril: 0
   selectedButtonData:
     itemIndex: 0
     selectedTipPrefab: {fileID: 0}
@@ -17056,8 +17069,10 @@ MonoBehaviour:
     whereToSpawnItemLayer:
       serializedVersion: 2
       m_Bits: 0
+    placementTag: 0
     isForSpecificPlacement: 0
     itemCost: 0
+    itemCostMithril: 0
   destroyMouseTip: 0
   isItemSelected: 0
   trapMenuActive: 0

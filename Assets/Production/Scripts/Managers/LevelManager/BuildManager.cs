@@ -91,6 +91,7 @@ public class BuildManager : MonoBehaviour {
 						buttonManagerScr.destroyMouseTip = true;
 						lastPlacedItem = Instantiate(buttonManagerScr.selectedButtonData.item, itemPlacement.transform.position, itemPlacement.transform.rotation);
 						GameMainManager.Instance._treasureGold -= lastPlacedItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
+						GameMainManager.Instance._treasureMithril -= lastPlacedItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCostMithril;
 						lastPlacedItem.GetComponent<BlockItemsAttributes>().savedPlacement = itemPlacement;
 						itemPlacement.SetActive(false);
 						if (lastPlacedItem.tag == "BlockItems")
@@ -159,10 +160,12 @@ public class BuildManager : MonoBehaviour {
 							if(myItem.GetComponent<UnitAttributes>())
 							{
 								GameMainManager.Instance._treasureGold -= myItem.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
+								GameMainManager.Instance._treasureMithril -= myItem.GetComponent<UnitAttributes>().unitBaseAttributes.unitCostMithril;
 							}
 							if(myItem.GetComponent<BlockItemsAttributes>())
 							{
 								GameMainManager.Instance._treasureGold -= myItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
+								GameMainManager.Instance._treasureMithril -= myItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCostMithril;
 							}
 
 							if (myItem.tag == "RTSUnit")
