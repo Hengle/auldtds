@@ -25,6 +25,7 @@ public class UnitBaseClass
 	public LayerMask unitSpawnLayer;
 	public bool isForSpecificPlacement;
 	public PlacementTags placementTag;
+	public GameObject mouseTipItem;
 
     [Header("Unit's Main Abilities")]
     [Range(1, 50)]

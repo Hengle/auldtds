@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class ButtonDataClass
 {
 	public int itemIndex;
-	public GameObject selectedTipPrefab;
 	public GameObject item;
 	[HideInInspector]
 	public string itemTag;
@@ -29,6 +28,7 @@ public class ButtonSettingClass
 {
 	public Button itemButton;
 	public int setItemIndex;
+	public string shortKey;
 	[HideInInspector]
 	public ButtonDataClass setButtonData;
 }
@@ -48,8 +48,9 @@ public class ButtonManager : MonoBehaviour
 	private int selectedItemIndex;
 	[HideInInspector]
 	public ButtonDataClass selectedButtonData;
-	//[SerializeField]
-	private string clickedButtonName;
+	[HideInInspector]
+	public string selectedButtonShortKey;
+	private Button pressedButton;
 
 	[Header("Gold")]
 	private int availableCash;
@@ -76,6 +77,7 @@ public class ButtonManager : MonoBehaviour
 		SetItemProperties();
 		destroyMouseTip = false;
 		isItemSelected = false;
+		SetClickOnButton();
 	}
 
 	// Update is called once per frame
@@ -84,6 +86,7 @@ public class ButtonManager : MonoBehaviour
 		GetPlayersCash();
 		DestroyMouseItem();
 		DisableButtons();
+		SetShortKey();
 	}
 #endregion
 
@@ -123,16 +126,15 @@ public class ButtonManager : MonoBehaviour
 		}
 	}
 
-	public void ItemSelection()
+	private void ItemSelection()
 	{
-		clickedButtonName = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text;
-
 		for (int i = 0; i < buttonSetting.Length; i++)
 		{
-			if(buttonSetting[i].itemButton.GetComponentInChildren<Text>().text == clickedButtonName)
+			if(buttonSetting[i].itemButton.GetComponentInChildren<Text>().text == pressedButton.GetComponentInChildren<Text>().text)
 			{
 				selectedItemIndex = buttonSetting[i].setItemIndex;
 				selectedButtonData = buttonSetting[i].setButtonData;
+				selectedButtonShortKey = buttonSetting[i].shortKey;
 			}
 		}
 	}
@@ -161,6 +163,42 @@ public class ButtonManager : MonoBehaviour
 			}
 		}
 	}
+
+	private void PushButton()
+	{
+		pressedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+
+		for (int i = 0; i < buttonSetting.Length; i++)
+		{
+			if(buttonSetting[i].itemButton == pressedButton)
+			{
+				ItemSelection();
+				InstatiateItem();
+			}
+		}
+	}
+
+	private void SetClickOnButton()
+	{
+		for (int i = 0; i < buttonSetting.Length; i++)
+		{
+			buttonSetting[i].itemButton.onClick.AddListener(PushButton);
+		}
+	}
+
+	private void SetShortKey()
+	{
+		for (int i = 0; i < buttonSetting.Length; i++)
+		{
+			if (Input.GetKeyDown(buttonSetting[i].shortKey))
+			{
+				pressedButton = buttonSetting[i].itemButton;
+				ItemSelection();
+				InstatiateItem();
+			}
+		}
+	}
+
 #endregion
 
 #region General Functions
@@ -172,10 +210,17 @@ public class ButtonManager : MonoBehaviour
 #endregion
 
 #region Mouse Functions
-	public void InstatiateItem()
+	private void InstatiateItem()
 	{
 		Destroy(selectedItem);
-		selectedItem = Instantiate(selectedButtonData.selectedTipPrefab, transform.position, Quaternion.identity);
+		if (selectedButtonData.item.tag == "RTSUnit")
+		{
+			selectedItem = Instantiate(selectedButtonData.item.GetComponent<UnitAttributes>().unitBaseAttributes.mouseTipItem, transform.position, Quaternion.identity);
+		}
+		else if (selectedButtonData.item.tag == "BlockItems")
+		{
+			selectedItem = Instantiate(selectedButtonData.item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.mouseTipItem, transform.position, Quaternion.identity);
+		}
 		isItemSelected = true;
 	}
 

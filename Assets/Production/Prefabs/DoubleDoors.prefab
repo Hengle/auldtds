@@ -432,6 +432,8 @@ MonoBehaviour:
       m_Bits: 2048
     isForSpecificPlacement: 1
     placementTag: 1
+    mouseTipItem: {fileID: 1107903531747486, guid: 6170e2159efdc0a4fb49382e822447f2,
+      type: 2}
     unitMinDamage: 0
     unitMaxDamage: 0
     unitCDScore: 0

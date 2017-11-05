@@ -1123,6 +1123,8 @@ MonoBehaviour:
       m_Bits: 1024
     isForSpecificPlacement: 0
     placementTag: 0
+    mouseTipItem: {fileID: 1310981355891518, guid: 1e93b432c5b5ed54b92371aa67ffdcd9,
+      type: 2}
     unitMinDamage: 1
     unitMaxDamage: 8
     unitCDScore: 2.5
