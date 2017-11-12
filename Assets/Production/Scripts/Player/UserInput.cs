@@ -19,9 +19,8 @@ public class UserInput : MonoBehaviour
     [SerializeField]
     private Texture2D pickupLootCursor;
 
-    [SerializeField]
     private int excludeLayer1;
-  
+	private ButtonManager buttonManagerScr;
 
 
     void Awake()
@@ -195,25 +194,30 @@ public class UserInput : MonoBehaviour
 
     private void LootRay()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Hit;
-        if (Physics.Raycast(ray, out Hit, 1000, lootTargetLayer))
-        {
-            GameObject lootItem = Hit.collider.gameObject;
-            if (lootItem.tag == "LootObject")
-            {
-                Cursor.SetCursor(pickupLootCursor, Vector2.zero, CursorMode.Auto);
-                if (Input.GetMouseButton(0))
-                {
-                    LootTrigger lootObject = lootItem.GetComponent<LootTrigger>();
-                    lootObject.AwardLoot();
-                }
-            }
-        }
-        else
-        {
-            Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
-        }
+		GetButtonManager();
+
+		if(!buttonManagerScr.isItemSelected)
+		{
+	        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	        RaycastHit Hit;
+	        if (Physics.Raycast(ray, out Hit, 1000, lootTargetLayer))
+	        {
+	            GameObject lootItem = Hit.collider.gameObject;
+	            if (lootItem.tag == "LootObject")
+	            {
+	                Cursor.SetCursor(pickupLootCursor, Vector2.zero, CursorMode.Auto);
+	                if (Input.GetMouseButton(0))
+	                {
+	                    LootTrigger lootObject = lootItem.GetComponent<LootTrigger>();
+	                    lootObject.AwardLoot();
+	                }
+	            }
+	        }
+	        else
+	        {
+	            Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+	        }
+		}
     }
 
     private void ChooseLayer()
@@ -221,4 +225,9 @@ public class UserInput : MonoBehaviour
         excludeLayer1 = LayerMask.NameToLayer("LootLayer");
         lootTargetLayer = 1 << excludeLayer1;
     }
+
+	private void GetButtonManager()
+	{
+		buttonManagerScr = GameObject.Find("ButtonManager").GetComponent<ButtonManager>();
+	}
 }
