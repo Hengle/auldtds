@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameMainManager : MonoBehaviour
 {
-
     private static GameMainManager instance;
     public static GameMainManager Instance
     {
@@ -48,6 +47,7 @@ public class GameMainManager : MonoBehaviour
     [Space]
     [Header("Game Variables")]
     public bool showHealthBars;
+    public bool _buttonsHaveCooldowns;
 
 
     private void Start()

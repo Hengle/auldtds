@@ -7,8 +7,7 @@ public class TimeManager : MonoBehaviour
 
     [SerializeField]
     private float levelPlayedTime = 0.0f;
-    [SerializeField]
-    private float timeScale;
+    public float timeScale;
 
     // Use this for initialization
   
@@ -33,11 +32,6 @@ public class TimeManager : MonoBehaviour
 
     private void SetTimeScale()
     {
-        //GameObjectivesManager GOM = GameObject.Find("GameObjectivesManager").GetComponent<GameObjectivesManager>();
-
-        //if (GOM.gameOver == false)
-        //{
-            Time.timeScale = timeScale;
-        //}
+        Time.timeScale = timeScale;
     }
 }

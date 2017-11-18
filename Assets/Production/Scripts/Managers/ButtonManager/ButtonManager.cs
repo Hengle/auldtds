@@ -29,7 +29,10 @@ public class ButtonSettingClass
 	public Button itemButton;
 	public int setItemIndex;
 	public string shortKey;
-	[HideInInspector]
+    public float btnCooldown;
+    public float btnCooldownTimer;
+    public bool btnOnCooldown;
+    [HideInInspector]
 	public ButtonDataClass setButtonData;
 }
 	
@@ -87,7 +90,8 @@ public class ButtonManager : MonoBehaviour
 		DestroyMouseItem();
 		DisableButtons();
 		SetShortKey();
-	}
+        ButtonCooldownTimer();
+    }
 #endregion
 
 #region Buttons Functions
@@ -158,7 +162,10 @@ public class ButtonManager : MonoBehaviour
 				}
 				else
 				{
-					buttonSetting[i].itemButton.interactable = true;
+                    if (!buttonSetting[i].btnOnCooldown)
+                    {
+                        buttonSetting[i].itemButton.interactable = true;
+                    }
 				}
 			}
 		}
@@ -172,11 +179,37 @@ public class ButtonManager : MonoBehaviour
 		{
 			if(buttonSetting[i].itemButton == pressedButton)
 			{
-				ItemSelection();
+                ItemSelection();
 				InstatiateItem();
+                if (GameMainManager.Instance._buttonsHaveCooldowns)
+                {
+                    Debug.Log("CoolDown Activated");
+                    Image buttonMask = buttonSetting[i].itemButton.transform.Find("ButtonMask").gameObject.GetComponent<Image>();
+                    buttonMask.fillAmount = 1;
+                    buttonSetting[i].btnOnCooldown = true;
+                }
 			}
 		}
 	}
+
+    private void ButtonCooldownTimer()
+    {
+        foreach (ButtonSettingClass buttonItem in buttonSetting)
+        {
+            if (buttonItem.btnOnCooldown)
+            {
+                Image buttonMask = buttonItem.itemButton.transform.Find("ButtonMask").gameObject.GetComponent<Image>();
+                buttonMask.fillAmount = (buttonItem.btnCooldownTimer/ buttonItem.btnCooldown);
+                buttonItem.itemButton.interactable = false;                
+                buttonItem.btnCooldownTimer -= Time.deltaTime;
+                if (buttonItem.btnCooldownTimer <=0)
+                {
+                    buttonItem.btnCooldownTimer = buttonItem.btnCooldown;
+                    buttonItem.btnOnCooldown = false;
+                }
+            }
+        }
+    }
 
 	private void SetClickOnButton()
 	{

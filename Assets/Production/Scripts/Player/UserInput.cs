@@ -13,6 +13,13 @@ public class UserInput : MonoBehaviour
 
     [SerializeField]
     private LayerMask lootTargetLayer;
+    [SerializeField]
+    private GameObject f10Menu;
+    [SerializeField]
+    private bool f10toggle;
+
+    [SerializeField]
+    private TimeManager timeManager;
 
     [SerializeField]
     private Texture2D defaultCursor;
@@ -45,9 +52,9 @@ public class UserInput : MonoBehaviour
             MoveCamera();
             RotateCamera();
             SetDefaultMouseCursor();
-            //MouseActivity();
             PauseGame();
             ShowHealthBars();
+            F10MenuToggle();
         }
     }
 
@@ -221,4 +228,27 @@ public class UserInput : MonoBehaviour
         excludeLayer1 = LayerMask.NameToLayer("LootLayer");
         lootTargetLayer = 1 << excludeLayer1;
     }
+
+    private void F10MenuToggle()
+    {
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            f10toggle = !f10toggle;
+            f10Menu.SetActive(f10toggle);
+            if (f10toggle == true)
+            {
+                gamePaused = true;
+                timeManager.GetComponent<TimeManager>().timeScale = 0;
+                //Time.timeScale = 0;
+            }
+            else
+            {
+                gamePaused = false;
+                timeManager.GetComponent<TimeManager>().timeScale = 1;
+                //Time.timeScale = 1;
+            }
+        }
+    }
+
+
 }

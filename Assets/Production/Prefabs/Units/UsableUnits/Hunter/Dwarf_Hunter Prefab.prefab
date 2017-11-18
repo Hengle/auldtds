@@ -3218,7 +3218,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147978}
-  m_LocalRotation: {x: 0.63875484, y: -0.2521798, z: 0.31124696, w: 0.65690404}
+  m_LocalRotation: {x: 0.6387549, y: -0.25217983, z: 0.311247, w: 0.6569041}
   m_LocalPosition: {x: -0.025256885, y: 0.010089447, z: -0.030164665}
   m_LocalScale: {x: 1.0000002, y: 1, z: 0.9999997}
   m_Children:
@@ -4963,12 +4963,19 @@ MonoBehaviour:
     unitClass: 1
     unitIsAlive: 1
     unitCost: 100
+    unitCostMithril: 0
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 2
     unitEXPValue: 0
     unitTreasureFactor: 0
     unitDespawnTime: 3
+    unitSpawnLayer:
+      serializedVersion: 2
+      m_Bits: 1024
+    isForSpecificPlacement: 0
+    placementTag: 0
+    mouseTipItem: {fileID: 191734, guid: 0cc48623c7c8299499bd13b3f0b2244e, type: 2}
     unitMinDamage: 5
     unitMaxDamage: 12
     unitCDScore: 3
