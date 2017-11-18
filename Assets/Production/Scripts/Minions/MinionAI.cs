@@ -75,9 +75,9 @@ public class MinionAI : MonoBehaviour
 
 	[Header("Positioning")]
 	[SerializeField]
-	private bool faceTargetOnce;
-	[SerializeField]
 	private float minionReach;
+	[SerializeField]
+	private int enemyEngagePoints;
 
 	[Header("Do Damage")]
 	[SerializeField]
@@ -113,7 +113,6 @@ public class MinionAI : MonoBehaviour
 	{
 		state = MinionState.SelectTarget;
 		blockItemList = new List<BlockItems>();
-		faceTargetOnce = true;
 		isDoDamageExecuting = false;
 		isMinionLooting = false;
 		dieOnce = true;
@@ -148,20 +147,11 @@ public class MinionAI : MonoBehaviour
 		}
 	}
     
-
 	private void FaceTarget()
 	{
-		if(faceTargetOnce)
-		{	if(destinationTarget.tag == "BlockItems")
-			{
-				this.transform.LookAt(destinationTarget.transform.parent.parent);
-			}
-			else if(destinationTarget.tag == "RTSUnit")
-			{
-				this.transform.LookAt(destinationTarget.transform.GetChild(0));
-			}
-			faceTargetOnce = false;
-		}
+		Vector3 relativePos = destinationTarget.transform.position - this.transform.position;
+		Quaternion minionRotation = Quaternion.LookRotation(relativePos);
+		this.transform.rotation = minionRotation;
 	} 
 
 	private bool CheckIfMinionIsAlive()
@@ -223,6 +213,14 @@ public class MinionAI : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+	private void CheckIfSpaceToEngage()
+	{
+		if(destinationTarget.tag == "RTSUnit")
+		{
+			enemyEngagePoints = destinationTarget.GetComponent<UnitAttributes>().unitBaseAttributes.unitEnemyEngagePoints;
+		}
+	}
 
     #endregion
 
@@ -710,7 +708,6 @@ public class MinionAI : MonoBehaviour
 				{
 					actionState = ActionState.AttackTarget;
 				}
-				//faceTargetOnce = true;
 				break;
 
 			case ActionState.AttackTarget:
@@ -748,11 +745,6 @@ public class MinionAI : MonoBehaviour
 				navMeshAgent.SetDestination(destinationTarget.transform.position);
 	            saveDestinationTarget = destinationTarget;
 			}
-			//attacking = false;
-			//CancelInvoke("SetAttackTrigger");
-			//SetWalkTrigger();
-			//faceTargetOnce = true;
-
 	}
 
 	private void ActionIdle()
@@ -762,7 +754,6 @@ public class MinionAI : MonoBehaviour
 		navMeshAgent.isStopped = true;
 		SetIdleTrigger();
 		saveActionState = actionState;
-		//faceTargetOnce = true;
 		}
 		else
 		{
@@ -868,7 +859,6 @@ public class MinionAI : MonoBehaviour
 
 			if (destinationTarget != saveDestinationTarget)
 			{
-				faceTargetOnce = true;
 				saveDestinationTarget = destinationTarget;
 			}
 		}
@@ -876,7 +866,6 @@ public class MinionAI : MonoBehaviour
 		{
 			attacking = false;
 			CancelInvoke("SetAttackTrigger");
-			faceTargetOnce = true;
 		}
 	}
 
@@ -896,7 +885,6 @@ public class MinionAI : MonoBehaviour
 		
 			if (destinationTarget != saveDestinationTarget)
 			{
-				faceTargetOnce = true;
 				saveDestinationTarget = destinationTarget;
 			}	
 		}
@@ -904,7 +892,6 @@ public class MinionAI : MonoBehaviour
 		{
 			attacking = false;
 			CancelInvoke("SetAttackTrigger");
-			faceTargetOnce = true;
 		}
 	}
 	#endregion

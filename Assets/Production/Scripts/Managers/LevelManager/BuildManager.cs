@@ -103,7 +103,6 @@ public class BuildManager : MonoBehaviour {
 			}
 			else
 			{
-
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 				if (buttonManagerScr.selectedButtonData.item.GetComponent<BoxCollider>() != null)
@@ -204,6 +203,13 @@ public class BuildManager : MonoBehaviour {
 				{
 					placementsAvailable[i].GetComponent<MeshRenderer>().enabled = false;
 				}
+			}
+		}
+		else
+		{
+			for (int i =0; i < placementsAvailable.Length; i++)
+			{
+				placementsAvailable[i].GetComponent<MeshRenderer>().enabled = false;
 			}
 		}
 	}

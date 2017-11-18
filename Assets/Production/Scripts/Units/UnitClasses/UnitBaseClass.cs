@@ -47,7 +47,7 @@ public class UnitBaseClass
     public int unitManaRegen;
     public int unitHealthRegen;
 
-   
+	public int unitEnemyEngagePoints;
 
 
 }

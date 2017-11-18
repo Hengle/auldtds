@@ -1138,6 +1138,7 @@ MonoBehaviour:
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
+    unitEnemyEngage: 4
 --- !u!114 &114600561552515748
 MonoBehaviour:
   m_ObjectHideFlags: 1

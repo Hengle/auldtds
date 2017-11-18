@@ -233,10 +233,7 @@ public class UserInput : MonoBehaviour
         lootTargetLayer = 1 << excludeLayer1;
     }
 
-	private void GetButtonManager()
-	{
-		buttonManagerScr = GameObject.Find("ButtonManager").GetComponent<ButtonManager>();
-	}
+<<<<<<< HEAD
     private void F10MenuToggle()
     {
         if (Input.GetKeyDown(KeyCode.F10))
@@ -259,4 +256,10 @@ public class UserInput : MonoBehaviour
     }
 
 
+=======
+	private void GetButtonManager()
+	{
+		buttonManagerScr = GameObject.Find("ButtonManager").GetComponent<ButtonManager>();
+	}
+>>>>>>> 05e6fd9f5c8db9933cfeadcd701e7e5891920dba
 }
