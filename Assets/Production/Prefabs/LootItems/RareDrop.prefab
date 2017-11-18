@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1335943032078716}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.481, y: 0, z: -6.5655756}
+  m_LocalPosition: {x: -0.07679129, y: 0.218, z: -2.8265562}
   m_LocalScale: {x: 1.9009633, y: 1.9009637, z: 1.9009637}
   m_Children:
   - {fileID: 4623345541529858}
@@ -111,7 +111,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1335943032078716}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootValue: 0
   lootType: 2
+  destroyAfterSeconds: 60
 --- !u!198 &198581826962038682
 ParticleSystem:
   m_ObjectHideFlags: 1

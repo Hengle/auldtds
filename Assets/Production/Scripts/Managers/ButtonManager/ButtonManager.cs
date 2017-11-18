@@ -205,6 +205,7 @@ public class ButtonManager : MonoBehaviour
                 if (buttonItem.btnCooldownTimer <=0)
                 {
                     buttonItem.btnCooldownTimer = buttonItem.btnCooldown;
+                    buttonMask.fillAmount = 0;
                     buttonItem.btnOnCooldown = false;
                 }
             }

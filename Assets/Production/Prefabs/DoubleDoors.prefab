@@ -420,7 +420,7 @@ MonoBehaviour:
     unitClass: 0
     unitIsAlive: 1
     unitCost: 30
-    unitCostMithril: 10
+    unitCostMithril: 3
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
-    unitEnemyEngage: 2
+    unitEnemyEngagePoints: 0
   savedPlacement: {fileID: 0}
 --- !u!208 &208944739564973358
 NavMeshObstacle:

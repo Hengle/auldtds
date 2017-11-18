@@ -4963,7 +4963,7 @@ MonoBehaviour:
     unitClass: 1
     unitIsAlive: 1
     unitCost: 100
-    unitCostMithril: 0
+    unitCostMithril: 1
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 2
@@ -4989,6 +4989,7 @@ MonoBehaviour:
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
+    unitEnemyEngagePoints: 0
 --- !u!114 &114804213875851996
 MonoBehaviour:
   m_ObjectHideFlags: 1
