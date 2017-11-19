@@ -181,16 +181,21 @@ public class ButtonManager : MonoBehaviour
 			{
                 ItemSelection();
 				InstatiateItem();
-                if (GameMainManager.Instance._buttonsHaveCooldowns)
-                {
-                    Debug.Log("CoolDown Activated");
-                    Image buttonMask = buttonSetting[i].itemButton.transform.Find("ButtonMask").gameObject.GetComponent<Image>();
-                    buttonMask.fillAmount = 1;
-                    buttonSetting[i].btnOnCooldown = true;
-                }
-			}
+                PushButtonCD(i);
+            }
 		}
 	}
+
+    private void PushButtonCD(int counterIndex)
+    {
+        if (GameMainManager.Instance._buttonsHaveCooldowns)
+        {
+            Debug.Log("CoolDown Activated");
+            Image buttonMask = buttonSetting[counterIndex].itemButton.transform.Find("ButtonMask").gameObject.GetComponent<Image>();
+            buttonMask.fillAmount = 1;
+            buttonSetting[counterIndex].btnOnCooldown = true;
+        }
+    }
 
     private void ButtonCooldownTimer()
     {
@@ -229,6 +234,7 @@ public class ButtonManager : MonoBehaviour
 				pressedButton = buttonSetting[i].itemButton;
 				ItemSelection();
 				InstatiateItem();
+                PushButtonCD(i);
 			}
 		}
 	}

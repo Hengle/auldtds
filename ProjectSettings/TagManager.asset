@@ -18,6 +18,7 @@ TagManager:
   - DoorEntrance
   - UIButton
   - LootObject
+  - TalentGroupManager
   layers:
   - Default
   - TransparentFX

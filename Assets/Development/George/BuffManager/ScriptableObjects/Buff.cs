@@ -8,7 +8,9 @@ public abstract class Buff : ScriptableObject
     public int buffLvlReq;
     public bool buffIsStackable;
 
+    /*
     public abstract void Initialize(GameObject obj);
     public abstract void TriggerBuff();
     public abstract IEnumerator EndBuff();
+    */
 }

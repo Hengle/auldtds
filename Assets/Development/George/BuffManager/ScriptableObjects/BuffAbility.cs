@@ -14,6 +14,7 @@ public class BuffAbility : Buff
     private UnitAttributes unitAttributes;
 
 
+    /*
     public override void Initialize(GameObject obj)
     {
         unitAttributes = obj.GetComponent<UnitAttributes>();
@@ -30,4 +31,5 @@ public class BuffAbility : Buff
         yield return new WaitForSeconds(buffDuration);
         Destroy(this);
     }
+    */
 }

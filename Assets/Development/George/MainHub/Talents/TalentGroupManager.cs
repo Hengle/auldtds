@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TalentGroupManager : MonoBehaviour
 {
-
+/*
     private static TalentGroupManager talentGroupManager;
 
     public static TalentGroupManager instance
@@ -27,18 +27,25 @@ public class TalentGroupManager : MonoBehaviour
             return talentGroupManager;
         }
     }
-
+*/
 
     [SerializeField]
     private int maxTalentsAllowed;
     public int curTalentsChosen;
-    [SerializeField]
-    private List<TalentMainClass> buttonGroup = new List<TalentMainClass>();
+    
+    public List<TalentMainClass> buttonGroup = new List<TalentMainClass>();
     private Text buttonText;
+    [SerializeField]
+    private GameObject talentEventManagerObject;
 
-    	
-	// Update is called once per frame
-	void Update ()
+    private TalentEventManager talentEventManager;
+
+    private void OnEnable()
+    {
+        talentEventManager = talentEventManagerObject.GetComponent<TalentEventManager>();
+    }
+    // Update is called once per frame
+    void Update ()
     {
         CheckTalentGroupStatus();
     }
@@ -48,25 +55,9 @@ public class TalentGroupManager : MonoBehaviour
 
         buttonGroup[btnIndex].chosen = true;
         TalentAttributes talentAttr =  buttonGroup[btnIndex].talentButton.GetComponent<TalentAttributes>();
-        if ((talentAttr.talentRank <= talentAttr.talentTotalRanks) && (curTalentsChosen <= maxTalentsAllowed ))
+        if ((talentAttr.talentRank < talentAttr.talentTotalRanks) && (curTalentsChosen < maxTalentsAllowed ))
         {
             int talentRankCalc = talentAttr.talentRank + 1;
-            talentAttr.talentRank = talentRankCalc;
-            GameObject pressedButton = buttonGroup[btnIndex].talentButton;
-            buttonText = pressedButton.GetComponentInChildren<Text>();
-            buttonText.text = talentRankCalc.ToString();
-            curTalentsChosen++;
-        }
-    }
-
-    public void RemoveTalentRank(int btnIndex)
-    {
-
-        buttonGroup[btnIndex].chosen = true;
-        TalentAttributes talentAttr = buttonGroup[btnIndex].talentButton.GetComponent<TalentAttributes>();
-        if (talentAttr.talentRank < talentAttr.talentTotalRanks)
-        {
-            int talentRankCalc = talentAttr.talentRank - 1;
             talentAttr.talentRank = talentRankCalc;
             GameObject pressedButton = buttonGroup[btnIndex].talentButton;
             buttonText = pressedButton.GetComponentInChildren<Text>();
