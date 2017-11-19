@@ -6,119 +6,111 @@ using System.Linq;
 public class MinionRadarLowEnd : MonoBehaviour
 {
 	#region Classes
-	[System.Serializable]
-	public class Room
-	{
-		public GameObject room;
-		public float roomPoints;
-	}
 
-	[System.Serializable]
-	public class UnitInRadar
-	{
-		public GameObject unit;
-		public float unitDistance;
-	}
 	#endregion
 
-	#region Properties
-	[Header ("Room")]
+	#region Variables
+	[Header("General Variables")]
+	private MinionAI minionAI;
 	[SerializeField]
-	private List<Room> roomList;
-    [SerializeField]
-    private GameObject parentObject;
-    private MinionAI minionAI;
-	[SerializeField]
-	private GameObject targetRoom;
+	private GameObject parentObject;
 
-	[Header("Unit")]
-	private List<UnitInRadar> unitInRadarList;
+	[Header("Unit Variables")]
 	[SerializeField]
-	private GameObject targetUnit;
+	private List<GameObject> unitesInRadarList = new List<GameObject>();
+	[SerializeField]
+	private GameObject unitTarget;
+
+	[Header("BlockItem Variables")]
+	[SerializeField]
+	private List<GameObject> blockItemsInRadarList = new List<GameObject>();
 	#endregion
 
 	#region System Functions
 	// Use this for initialization
-
 	void Start () 
 	{
-		roomList = new List<Room>();
-		unitInRadarList = new List<UnitInRadar>();
-        minionAI = parentObject.GetComponent<MinionAI>();
+		minionAI = parentObject.GetComponent<MinionAI>();
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		AssignTargetRoom();
-		AssignTargetUnit();
+		AssignUnitTarget();
+		FindActiveBlockItem();
 	}
 
-	void OnTriggerStay(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
-		if((other.tag == "RoomArea") && (other.GetComponent<RoomEntityIdentifier>().roomTreasureScore > 0))
+		if ((other.CompareTag("RTSUnit")) && (!other.GetComponent<ObjectEngage>().fullEngaged))
 		{
-			Room roomClass = new Room();
-			roomClass.room = other.gameObject;
-			roomClass.roomPoints = other.GetComponent<RoomEntityIdentifier>().roomTotalScore;
-			if(!roomList.Any(i=>i.room == other.gameObject))
+			if(!unitesInRadarList.Any(i=>i == other.gameObject))
 			{
-				roomList.Add(roomClass);
-				roomList.Sort(SortByPoints);
-				targetRoom = roomList[0].room;
+				unitesInRadarList.Add(other.gameObject);
 			}
 		}
-		else if(roomList.All(i=>i.roomPoints <= 0))
-		{
-			targetRoom = null;
-		}
 
-		if((other.tag == "RTSUnit") && (other.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == true))
+		if (other.CompareTag("BlockItems"))
 		{
-			UnitInRadar unitInRadarClass = new UnitInRadar();
-			unitInRadarClass.unit = other.gameObject;
-			unitInRadarClass.unitDistance = Vector3.Distance(other.transform.position,this.transform.position);
-			if(!unitInRadarList.Any(i=>i.unit == other.gameObject))
+			if(!blockItemsInRadarList.Any(i=>i == other.gameObject))
 			{
-				unitInRadarList.Add(unitInRadarClass);
-				unitInRadarList.Sort(SortByUnitDistance);
-				targetUnit = unitInRadarList[0].unit;
+				blockItemsInRadarList.Add(other.gameObject);
 			}
 		}
-		else if (unitInRadarList == null)
+	}
+	void OnTriggerExit(Collider other)
+	{
+		if(other.CompareTag("RTSUnit"))
 		{
-			targetUnit = null;
+			unitesInRadarList.Remove(other.gameObject);
 		}
-	}
-	#endregion
-
-	#region Select Room Functions
-	static int SortByPoints(Room tr1, Room tr2)
-	{
-		return tr2.roomPoints.CompareTo(tr1.roomPoints);
-	}
-
-	private void AssignTargetRoom()
-	{
-		this.GetComponentInParent<MinionAI>().lockedRoomTarget = targetRoom;
-		roomList.Clear();
 	}
 	#endregion
 
 	#region Select Unit Functions
-	static int SortByUnitDistance(UnitInRadar u1, UnitInRadar u2)
+
+	private void SortUnitList()
 	{
-		return u1.unitDistance.CompareTo(u2.unitDistance);
+		unitesInRadarList.RemoveAll(GameObject => GameObject == null);
+		unitesInRadarList.RemoveAll(GameObject => GameObject.GetComponent<ObjectEngage>().fullEngaged == true);
+		unitesInRadarList = unitesInRadarList.OrderBy(x=>Vector3.Distance(this.transform.position, x.transform.position)).ToList();
 	}
 
-	private void AssignTargetUnit()
+	private void AssignUnitTarget()
 	{
-        if (!minionAI.lockedOnUnit)
-        {
-            this.GetComponentInParent<MinionAI>().unitTarget = targetUnit;
-            unitInRadarList.Clear();
-        }
+		if (!minionAI.lockedOnUnit)
+		{
+			SortUnitList();
+			if (unitesInRadarList.Count != 0)
+			{
+				unitTarget = unitesInRadarList.First();
+				this.GetComponentInParent<MinionAI>().unitTarget = unitTarget;
+			}
+			else
+			{
+				unitTarget = null;
+				this.GetComponentInParent<MinionAI>().unitTarget = unitTarget;
+			}
+		}
+	}
+	#endregion
+
+	#region Block Items Functions
+	private void FindActiveBlockItem()
+	{
+		if (minionAI.destinationTarget != null)
+		{
+			if(minionAI.destinationTarget.CompareTag("BlockItemPoints"))
+			{
+				foreach(GameObject blockItem in blockItemsInRadarList)
+				{
+					if (blockItem == minionAI.destinationTarget.transform.parent.parent.gameObject)
+					{
+						minionAI.closeToBlockItem = true;
+					}
+				}
+			}
+		}
 	}
 	#endregion
 }
-

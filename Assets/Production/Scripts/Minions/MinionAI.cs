@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class MinionAI : MonoBehaviour
 {
@@ -63,6 +64,8 @@ public class MinionAI : MonoBehaviour
 	private List<BlockItems> blockItemList;
 	private BlockItems blockItemsClass;
 	private GameObject[] blockItems;
+	[SerializeField]
+	public bool closeToBlockItem;
 
 	[Header("Debug")]
 	[SerializeField]
@@ -95,8 +98,12 @@ public class MinionAI : MonoBehaviour
 	[SerializeField]
 	private bool removeMinion = false;
 	private bool reachedRoomOrTreasure = false;
-    #endregion
-
+ 
+	[Header("EngageFlags")]
+	public bool engaged = false;
+	[SerializeField]
+	private GameObject currentEngagedTarget;
+	#endregion
     #region System Functions
     void Awake()
 	{
@@ -201,14 +208,6 @@ public class MinionAI : MonoBehaviour
         GameMainManager.Instance._minionsKilled += 1;
     }
 
-    /* private IEnumerator DestroyOnDeath()
-     {
-         CancelInvoke();
-         yield return new WaitForSeconds(2);
-         Destroy(gameObject);
-     }
-     */
-
     private void DestroyOnDeath()
     {
         Destroy(gameObject);
@@ -222,6 +221,35 @@ public class MinionAI : MonoBehaviour
 		}
 	}
 
+	private void SetEngageList()
+	{
+		if(destinationTarget.CompareTag("RTSUnit"))
+		{
+			if(!engaged)
+			{
+				destinationTarget.GetComponent<ObjectEngage>().FullEngageTable(this.gameObject);
+				engaged = true;
+				currentEngagedTarget = destinationTarget;
+			}
+		}
+		else if (destinationTarget.transform.parent.parent.gameObject.CompareTag("BlockItems"))
+		{
+			if(!engaged)
+			{
+				if(!destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().engageEnemiesList.Any(i=>i == this.gameObject))
+				{
+					destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().FullEngageTable(this.gameObject);
+					engaged = true;
+					currentEngagedTarget = destinationTarget;
+				}
+			}
+		}
+	}
+
+	private void ClearEngage()
+	{
+		engaged = false;
+	}
     #endregion
 
     #region Animation Functions
@@ -383,6 +411,8 @@ public class MinionAI : MonoBehaviour
 
 	private bool CheckIfTargetIsReached()
 	{
+		if(destinationTarget != null)
+		{
 		reachDistance = Vector3.Distance(this.transform.position, new Vector3(destinationTarget.transform.position.x, 0, destinationTarget.transform.position.z));
 
 			if(reachDistance <= navMeshAgent.stoppingDistance + minionReach)
@@ -393,6 +423,11 @@ public class MinionAI : MonoBehaviour
 			{
 				return false;
 			}
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	private void CheckIfRoomTargetIsLocked()
@@ -424,13 +459,16 @@ public class MinionAI : MonoBehaviour
         {
             if ((unitBlockItemTarget == null) || (unitBlockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == false))
             {
+				closeToBlockItem = false;
                 if ((unitTarget == null) || (unitTarget.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == false))
                 {
                     UnlockUnitTarget();
+					ClearEngage();
                     
                     ActivateDebug("No Unit");
                     if ((blockItemTarget == null) || (blockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == false))
                     {
+						closeToBlockItem = false;
                         ActivateDebug("No BlockItem");
 
                         if (roomTarget == null)
@@ -454,6 +492,7 @@ public class MinionAI : MonoBehaviour
                 {
                     ActivateDebug("Unit Found");
                     SelectUnitTarget();
+					closeToBlockItem = false;
                 }
             }
             else
@@ -635,17 +674,24 @@ public class MinionAI : MonoBehaviour
 	{
 		if ((blockItemTarget) && (blockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == true))
 		{
-			if (CheckIfItemIsReachable(destinationTarget))
+			if(!blockItemTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged)
 			{
-				ActivateDebug(destinationTarget + "is Reachable");
-				state = MinionState.Action;
-				ActivateDebug("Move to the BlockItem");
+				if (CheckIfItemIsReachable(destinationTarget))
+				{
+					ActivateDebug(destinationTarget + "is Reachable");
+					state = MinionState.Action;
+					ActivateDebug("Move to the BlockItem");
+				}
+				else
+				{
+					FindBlockItem();
+					ActivateDebug("Found Block of the Block Item");
+					state = MinionState.SelectTarget;
+				}
 			}
 			else
 			{
-				FindBlockItem();
-				ActivateDebug("Found Block of the Block Item");
-				state = MinionState.SelectTarget;
+				state = MinionState.Action;
 			}
 		}
 		else
@@ -697,12 +743,29 @@ public class MinionAI : MonoBehaviour
 				{
 					actionState = ActionState.Idle;
 				}
+				else
+				{
+					if (destinationTarget.CompareTag("BlockItemPoints"))
+					{
+						if((destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged) && (closeToBlockItem))
+						{
+							actionState = ActionState.Idle;
+						}
+					}
+				}
 				break;
 
 			case ActionState.Idle:
 				if (!CheckIfTargetIsReached())			
 				{
 					actionState = ActionState.Move;
+					if (destinationTarget.CompareTag("BlockItemPoints"))
+					{
+						if((destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged) && (closeToBlockItem))
+						{
+							actionState = ActionState.Idle;
+						}
+					}
 				}
 				else
 				{
@@ -739,7 +802,9 @@ public class MinionAI : MonoBehaviour
 	private void ActionMoveToTarget()
 	{
 			navMeshAgent.isStopped = false;	//restart moving
-			saveActionState = actionState;
+			//SetWalkTrigger();
+			//saveActionState = actionState;
+	
 	        if (destinationTarget != saveDestinationTarget)
 			{
 				navMeshAgent.SetDestination(destinationTarget.transform.position);
@@ -757,9 +822,25 @@ public class MinionAI : MonoBehaviour
 		}
 		else
 		{
-			attacking = false;
-			CancelInvoke("SetAttackTrigger");
-			SetWalkTrigger();
+			if (destinationTarget != null)
+			{
+				if (destinationTarget.CompareTag("BlockItemPoints"))
+				{
+					if((destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged) && (closeToBlockItem))
+					{
+						navMeshAgent.isStopped = true;
+						SetIdleTrigger();
+						saveActionState = actionState;
+					}
+				}
+				else
+				{
+					attacking = false;
+					CancelInvoke("SetAttackTrigger");
+					SetWalkTrigger();
+					saveActionState = actionState;
+				}
+			}
 		}
 	}
 
@@ -789,6 +870,7 @@ public class MinionAI : MonoBehaviour
 				ActivateDebug("Reach RTSUnit");
 				AttackRTSUnit();
 			}
+			state = MinionState.SelectTarget;
 		}	
 		/*
 		switch(destinationTarget.tag)
@@ -849,7 +931,8 @@ public class MinionAI : MonoBehaviour
 		if (CheckIfTargetIsReached())
 		{
 			ActivateDebug("Finaly Reached Block Item Target");
-			FaceTarget();
+			//FaceTarget();
+			SetEngageList();
 
 			if (attacking == false)
 			{
@@ -876,6 +959,7 @@ public class MinionAI : MonoBehaviour
 			ActivateDebug("Finaly Reached RTSUnit");
 			FaceTarget();
 			lockedOnUnit = true;
+			SetEngageList();
 
 			if (attacking == false)
 			{
