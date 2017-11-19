@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3160c0aff7a2b174fa70d3d4e1905570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalEngagePoints: 0
+  totalEngagePoints: 4
   engageEnemiesList: []
   fullEngaged: 0
 --- !u!114 &114531092699054560
