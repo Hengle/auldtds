@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 54398960521948474}
   - component: {fileID: 114531092699054560}
   - component: {fileID: 114044970938544912}
+  - component: {fileID: 114500120647798048}
   m_Layer: 0
   m_Name: DoubleDoors
   m_TagString: BlockItems
@@ -123,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1107903531747486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.363632, y: 0.29064178, z: -5.927}
+  m_LocalPosition: {x: -52.411407, y: 0, z: -4.512}
   m_LocalScale: {x: 1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 4406415099432424}
@@ -404,6 +405,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textYOffset: 3
+--- !u!114 &114500120647798048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1107903531747486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3160c0aff7a2b174fa70d3d4e1905570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalEngagePoints: 0
+  engageEnemiesList: []
+  fullEngaged: 0
 --- !u!114 &114531092699054560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,7 +435,7 @@ MonoBehaviour:
     unitClass: 0
     unitIsAlive: 1
     unitCost: 30
-    unitCostMithril: 3
+    unitCostMithril: 10
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 0
@@ -442,12 +457,12 @@ MonoBehaviour:
     unitCritMultiplier: 0
     unitArmor: 0
     unitBaseAC: 0
-    unitHealthPoints: 100
-    unitTotalHealthPoints: 100
+    unitHealthPoints: 50
+    unitTotalHealthPoints: 50
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
-    unitEnemyEngagePoints: 0
+    unitEnemyEngagePoints: 2
   savedPlacement: {fileID: 0}
 --- !u!208 &208944739564973358
 NavMeshObstacle:
