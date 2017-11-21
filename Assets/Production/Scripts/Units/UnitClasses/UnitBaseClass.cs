@@ -48,6 +48,6 @@ public class UnitBaseClass
     public int unitHealthRegen;
 
 	public int unitEnemyEngagePoints;
-
+	public float unitSpeed;
 
 }

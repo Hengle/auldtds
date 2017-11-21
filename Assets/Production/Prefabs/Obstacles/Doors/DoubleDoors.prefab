@@ -463,6 +463,7 @@ MonoBehaviour:
     unitManaRegen: 0
     unitHealthRegen: 0
     unitEnemyEngagePoints: 2
+    unitSpeed: 0
   savedPlacement: {fileID: 0}
 --- !u!208 &208944739564973358
 NavMeshObstacle:

@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 136848415558883400}
   - component: {fileID: 114811876145511678}
   - component: {fileID: 114868808131201374}
+  - component: {fileID: 114441272129368298}
   m_Layer: 15
   m_Name: RTS_Static_Unit_Footman
   m_TagString: RTSUnit
@@ -757,7 +758,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310981355891518}
   m_LocalRotation: {x: -0, y: -0.47672662, z: -0, w: 0.8790517}
-  m_LocalPosition: {x: -48.76, y: 0, z: -7.795703}
+  m_LocalPosition: {x: -51.74, y: 0, z: -7.068592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4202828104484068}
@@ -1138,7 +1139,21 @@ MonoBehaviour:
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
-    unitEnemyEngage: 4
+    unitEnemyEngagePoints: 2
+--- !u!114 &114441272129368298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310981355891518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3160c0aff7a2b174fa70d3d4e1905570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalEngagePoints: 0
+  engageEnemiesList: []
+  fullEngaged: 0
 --- !u!114 &114600561552515748
 MonoBehaviour:
   m_ObjectHideFlags: 1

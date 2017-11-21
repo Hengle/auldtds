@@ -227,3 +227,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2fdbcf6f69b8f498e28d5e56f36f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonAvailablePlacementMaterial: []
+  bodyOfItem: []

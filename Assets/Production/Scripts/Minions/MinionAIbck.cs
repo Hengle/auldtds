@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 
-public class MinionAI : MonoBehaviour
+public class MinionAIbck : MonoBehaviour
 {
 
 	#region Classes
@@ -41,8 +41,8 @@ public class MinionAI : MonoBehaviour
 	[SerializeField]
 	private float reachDistance;
 	public GameObject unitTarget;
-    
-    public bool lockedOnUnit;
+
+	public bool lockedOnUnit;
 
 	[Header("Radars")]
 	public GameObject roomTarget;
@@ -54,7 +54,7 @@ public class MinionAI : MonoBehaviour
 	[Header("NavMesh")]
 	private NavMeshAgent navMeshAgent;
 	private NavMeshPath navMeshPath;
-	private float minionVelocity;
+	private float minionMovingSpeed;
 
 	[Header("MinionAttributes")]
 	private UnitAttributes unitAttributes;
@@ -73,8 +73,8 @@ public class MinionAI : MonoBehaviour
 
 	[Header("Animations")]
 	private bool dieOnce;
-    private Animator animator;
-    private MinionDoDamage minionAttack;
+	private Animator animator;
+	private MinionDoDamage minionAttack;
 
 	[Header("Positioning")]
 	[SerializeField]
@@ -92,26 +92,27 @@ public class MinionAI : MonoBehaviour
 	private int minionTreasureCurry;
 	private bool isMinionLooting;
 
-    [Header("Animation Flags")]
-    [SerializeField]
-    private bool attacking = false;
+	[Header("Animation Flags")]
+	[SerializeField]
+	private bool attacking = false;
 	[SerializeField]
 	private bool removeMinion = false;
 	private bool reachedRoomOrTreasure = false;
- 
+
 	[Header("EngageFlags")]
 	public bool engaged = false;
 	[SerializeField]
 	private GameObject currentEngagedTarget;
 	#endregion
-    #region System Functions
-    void Awake()
+	#region System Functions
+	void Awake()
 	{
-        animator = gameObject.GetComponent<Animator>();
-        minionAttack = this.GetComponent<MinionDoDamage>();
+		animator = gameObject.GetComponent<Animator>();
+		minionAttack = this.GetComponent<MinionDoDamage>();
 		SetNavMeshAgent();
 		SetMinionAttributes();
 		finalTarget = GameObject.Find("Treasure");
+		minionMovingSpeed = navMeshAgent.speed;
 	}
 
 	// Use this for initialization
@@ -123,7 +124,7 @@ public class MinionAI : MonoBehaviour
 		isMinionLooting = false;
 		dieOnce = true;
 		saveDestinationTarget = null;
-        lockedOnUnit = false;
+		lockedOnUnit = false;
 	}
 
 	// Update is called once per frame
@@ -139,7 +140,7 @@ public class MinionAI : MonoBehaviour
 		navMeshAgent = this.GetComponent<NavMeshAgent>();
 		navMeshPath = new NavMeshPath();
 	}
-		
+
 	private void SetMinionAttributes()
 	{
 		unitAttributes = this.GetComponent<UnitAttributes>();
@@ -152,21 +153,13 @@ public class MinionAI : MonoBehaviour
 			Debug.Log(comment);
 		}
 	}
-    
+
 	private void FaceTarget()
 	{
-		if(destinationTarget.CompareTag("RTSUnit"))
-		{
 		Vector3 relativePos = destinationTarget.transform.position - this.transform.position;
 		Quaternion minionRotation = Quaternion.LookRotation(relativePos);
 		this.transform.rotation = minionRotation;
-		}
 	} 
-
-	private void KillMinion()
-	{
-		Destroy(this.gameObject);
-	}
 
 	private bool CheckIfMinionIsAlive()
 	{
@@ -184,40 +177,41 @@ public class MinionAI : MonoBehaviour
 	{
 		if (dieOnce == true)
 		{
-            unitAttributes.unitBaseAttributes.unitIsAlive = false;
-            AwardMinionXP();
-            AwardGold();
-            AwardKill();
-            GameObject lootManager = GameObject.Find("LootManager");
-            LootTableClass lootTable = lootManager.GetComponent<LootTableClass>();
-            lootTable.CalculateLoot(this.transform.position);
-            dieOnce = false;
+			unitAttributes.unitBaseAttributes.unitIsAlive = false;
+			SetDeathTrigger();
+			AwardMinionXP();
+			AwardGold();
+			AwardKill();
+			GameObject lootManager = GameObject.Find("LootManager");
+			LootTableClass lootTable = lootManager.GetComponent<LootTableClass>();
+			lootTable.CalculateLoot(this.transform.position);
+			dieOnce = false;
 			navMeshAgent.enabled = false;
-			SetDeathAnimation();
-        }
+			Invoke("DestroyOnDeath", unitAttributes.unitBaseAttributes.unitDespawnTime);
+		}
 	}
 
-    public void AwardMinionXP()
-    {
-        GameObject xpManagerObject = GameObject.Find("XPBarManager");
-        XPMan xpMan = xpManagerObject.GetComponent<XPMan>();
-        xpMan.AwardXP(this.GetComponent<UnitAttributes>().unitBaseAttributes.unitEXPValue);
-    }
+	public void AwardMinionXP()
+	{
+		GameObject xpManagerObject = GameObject.Find("XPBarManager");
+		XPMan xpMan = xpManagerObject.GetComponent<XPMan>();
+		xpMan.AwardXP(this.GetComponent<UnitAttributes>().unitBaseAttributes.unitEXPValue);
+	}
 
-    private void AwardGold()
-    {
-        GameMainManager.Instance._treasureGold += this.GetComponent<UnitAttributes>().unitBaseAttributes.unitTreasureFactor;
-    }
+	private void AwardGold()
+	{
+		GameMainManager.Instance._treasureGold += this.GetComponent<UnitAttributes>().unitBaseAttributes.unitTreasureFactor;
+	}
 
-    private void AwardKill()
-    {
-        GameMainManager.Instance._minionsKilled += 1;
-    }
+	private void AwardKill()
+	{
+		GameMainManager.Instance._minionsKilled += 1;
+	}
 
-    private void DestroyOnDeath()
-    {
-        Destroy(gameObject);
-    }
+	private void DestroyOnDeath()
+	{
+		Destroy(gameObject);
+	}
 
 	private void CheckIfSpaceToEngage()
 	{
@@ -256,33 +250,62 @@ public class MinionAI : MonoBehaviour
 	{
 		engaged = false;
 	}
-    #endregion
+	#endregion
 
-    #region Animation Functions
-	private void SetMoveAnimation()
+	#region Animation Functions
+	private void SetWalkTrigger()
 	{
-		minionVelocity = navMeshAgent.velocity.magnitude;
-		animator.SetFloat("MinionVelocity", minionVelocity);
+		if (CheckIfActionHasChanged())
+		{
+			animator.SetTrigger("WalkTrigger");
+		}
 	}
 
-	private void SetAttackAnimation()
+	private void SetIdleTrigger()
 	{
-		animator.SetTrigger("SwordShieldAttack1Trigger");
+		if (CheckIfActionHasChanged())
+		{
+			animator.SetTrigger("IdleTrigger");
+		}
 	}
-	    
-	private void SetDeathAnimation()
+
+	private void SetAttackTrigger()
+	{
+		int attackType = Random.Range(1, 3);
+		switch (attackType)
+		{
+		case 1:
+			animator.SetTrigger("AttackTrigger");
+			break;
+
+		case 2:
+			animator.SetTrigger("Attack3Trigger");
+			break;
+		}
+	}
+
+	private void SetDeathTrigger()
 	{
 		animator.SetTrigger("DeathTrigger");
 	}
 
-	private void SetLootAnimation()
+	private void SetLootTrigger()
 	{
-		animator.SetTrigger("PickUpTrigger");
+		if(removeMinion == true)
+		{
+			animator.SetTrigger("LootTrigger");
+			removeMinion = false;
+		}
 	}
-    #endregion
 
-    #region Structure Functions
-    private void CheckStates()
+	private void MinionRemove()
+	{
+		Destroy(this.gameObject);
+	}
+	#endregion
+
+	#region Structure Functions
+	private void CheckStates()
 	{
 		if (state == MinionState.SelectTarget)
 		{
@@ -297,6 +320,22 @@ public class MinionAI : MonoBehaviour
 		else if (state == MinionState.Action)
 		{
 			ActionDecision();
+
+			switch(actionState)
+			{
+			case ActionState.Move:
+				ActionMoveToTarget();
+				state = MinionState.SelectTarget;
+				break;
+			case ActionState.Idle:
+				ActionIdle();
+				state = MinionState.SelectTarget;
+				break;
+			case ActionState.AttackTarget:
+				ActionAttackTarget();
+				state = MinionState.SelectTarget;
+				break;
+			}
 		}
 	}
 
@@ -374,7 +413,7 @@ public class MinionAI : MonoBehaviour
 	{
 		if(destinationTarget != null)
 		{
-		reachDistance = Vector3.Distance(this.transform.position, new Vector3(destinationTarget.transform.position.x, 0, destinationTarget.transform.position.z));
+			reachDistance = Vector3.Distance(this.transform.position, new Vector3(destinationTarget.transform.position.x, 0, destinationTarget.transform.position.z));
 
 			if(reachDistance <= navMeshAgent.stoppingDistance + minionReach)
 			{
@@ -407,65 +446,65 @@ public class MinionAI : MonoBehaviour
 		}
 	}
 
-    private void UnlockUnitTarget()
-    {
-        lockedOnUnit = false;
-    }
+	private void UnlockUnitTarget()
+	{
+		lockedOnUnit = false;
+	}
 	#endregion
 
 	#region SelectTarget Functions
 	private void SelectTarget()
 	{
-        if (CheckIfMinionIsAlive())
-        {
-            if ((unitBlockItemTarget == null) || (unitBlockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == false))
-            {
+		if (CheckIfMinionIsAlive())
+		{
+			if ((unitBlockItemTarget == null) || (unitBlockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == false))
+			{
 				closeToBlockItem = false;
-                if ((unitTarget == null) || (unitTarget.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == false))
-                {
-                    UnlockUnitTarget();
+				if ((unitTarget == null) || (unitTarget.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == false))
+				{
+					UnlockUnitTarget();
 					ClearEngage();
-                    
-                    ActivateDebug("No Unit");
-                    if ((blockItemTarget == null) || (blockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == false))
-                    {
-						closeToBlockItem = false;
-                        ActivateDebug("No BlockItem");
 
-                        if (roomTarget == null)
-                        {
-                            ActivateDebug("No Room");
-                            SelectFinalTarget();
-                        }
-                        else
-                        {
-                            ActivateDebug("Room Found");
-                            SelectRoomTarget();
-                        }
-                    }
-                    else
-                    {
-                        ActivateDebug("BlockItem Found");
-                        SelectBlockItemTarget();
-                    }
-                }
-                else
-                {
-                    ActivateDebug("Unit Found");
-                    SelectUnitTarget();
+					ActivateDebug("No Unit");
+					if ((blockItemTarget == null) || (blockItemTarget.transform.parent.parent.gameObject.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitIsAlive == false))
+					{
+						closeToBlockItem = false;
+						ActivateDebug("No BlockItem");
+
+						if (roomTarget == null)
+						{
+							ActivateDebug("No Room");
+							SelectFinalTarget();
+						}
+						else
+						{
+							ActivateDebug("Room Found");
+							SelectRoomTarget();
+						}
+					}
+					else
+					{
+						ActivateDebug("BlockItem Found");
+						SelectBlockItemTarget();
+					}
+				}
+				else
+				{
+					ActivateDebug("Unit Found");
+					SelectUnitTarget();
 					closeToBlockItem = false;
-                }
-            }
-            else
-            {
-                ActivateDebug("UnitBlockItem Found");
-                SelectUnitBlockItemTarget();
-            }
-        }
-        else
-        {
-            MinionDeath();
-        }
+				}
+			}
+			else
+			{
+				ActivateDebug("UnitBlockItem Found");
+				SelectUnitBlockItemTarget();
+			}
+		}
+		else
+		{
+			MinionDeath();
+		}
 	}
 
 	private void SelectFinalTarget()
@@ -558,8 +597,8 @@ public class MinionAI : MonoBehaviour
 
 	private void SelectUnitTarget()
 	{
-            destinationTarget = unitTarget;
-            state = MinionState.CheckTarget;
+		destinationTarget = unitTarget;
+		state = MinionState.CheckTarget;
 
 	}
 
@@ -669,7 +708,7 @@ public class MinionAI : MonoBehaviour
 		if ((unitTarget) && (unitTarget.GetComponent<UnitAttributes>().unitBaseAttributes.unitIsAlive == true))
 		{
 
-            if (CheckIfItemIsReachable(destinationTarget))
+			if (CheckIfItemIsReachable(destinationTarget))
 			{
 				ActivateDebug(destinationTarget + "is Reachable");
 				state = MinionState.Action;
@@ -685,7 +724,7 @@ public class MinionAI : MonoBehaviour
 		}
 		else
 		{
-            destinationTarget = roomTarget;
+			destinationTarget = roomTarget;
 			state = MinionState.SelectTarget;
 			ActivateDebug("RTSUnit Destroyed");
 		}
@@ -697,32 +736,50 @@ public class MinionAI : MonoBehaviour
 	{
 		if(destinationTarget != null)
 		{
-			if(CheckIfTargetIsReached())
+			switch(actionState)
 			{
-				navMeshAgent.speed = 0.0f;
-
-				switch(destinationTarget.tag)
+			case ActionState.Move:
+				if (CheckIfTargetIsReached())			
 				{
-				case "FinalTreasure":
-					ActionReachFinalTarget();
-					break;
-				case "RoomArea":
-					ActionReachRoomTarget();
-					break;
-				case "BlockItemPoints":
-					ActionAttackBlockItem();
-					break;
-				case "RTSUnit":
-					ActionAttackRTSUnit();
-					break;
+					actionState = ActionState.Idle;
 				}
+				else
+				{
+					if (destinationTarget.CompareTag("BlockItemPoints"))
+					{
+						if((destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged) && (closeToBlockItem))
+						{
+							actionState = ActionState.Idle;
+						}
+					}
+				}
+				break;
+
+			case ActionState.Idle:
+				if (!CheckIfTargetIsReached())			
+				{
+					actionState = ActionState.Move;
+					if (destinationTarget.CompareTag("BlockItemPoints"))
+					{
+						if((destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged) && (closeToBlockItem))
+						{
+							actionState = ActionState.Idle;
+						}
+					}
+				}
+				else
+				{
+					actionState = ActionState.AttackTarget;
+				}
+				break;
+
+			case ActionState.AttackTarget:
+				if (!CheckIfTargetIsReached())			
+				{
+					actionState = ActionState.Idle;
+				}
+				break;	
 			}
-			else 
-			{
-				KeepMoving();
-			}
-			ActionMoveToTarget();
-			SetMoveAnimation();
 		}
 		else
 		{
@@ -730,68 +787,197 @@ public class MinionAI : MonoBehaviour
 		}
 	}
 
+	private bool CheckIfActionHasChanged()
+	{
+		if (saveActionState == actionState)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
 	private void ActionMoveToTarget()
 	{
-		navMeshAgent.SetDestination(destinationTarget.transform.position);
-	}
+		navMeshAgent.isStopped = false;	//restart moving
+		//SetWalkTrigger();
+		//saveActionState = actionState;
 
-	private void ActionAttackRTSUnit()
-	{
-		lockedOnUnit = true;
-		FaceTarget();
-		SetEngageList();
-		if(!attacking)
+		if (destinationTarget != saveDestinationTarget)
 		{
-			InvokeRepeating("SetAttackAnimation", 0, unitAttributes.unitBaseAttributes.unitCDScore);	
-			attacking = true;
-		}
-		state = MinionState.SelectTarget;
-	}
-
-	private void ActionAttackBlockItem()
-	{
-		FaceTarget();
-		SetEngageList();
-		if(!attacking)
-		{
-			InvokeRepeating("SetAttackAnimation", 0, unitAttributes.unitBaseAttributes.unitCDScore);	
-			attacking = true;
-		}
-		state = MinionState.SelectTarget;
-	}
-
-	private void ActionIdleFullEngagedClose()
-	{
-		if((destinationTarget.CompareTag("BlockItemPoints")) && (destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged) && (closeToBlockItem))
-		{
-			navMeshAgent.speed = 0.0f;
+			navMeshAgent.SetDestination(destinationTarget.transform.position);
+			saveDestinationTarget = destinationTarget;
 		}
 	}
 
-	private void KeepMoving()
+	private void ActionIdle()
 	{
-		navMeshAgent.speed = this.GetComponent<UnitAttributes>().unitBaseAttributes.unitSpeed;
-		CancelInvoke("SetAttackAnimation");
-		attacking = false;
-		ActionIdleFullEngagedClose();
-		state = MinionState.SelectTarget;
+		if (CheckIfTargetIsReached())
+		{
+			navMeshAgent.isStopped = true;
+			SetIdleTrigger();
+			saveActionState = actionState;
+		}
+		else
+		{
+			if (destinationTarget != null)
+			{
+				if (destinationTarget.CompareTag("BlockItemPoints"))
+				{
+					if((destinationTarget.transform.parent.parent.gameObject.GetComponent<ObjectEngage>().fullEngaged) && (closeToBlockItem))
+					{
+						navMeshAgent.isStopped = true;
+						SetIdleTrigger();
+						saveActionState = actionState;
+					}
+				}
+				else
+				{
+					attacking = false;
+					CancelInvoke("SetAttackTrigger");
+					SetWalkTrigger();
+					saveActionState = actionState;
+				}
+			}
+		}
 	}
 
-	private void ActionReachRoomTarget()
+	#region AttackTarget Functions
+	private void ActionAttackTarget()
 	{
-		navMeshAgent.speed = 0f;
-		destinationTarget.GetComponent<RoomEntityIdentifier>().roomTreasureScore -= minionTreasureCurry;
-		if(!isMinionLooting)
+		saveActionState = actionState;
+		if(destinationTarget != null)
 		{
-			SetLootAnimation();
+			if (destinationTarget.CompareTag("FinalTreasure"))
+			{
+				ActivateDebug("Reach Final Target");
+				ReachFinalTarget();
+			}
+			else if (destinationTarget.CompareTag("RoomArea"))
+			{
+				ActivateDebug("Reach Room Target");
+				ReachRoomTarget();
+			}
+			else if (destinationTarget.CompareTag("BlockItemPoints"))
+			{
+				ActivateDebug("Reach Block Item");
+				AttackBlockItemTarget();
+			}
+			else if (destinationTarget.CompareTag("RTSUnit"))
+			{
+				ActivateDebug("Reach RTSUnit");
+				AttackRTSUnit();
+			}
+			state = MinionState.SelectTarget;
+		}	
+		/*
+		switch(destinationTarget.tag)
+		{
+		case "FinalTreasure":
+			ReachFinalTarget();
+			break;
+		case "RoomArea":
+			ReachRoomTarget();
+			break;
+		case "BlockItemPoints":
+			ReachBlockItemTarget();
+			break;
+		case "RTSUnit":
+			AttackRTSUnit();
+			break;
+		}*/
+	}
+
+	private void ReachFinalTarget()
+	{
+		if (reachedRoomOrTreasure == false)
+		{
+			ActivateDebug("Finaly Reached Final Target");
+			FaceTarget();
+			if (!isMinionLooting)
+			{
+				destinationTarget.GetComponent<RoomEntityIdentifier>().roomTreasureScore -= minionTreasureCurry;
+			}
+			reachedRoomOrTreasure = true;
+			removeMinion = true;
+
+			SetLootTrigger();
 			isMinionLooting = true;
 		}
 	}
 
-	private void ActionReachFinalTarget()
+	private void ReachRoomTarget()
 	{
-		//GameOver?
+		if (reachedRoomOrTreasure == false)
+		{
+			ActivateDebug("Finaly Reached Room Target");
+			FaceTarget();
+			if (!isMinionLooting)
+			{
+				destinationTarget.GetComponent<RoomEntityIdentifier>().roomTreasureScore -= minionTreasureCurry;
+			}
+			reachedRoomOrTreasure = true;
+			removeMinion = true;
 
+			SetLootTrigger();
+			isMinionLooting = true;
+		}
 	}
+
+	private void AttackBlockItemTarget()
+	{
+		if (CheckIfTargetIsReached())
+		{
+			ActivateDebug("Finaly Reached Block Item Target");
+			//FaceTarget();
+			//SetEngageList();
+
+			if (attacking == false)
+			{
+				InvokeRepeating("SetAttackTrigger", 0, unitAttributes.unitBaseAttributes.unitCDScore);
+				attacking = true;
+			}
+
+			if (destinationTarget != saveDestinationTarget)
+			{
+				saveDestinationTarget = destinationTarget;
+			}
+		}
+		else
+		{
+			attacking = false;
+			CancelInvoke("SetAttackTrigger");
+		}
+	}
+
+	private void AttackRTSUnit()
+	{
+		if (CheckIfTargetIsReached())
+		{
+			ActivateDebug("Finaly Reached RTSUnit");
+			FaceTarget();
+			lockedOnUnit = true;
+			//SetEngageList();
+
+			if (attacking == false)
+			{
+				InvokeRepeating("SetAttackTrigger", 0, unitAttributes.unitBaseAttributes.unitCDScore);
+				attacking = true;
+			}
+
+			if (destinationTarget != saveDestinationTarget)
+			{
+				saveDestinationTarget = destinationTarget;
+			}	
+		}
+		else
+		{
+			attacking = false;
+			CancelInvoke("SetAttackTrigger");
+		}
+	}
+	#endregion
 	#endregion
 }
