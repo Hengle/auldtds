@@ -10,6 +10,7 @@ public class BuffAbility : Buff
     public BuffElement buffElement;
     public float buffAmount;
     public float buffDuration;
+    //public bool isPassive;
 
     private UnitAttributes unitAttributes;
 
