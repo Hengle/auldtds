@@ -16,6 +16,8 @@ public class TalentAttributes : MonoBehaviour, IPointerClickHandler, IPointerEnt
     [SerializeField]
     [Multiline]
     private string talentDescription;
+    [SerializeField]
+    private bool isPassive;
     
     public Buff[] buffObject;
 
