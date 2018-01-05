@@ -97,7 +97,7 @@ public class RoomEntityIdentifier : MonoBehaviour
             {
                 gameObjectsInRoom.Add(other.gameObject);
                 UnitAttributes basicUnitAttributes = other.gameObject.GetComponent<UnitAttributes>();
-                roomThreatScore += basicUnitAttributes.unitBaseAttributes.unitThreatFactor;
+//UPFRADE                roomThreatScore += basicUnitAttributes.unitBaseAttributes.unitThreatFactor;
                 //Debug.Log("GO added in the List as " + other.gameObject.name + " score:" + basicItemValues.itemStats.itemTreasureFactor);
 
             }
@@ -112,7 +112,7 @@ public class RoomEntityIdentifier : MonoBehaviour
             {
                 gameObjectsInRoom.Remove(other.gameObject);
                 BasicItem basicItemValues = other.gameObject.GetComponent<BasicItem>();
-                roomTreasureScore -= basicItemValues.itemStats.itemTreasureFactor;
+//UPGRADE                roomTreasureScore -= basicItemValues.itemStats.itemTreasureFactor;
                 //Debug.Log("GO Removed from the List as " + other.gameObject.name + " score:" + basicItemValues.itemStats.itemThreatFactor);
             }
         }
@@ -124,7 +124,7 @@ public class RoomEntityIdentifier : MonoBehaviour
             {
                 gameObjectsInRoom.Remove(other.gameObject);
                 UnitAttributes basicUnitAttributes = other.gameObject.GetComponent<UnitAttributes>();
-                roomThreatScore -= basicUnitAttributes.unitBaseAttributes.unitThreatFactor;
+//UPGRADE                roomThreatScore -= basicUnitAttributes.unitBaseAttributes.unitThreatFactor;
                 //Debug.Log("GO added in the List as " + other.gameObject.name + " score:" + basicItemValues.itemStats.itemTreasureFactor);
 
             }

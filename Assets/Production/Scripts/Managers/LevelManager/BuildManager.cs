@@ -90,9 +90,9 @@ public class BuildManager : MonoBehaviour {
 					{
 						buttonManagerScr.destroyMouseTip = true;
 						lastPlacedItem = Instantiate(buttonManagerScr.selectedButtonData.item, itemPlacement.transform.position, itemPlacement.transform.rotation);
-						GameMainManager.Instance._treasureGold -= lastPlacedItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
-						GameMainManager.Instance._treasureMithril -= lastPlacedItem.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCostMithril;
-						lastPlacedItem.GetComponent<BlockItemsAttributes>().savedPlacement = itemPlacement;
+						GameMainManager.Instance._treasureGold -= lastPlacedItem.GetComponent<BlockItem.StateController>().blockItemStats.coinCost;
+						GameMainManager.Instance._treasureMithril -= lastPlacedItem.GetComponent<BlockItem.StateController>().blockItemStats.mithrilCost;
+						lastPlacedItem.GetComponent<BlockItem.StateController>().savedPlacement = itemPlacement;
 						itemPlacement.SetActive(false);
 						if (lastPlacedItem.tag == "BlockItems")
 						{

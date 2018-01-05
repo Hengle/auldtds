@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438d40c41cdd9c34f8709345f8272c9f, type: 3}
+  m_Name: DoubleDoor
+  m_EditorClassIdentifier: 
+  name: DoubleDoor
+  mouseTip: {fileID: 1107903531747486, guid: f2598996ac33fdc4dac5b449ffdb8ebd, type: 2}
+  isAlive: 1
+  currentHealth: 50
+  totalHealth: 50
+  baseArmor: 10
+  unitArmor: 0
+  totalEngagedEnemies: 2
+  isForSpecificLayer: 1
+  whereToSpawnLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  placementTag: 1
+  coinCost: 50
+  mithrilCost: 0

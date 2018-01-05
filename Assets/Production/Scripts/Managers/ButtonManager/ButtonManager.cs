@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using BlockItem;
 
 [System.Serializable]
 public class ButtonDataClass
@@ -14,7 +15,7 @@ public class ButtonDataClass
 	[HideInInspector]
 	public LayerMask whereToSpawnItemLayer;
 	[HideInInspector]
-	public PlacementTags placementTag;
+	public PlacementTag placementTag;
 	[HideInInspector]
 	public bool isForSpecificPlacement;
 	[HideInInspector]
@@ -102,19 +103,19 @@ public class ButtonManager : MonoBehaviour
 			buttonData[i].itemTag = buttonData[i].item.tag;
 			if (buttonData[i].itemTag == "RTSUnit")
 			{
-				buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitSpawnLayer;
-				buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.isForSpecificPlacement;
-				buttonData[i].placementTag = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.placementTag;
-				buttonData[i].itemCost = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCost;
-				buttonData[i].itemCostMithril = buttonData[i].item.GetComponent<UnitAttributes>().unitBaseAttributes.unitCostMithril;
+				buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<PlayerUnit.StateController>().playerUnitStats.whereToSpawnLayer;
+				buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<PlayerUnit.StateController>().playerUnitStats.isForSpecificLayer;
+				buttonData[i].placementTag = buttonData[i].item.GetComponent<PlayerUnit.StateController>().playerUnitStats.placementTag;
+				buttonData[i].itemCost = buttonData[i].item.GetComponent<PlayerUnit.StateController>().playerUnitStats.coinCost;
+				buttonData[i].itemCostMithril = buttonData[i].item.GetComponent<PlayerUnit.StateController>().playerUnitStats.mithrilCost;
 			}
 			else if(buttonData[i].itemTag == "BlockItems")
 			{
-				buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitSpawnLayer;
-				buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.isForSpecificPlacement;
-				buttonData[i].placementTag = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.placementTag;
-				buttonData[i].itemCost = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCost;
-				buttonData[i].itemCostMithril = buttonData[i].item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.unitCostMithril;
+				buttonData[i].whereToSpawnItemLayer = buttonData[i].item.GetComponent<BlockItem.StateController>().blockItemStats.whereToSpawnLayer;
+				buttonData[i].isForSpecificPlacement = buttonData[i].item.GetComponent<BlockItem.StateController>().blockItemStats.isForSpecificLayer;
+				buttonData[i].placementTag = buttonData[i].item.GetComponent<BlockItem.StateController>().blockItemStats.placementTag;
+				buttonData[i].itemCost = buttonData[i].item.GetComponent<BlockItem.StateController>().blockItemStats.coinCost;
+				buttonData[i].itemCostMithril = buttonData[i].item.GetComponent<BlockItem.StateController>().blockItemStats.mithrilCost;
 			}
 		}
 
@@ -255,11 +256,11 @@ public class ButtonManager : MonoBehaviour
 		Destroy(selectedItem);
 		if (selectedButtonData.item.tag == "RTSUnit")
 		{
-			selectedItem = Instantiate(selectedButtonData.item.GetComponent<UnitAttributes>().unitBaseAttributes.mouseTipItem, transform.position, Quaternion.identity);
+			selectedItem = Instantiate(selectedButtonData.item.GetComponent<PlayerUnit.StateController>().playerUnitStats.mouseTip, transform.position, Quaternion.identity);
 		}
 		else if (selectedButtonData.item.tag == "BlockItems")
 		{
-			selectedItem = Instantiate(selectedButtonData.item.GetComponent<BlockItemsAttributes>().blockItemsAttributes.mouseTipItem, transform.position, Quaternion.identity);
+			selectedItem = Instantiate(selectedButtonData.item.GetComponent<BlockItem.StateController>().blockItemStats.mouseTip, transform.position, Quaternion.identity);
 		}
 		isItemSelected = true;
 	}

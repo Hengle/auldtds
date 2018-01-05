@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecac269b14991e94cbd3c7168ee991d7, type: 3}
+  m_Name: Goblin
+  m_EditorClassIdentifier: 
+  name: Goblin
+  enemyType: 0
+  isAlive: 1
+  currentHealth: 50
+  totalHealth: 50
+  moveSpeed: 2
+  attackSpeed: 3
+  attackRange: 2.5
+  minDamage: 1
+  maxDamage: 8
+  toHitScore: 5
+  critScore: 19
+  critMultiplier: 2
+  baseArmor: 10
+  unitArmor: 3
+  lootCapacity: 5
+  lookSphereCastRadius: 0.2
+  eyeSight: 5
+  AwardExp: 100
+  AwardGold: 10
+  lockedOnUnitDistance: 3
+  closeToFullEngagedBlockItem: 5

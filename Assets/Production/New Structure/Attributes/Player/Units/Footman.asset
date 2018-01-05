@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41097ae54f987e64481354bdc09e2c60, type: 3}
+  m_Name: Footman
+  m_EditorClassIdentifier: 
+  name: Footman
+  playerUnitType: 1
+  mouseTip: {fileID: 1310981355891518, guid: 7b73afa4f2cabea49af36a1b1ed5deb6, type: 2}
+  isAlive: 1
+  currentHealth: 50
+  totalHealth: 50
+  moveSpeed: 0
+  attackSpeed: 1
+  attackRange: 2.5
+  minDamage: 3
+  maxDamage: 8
+  toHitScore: 6
+  critScore: 18
+  critMultiplier: 2
+  baseArmor: 10
+  unitArmor: 5
+  totalEngagedEnemies: 4
+  isForSpecificLayer: 0
+  whereToSpawnLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  placementTag: 0
+  coinCost: 100
+  mithrilCost: 0
+  lookSphereCastRadius: 0.2
+  eyeSight: 5
+  lockedOnUnitDistance: 0

@@ -387,13 +387,20 @@ MonoBehaviour:
     unitID: 0
     unitClass: 5
     unitIsAlive: 1
-    unitPrefix: 
     unitCost: 30
+    unitCostMithril: 0
     unitLevel: 0
     heroUnit: 0
     unitThreatFactor: 0
     unitEXPValue: 0
     unitTreasureFactor: 0
+    unitDespawnTime: 0
+    unitSpawnLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    isForSpecificPlacement: 0
+    placementTag: 0
+    mouseTipItem: {fileID: 0}
     unitMinDamage: 0
     unitMaxDamage: 0
     unitCDScore: 0
@@ -401,11 +408,14 @@ MonoBehaviour:
     unitCritScore: 0
     unitCritMultiplier: 0
     unitArmor: 10
+    unitBaseAC: 0
     unitHealthPoints: 100
     unitTotalHealthPoints: 100
     unitManaPoints: 0
     unitManaRegen: 0
     unitHealthRegen: 0
+    unitEnemyEngagePoints: 0
+    unitSpeed: 0
   savedPlacement: {fileID: 0}
 --- !u!208 &208154225686288654
 NavMeshObstacle:

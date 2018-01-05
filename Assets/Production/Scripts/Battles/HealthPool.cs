@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Enemy;
+using PlayerUnit;
 
 public class HealthPool : MonoBehaviour
 {
@@ -27,15 +29,12 @@ public class HealthPool : MonoBehaviour
     {
         if (parentObject.gameObject.tag == "Minion")
         {
-            //Debug.Log("Minion Detected " + this.name);
-            unitAttributes = parentObject.GetComponent<UnitAttributes>();
-            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
+			parentHealth = parentObject.GetComponent<Enemy.StateController>().enemyStats.currentHealth;
         }
         else if (parentObject.gameObject.tag == "RTSUnit")
         {
             //Debug.Log("Unit Detected " + this.name);
-            unitAttributes = parentObject.GetComponent<UnitAttributes>();
-            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
+			parentHealth = parentObject.GetComponent<PlayerUnit.StateController>().playerUnitStats.currentHealth;
         }
     }
 
@@ -43,16 +42,15 @@ public class HealthPool : MonoBehaviour
     {
         if (parentObject.gameObject.tag == "Minion")
         {
-            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
-            float healthCalculation = parentHealth / unitAttributes.unitBaseAttributes.unitTotalHealthPoints;
+			parentHealth = parentObject.GetComponent<Enemy.StateController>().enemyStats.currentHealth;
+			float healthCalculation = parentHealth / parentObject.GetComponent<Enemy.StateController>().enemyStats.totalHealth;
             this.GetComponent<Image>().fillAmount = healthCalculation;
         }
         else if (parentObject.gameObject.tag == "RTSUnit")
         {
-            parentHealth = unitAttributes.unitBaseAttributes.unitHealthPoints;
-            float healthCalculation = parentHealth / unitAttributes.unitBaseAttributes.unitTotalHealthPoints;
-            this.GetComponent<Image>().fillAmount = healthCalculation;
+			parentHealth = parentObject.GetComponent<PlayerUnit.StateController>().playerUnitStats.currentHealth;
+			float healthCalculation = parentHealth / parentObject.GetComponent<PlayerUnit.StateController>().playerUnitStats.totalHealth;
+			this.GetComponent<Image>().fillAmount = healthCalculation;
         }
-
     }
 }

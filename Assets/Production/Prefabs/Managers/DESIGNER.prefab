@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4788709594637072}
-  - component: {fileID: 114222924944032448}
+  - component: {fileID: 114650120179335290}
   m_Layer: 0
   m_Name: ButtonManager
   m_TagString: Untagged
@@ -716,7 +716,7 @@ MonoBehaviour:
   lootLayer:
     serializedVersion: 2
     m_Bits: 131072
---- !u!114 &114222924944032448
+--- !u!114 &114650120179335290
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -727,38 +727,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cbe588a0406e6419b445cb52352c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableCash: 0
-  allButtons:
+  buttonData:
+  - itemIndex: 1
+    item: {fileID: 1310981355891518, guid: 5d57a3884250f574ab9edacea4af2a95, type: 2}
+    itemTag: 
+    whereToSpawnItemLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    placementTag: 0
+    isForSpecificPlacement: 0
+    itemCost: 0
+    itemCostMithril: 0
+  - itemIndex: 2
+    item: {fileID: 1107903531747486, guid: d946bb36d8b6aa14f8b35dbfbbf68b1c, type: 2}
+    itemTag: 
+    whereToSpawnItemLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    placementTag: 0
+    isForSpecificPlacement: 0
+    itemCost: 0
+    itemCostMithril: 0
+  buttonSetting:
   - itemButton: {fileID: 0}
-    itemButtonIndex: 0
-    buttonCost: 0
-  selectedItemTag: 0
+    setItemIndex: 1
+    shortKey: f
+    btnCooldown: 4
+    btnCooldownTimer: 4
+    btnOnCooldown: 0
+    setButtonData:
+      itemIndex: 0
+      item: {fileID: 0}
+      itemTag: 
+      whereToSpawnItemLayer:
+        serializedVersion: 2
+        m_Bits: 0
+      placementTag: 0
+      isForSpecificPlacement: 0
+      itemCost: 0
+      itemCostMithril: 0
+  - itemButton: {fileID: 0}
+    setItemIndex: 2
+    shortKey: d
+    btnCooldown: 3
+    btnCooldownTimer: 3
+    btnOnCooldown: 0
+    setButtonData:
+      itemIndex: 0
+      item: {fileID: 0}
+      itemTag: 
+      whereToSpawnItemLayer:
+        serializedVersion: 2
+        m_Bits: 0
+      placementTag: 0
+      isForSpecificPlacement: 0
+      itemCost: 0
+      itemCostMithril: 0
+  - itemButton: {fileID: 0}
+    setItemIndex: 3
+    shortKey: c
+    btnCooldown: 12
+    btnCooldownTimer: 12
+    btnOnCooldown: 0
+    setButtonData:
+      itemIndex: 0
+      item: {fileID: 0}
+      itemTag: 
+      whereToSpawnItemLayer:
+        serializedVersion: 2
+        m_Bits: 0
+      placementTag: 0
+      isForSpecificPlacement: 0
+      itemCost: 0
+      itemCostMithril: 0
   selectedButtonData:
-    itemButtonIndex: 0
-    whereToSpawnLayers:
+    itemIndex: 0
+    item: {fileID: 0}
+    itemTag: 
+    whereToSpawnItemLayer:
       serializedVersion: 2
       m_Bits: 0
-    itemTags: 0
+    placementTag: 0
     isForSpecificPlacement: 0
-    selectedTipPrefab: {fileID: 0}
-    item: {fileID: 0}
-  selectedItemLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  setButtonData:
-  - itemButtonIndex: 0
-    whereToSpawnLayers:
-      serializedVersion: 2
-      m_Bits: 0
-    itemTags: 0
-    isForSpecificPlacement: 0
-    selectedTipPrefab: {fileID: 0}
-    item: {fileID: 0}
+    itemCost: 0
+    itemCostMithril: 0
+  selectedButtonShortKey: 
   destroyMouseTip: 0
   isItemSelected: 0
   trapMenuActive: 0
   trapMenu: {fileID: 0}
-  unitMenuActive: 0
+  unitMenuActive: 1
   unitMenu: {fileID: 0}
 --- !u!114 &114694071767225064
 MonoBehaviour:
@@ -774,12 +832,12 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 4596058918974936}
   - {fileID: 4816946757768034}
-  spawnMode: 1
+  spawnMode: 3
   initialWaitingTime: 10
   timeOfTheWave: 10
   rateBetweenMinions: 0.4
   enemiesWeightFactorList:
-  - Enemy: {fileID: 1477618140553118, guid: bcdb5c3a3a7f4224981697fdc2119801, type: 2}
+  - Enemy: {fileID: 1477618140553118, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
     EnemyWeightFactor: 1
   spawnCountWeightFactorList:
   - countWave: 1
