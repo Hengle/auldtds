@@ -14,7 +14,8 @@ public class IsRoomTargetDecision : EnemyDecision
 	private bool CheckRoomTarget(Enemy.StateController controller)
 	{
 
-		if(controller.roomTarget && !controller.unitTarget)
+		//if(controller.roomTarget && !controller.unitTarget)
+		if(controller.roomTarget)
 		{
 			return true;
 		}

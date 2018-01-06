@@ -26,7 +26,7 @@ MonoBehaviour:
   critMultiplier: 2
   baseArmor: 10
   unitArmor: 3
-  lootCapacity: 5
+  lootCapacity: 20
   lookSphereCastRadius: 0.2
   eyeSight: 5
   AwardExp: 100

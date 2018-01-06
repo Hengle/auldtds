@@ -216,6 +216,7 @@ namespace PlayerUnit
 		public void StopBasicAttack()
 		{
 			CancelInvoke("BasicAttack");
+			attacking = false;
 		}
 
 		public void DoBasicDamage()

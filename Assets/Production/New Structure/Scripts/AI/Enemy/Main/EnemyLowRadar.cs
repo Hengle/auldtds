@@ -78,6 +78,7 @@ public class EnemyLowRadar : MonoBehaviour
 	private void SortUnitList()
 	{
 		unitesInRadarList.RemoveAll(GameObject => GameObject == null);
+		unitesInRadarList.RemoveAll(GameObject => GameObject.GetComponent<PlayerUnit.StateController>().playerUnitStats.currentHealth <= 0);
 		unitesInRadarList.RemoveAll(GameObject => GameObject.GetComponent<PlayerUnit.StateController>().fullEngaged == true);
 		unitesInRadarList = unitesInRadarList.OrderBy(x=>Vector3.Distance(this.transform.position, x.transform.position)).ToList();
 	}
@@ -97,7 +98,7 @@ public class EnemyLowRadar : MonoBehaviour
 		
 	private void AssignUnitTarget()
 	{
-		if (!controller.lockedUnitTarget)
+		if ((!controller.lockedUnitTarget) || controller.lockedUnitTarget.GetComponent<PlayerUnit.StateController>().playerUnitStats.currentHealth <= 0)
 		{
 			SortUnitList();
 			if (unitesInRadarList.Count != 0)

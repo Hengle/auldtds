@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "AI/Decisions/Enemy/isRoomOrUnitTargetChanged")]
-public class IsRoomOrUnitChangedDecision : EnemyDecision
+public class isRoomOrUnitChangedDecision : EnemyDecision
 {
 	public override bool Decide(Enemy.StateController controller)
 	{

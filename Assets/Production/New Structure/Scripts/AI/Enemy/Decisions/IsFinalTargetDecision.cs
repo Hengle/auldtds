@@ -14,7 +14,8 @@ public class IsFinalTargetDecision : EnemyDecision
 	private bool CheckFinalTarget(Enemy.StateController controller)
 	{
 
-		if(controller.finalTarget && !controller.roomTarget && !controller.unitTarget)
+		//if(controller.finalTarget && !controller.roomTarget && !controller.unitTarget)
+		if(controller.finalTarget)
 		{
 			return true;
 		}
