@@ -13,6 +13,14 @@ public class IsTriggeredDecision : TrapDecision
 
 	private bool CheckIfTrapIsTriggered(Trap.StateController controller)
 	{
-		return true;
+        if (controller.isTrapTriggered)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
 	}
 }

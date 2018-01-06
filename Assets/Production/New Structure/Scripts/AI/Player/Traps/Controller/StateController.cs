@@ -15,8 +15,9 @@ namespace Trap
 
 		[HideInInspector]public Animator anim; 
 		[HideInInspector]public float stateTimeElapsed;
-		[HideInInspector]public bool isTrapTriggered;
+		public bool isTrapTriggered;
 
+        [SerializeField]
 		private List<GameObject> minionsList;
 		#endregion
 		#region System Functions
@@ -24,6 +25,7 @@ namespace Trap
 		void Awake()
 		{
 			anim = GetComponent<Animator>();
+            minionsList = new List<GameObject>();
 		}
 
 		void Start()
@@ -33,15 +35,17 @@ namespace Trap
 
 		void Update()
 		{
-
-		}
+            currentState.UpdateState(this);
+        }
 
 		void OnTriggerEnter(Collider other)
 		{
 			if(other.tag == "Minion" && !isTrapTriggered)
 			{
-				//Coroutine
-			}
+                //Coroutine
+                //TrapTrigger();
+                isTrapTriggered = true;
+            }
 
 			if(other.tag == "Minion")
 			{
@@ -84,78 +88,17 @@ namespace Trap
 		}
 		#endregion
 		#region AttackAction Functions
-		/*
-		private IEnumerator ActivateTrap(float time)
-		{
-			if (time < timeLengthAnimation)
-			{
-				time = timeLengthAnimation;
-			}
+		public void TrapTrigger()
+        {
+            anim.SetTrigger("TrapTrigger");
+            isTrapTriggered = true;
+        }
 
-			isTrapTriggered = true;
-			yield return new WaitForSeconds(time);
-			anim.SetTrigger("TrapTrigger");
-			TrapDamage();
-			this.gameObject.GetComponent<NavMeshObstacle>().enabled = true;
-			if (trapCD >0)
-			{
-				Invoke("ResetTrap", trapCD);
-			}
-		}
+        public void DoBasicDamage()
+        {
+            Debug.Log("Gotcha");
+        }
 
-		private void TrapDamage()
-		{
-			foreach (GameObject minion in minionsList)
-			{
-				minion.GetComponent<MinionDamages>().TakeDamage(trapDamage, true);
-			}
-		}
-
-		public void DoBasicDamage()
-		{
-			foreach (GameObject minion in minionsList)
-			{
-				int damageMin = playerUnitStats.minDamage;
-				int damageMax = playerUnitStats.maxDamage;
-				int toHit = playerUnitStats.toHitScore;
-				int critScore = playerUnitStats.critScore;
-				int critMultiplier = playerUnitStats.critMultiplier;
-				int actualCritMultiplier;
-				bool critText;
-
-				int toHitRoll = (Random.Range(1, 21) + toHit);
-
-				if (enemyTarget.GetComponent<Enemy.StateController>().enemyStats.currentHealth > 0)
-				{
-					int totalAC = enemyTarget.GetComponent<Enemy.StateController>().enemyStats.baseArmor + enemyTarget.GetComponent<Enemy.StateController>().enemyStats.unitArmor;
-
-					if ((toHitRoll >= totalAC))
-					{
-						if (toHit >= critScore)
-						{
-							actualCritMultiplier = critMultiplier;
-							critText = true;
-						}
-						else
-						{
-							actualCritMultiplier = 1;
-							critText = false;
-						}
-
-						int damageRoll = (Random.Range(damageMin, damageMax + 1) * actualCritMultiplier);
-
-						enemyTarget.GetComponent<Enemy.StateController>().TakeDamage(damageRoll, critText);
-					}
-					else
-					{
-						string damageRoll = "Miss";
-
-						enemyTarget.GetComponent<Enemy.StateController>().MissDamage(damageRoll, true);
-					}
-				}
-			}
-		}
-*/
 		#endregion
 	}
 }

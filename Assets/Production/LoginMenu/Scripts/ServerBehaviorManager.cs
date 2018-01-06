@@ -66,7 +66,7 @@ public class ServerBehaviorManager : MonoBehaviour
 
         yield return www.Send();
 
-        if (www.isError)
+        if (www.isNetworkError)
         {
             //Debug.Log(www.error);
             string errorReportingMessage = "Oops. Something went wrong. (error 0x000-Connection Error)";
@@ -101,7 +101,7 @@ public class ServerBehaviorManager : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post(postURL, playerStatsForm);
         yield return www.Send();
 
-        if (www.isError)
+        if (www.isNetworkError)
         {
             Debug.Log(www.error);
             string errorReportingMessage = "Cannot contact Server";
@@ -187,7 +187,7 @@ public class ServerBehaviorManager : MonoBehaviour
         string postUrl = _postURL;
         UnityWebRequest www = UnityWebRequest.Post(postUrl, form);
         yield return www.Send();
-        if (www.isError)
+        if (www.isNetworkError)
         {
             Debug.Log(www.error);
             string errorReportingMessage = "Cannot contact Authentication Server";
@@ -215,7 +215,7 @@ public class ServerBehaviorManager : MonoBehaviour
         Debug.Log("Sending Scores to:" + postUrl + " data:"+_username +" "+_gold + " "+_kills);
         UnityWebRequest www = UnityWebRequest.Post(postUrl, form);
         yield return www.Send();
-        if (www.isError)
+        if (www.isNetworkError)
         {
             Debug.Log(www.error);
             string errorReportingMessage = "Cannot contact Community Server";
