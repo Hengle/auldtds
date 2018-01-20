@@ -13,4 +13,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   enemyType: 0
+  isAlive: 1
+  currentHealth: 50
+  totalHealth: 50
+  attackSpeed: 3
+  attackRange: 0
+  minDamage: 20
+  maxDamage: 40
+  critScore: 19
+  critMultiplier: 2
+  baseArmor: 10
+  unitArmor: 0
+  isForSpecificLayer: 1
+  whereToSpawnLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  placementTag: 0
+  coinCost: 150
+  mithrilCost: 2
   lookSphereCastRadius: 0.2

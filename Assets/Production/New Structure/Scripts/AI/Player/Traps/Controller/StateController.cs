@@ -94,11 +94,27 @@ namespace Trap
             isTrapTriggered = true;
         }
 
+      
         public void DoBasicDamage()
         {
-            Debug.Log("Gotcha");
+            if (minionsList!= null)
+            {
+                int damageMin = trapStats.minDamage;
+                int damageMax = trapStats.maxDamage;
+
+                //int toHitRoll = (Random.Range(1, 21) + toHit);
+                foreach (GameObject enemyTarget in minionsList)
+                {
+                    if (enemyTarget.GetComponent<Enemy.StateController>().enemyStats.currentHealth > 0)
+                    {
+                       int damageRoll = (Random.Range(damageMin, damageMax + 1));
+                       enemyTarget.GetComponent<Enemy.StateController>().TakeDamage(damageRoll, true);
+                    }
+                }
+                
+            }
         }
 
-		#endregion
-	}
+        #endregion
+    }
 }

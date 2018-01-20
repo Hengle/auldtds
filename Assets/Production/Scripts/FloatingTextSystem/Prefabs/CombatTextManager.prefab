@@ -53,6 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textPrefab: {fileID: 1968806909827856, guid: e633f8c0142452048950da2e57b0fb19, type: 2}
   canvasTransform: {fileID: 0}
+  yOffSet: 0
   textSpeed: 5
   textDirection: {x: 0, y: 1, z: 0}
   textFadeTime: 2
+  playerViewPoint: {fileID: 0}
