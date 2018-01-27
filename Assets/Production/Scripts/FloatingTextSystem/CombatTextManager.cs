@@ -34,7 +34,7 @@ public class CombatTextManager : MonoBehaviour
     {
         position = new Vector3(position.x, position.y + mobYOffset, position.z);
         GameObject cmbtText = (GameObject)Instantiate(textPrefab, position, Quaternion.identity);
-        Debug.Log("Combat Test Spawned at position: " + position);
+        //Debug.Log("Combat Test Spawned at position: " + position);
         cmbtText.transform.SetParent(canvasTransform);
         cmbtText.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         cmbtText.GetComponent<CombatText>().InitializeText(textSpeed,textDirection, textFadeTime, crit);

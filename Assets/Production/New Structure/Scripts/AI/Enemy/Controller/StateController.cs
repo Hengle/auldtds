@@ -380,6 +380,21 @@ namespace Enemy
 		private void AwardKill()
 		{
 			GameMainManager.Instance._minionsKilled += 1;
+            if (!GameMainManager.Instance.minionKillTags.Contains(this.enemyStats.name))
+            {
+                GameMainManager.Instance.minionKillTags.Add(this.enemyStats.name);
+                int listIndex = GameMainManager.Instance.minionKillTags.IndexOf(this.enemyStats.name);
+                Debug.Log(listIndex);
+                GameMainManager.Instance.minionKillCounter.Add(1);
+
+            }
+            else
+            {
+                GameMainManager.Instance.minionKillTags.IndexOf(this.enemyStats.name);
+                int listIndex = GameMainManager.Instance.minionKillTags.IndexOf(this.enemyStats.name);
+                GameMainManager.Instance.minionKillCounter[listIndex] = GameMainManager.Instance.minionKillCounter[listIndex] +1;
+            }
+            
 		}
 
 		private void Loot()

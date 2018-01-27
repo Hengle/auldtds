@@ -38,6 +38,10 @@ public class GameMainManager : MonoBehaviour
     public int _bossesDefeated;
     public int _totalTimePlayed;
     public float _levelTimePlayed;
+
+    public List<string> minionKillTags = new List<string>();
+    public List<int> minionKillCounter = new List<int>();
+
     [Space]
     [Header("Player Treasury")]
     public int _treasureGold;
