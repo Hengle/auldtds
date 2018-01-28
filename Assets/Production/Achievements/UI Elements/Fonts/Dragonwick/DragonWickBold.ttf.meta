@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f5a74b1e8b7f31e41b61c43527367513
+timeCreated: 1514465112
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DragonWick
+  fontNames:
+  - DragonWick
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21045dc32dadd4b478dedc93170cb9c7, type: 3}
+  m_Name: AchievementDatabase
+  m_EditorClassIdentifier: 
+  database:
+  - achievementTitle: A Small Hero
+    achievementDescription: Survive 7 minutes in a single Game
+    achievementScore: 12
+    achievementSingleGame: 1
+    achieveType: 0
+    achieveTimeSurvive: 7
+    achieveMinionToKill: 
+    achieveMinionToKillCount: 0
+  - achievementTitle: Arrows are for cowards
+    achievementDescription: Survive 5 minutes without using any Archers.
+    achievementScore: 15
+    achievementSingleGame: 1
+    achieveType: 5
+    achieveTimeSurvive: 0
+    achieveMinionToKill: 
+    achieveMinionToKillCount: 0
+  - achievementTitle: Goblin Bane
+    achievementDescription: Kill 40 Goblins during a single survival Game
+    achievementScore: 20
+    achievementSingleGame: 1
+    achieveType: 1
+    achieveTimeSurvive: 0
+    achieveMinionToKill: Goblin
+    achieveMinionToKillCount: 40
+  - achievementTitle: Goblin Killer
+    achievementDescription: Kill 20 Goblins in a single survival Game.
+    achievementScore: 10
+    achievementSingleGame: 1
+    achieveType: 1
+    achieveTimeSurvive: 0
+    achieveMinionToKill: Goblin
+    achieveMinionToKillCount: 20
+  - achievementTitle: Healing is for the Elves
+    achievementDescription: Survive 5 minutes without using any kind of healing.
+    achievementScore: 25
+    achievementSingleGame: 1
+    achieveType: 2
+    achieveTimeSurvive: 0
+    achieveMinionToKill: 
+    achieveMinionToKillCount: 0
+  - achievementTitle: Orcs Must Die
+    achievementDescription: Kill 10 Orcs in a single survival Game.
+    achievementScore: 10
+    achievementSingleGame: 1
+    achieveType: 1
+    achieveTimeSurvive: 0
+    achieveMinionToKill: Orc
+    achieveMinionToKillCount: 10
+  - achievementTitle: Panos is a Hero
+    achievementDescription: Play a game entirerly with Panos Hero only. You have to
+      survive 25 minutes in a surv Game.
+    achievementScore: 50
+    achievementSingleGame: 1
+    achieveType: 0
+    achieveTimeSurvive: 0
+    achieveMinionToKill: 
+    achieveMinionToKillCount: 0
+  - achievementTitle: Survivor
+    achievementDescription: Manage to Survive a total of 50 minutes. This is comulative
+      through all your game sessions
+    achievementScore: 50
+    achievementSingleGame: 0
+    achieveType: 0
+    achieveTimeSurvive: 0
+    achieveMinionToKill: 
+    achieveMinionToKillCount: 0
+  - achievementTitle: There is no Magic
+    achievementDescription: Survive 10 minutes without using any kind of Magic.
+    achievementScore: 30
+    achievementSingleGame: 1
+    achieveType: 2
+    achieveTimeSurvive: 0
+    achieveMinionToKill: 
+    achieveMinionToKillCount: 0

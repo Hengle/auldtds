@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 252d239ad4d14fa41984ff7f5e38b14c
+timeCreated: 1514465111
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Dalelands Uncial Condensed
+  fontNames:
+  - Dalelands Uncial Condensed
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

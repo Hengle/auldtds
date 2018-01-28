@@ -191,7 +191,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (GameMainManager.Instance._buttonsHaveCooldowns)
         {
-            Debug.Log("CoolDown Activated");
+            //Debug.Log("CoolDown Activated");
             Image buttonMask = buttonSetting[counterIndex].itemButton.transform.Find("ButtonMask").gameObject.GetComponent<Image>();
             buttonMask.fillAmount = 1;
             buttonSetting[counterIndex].btnOnCooldown = true;

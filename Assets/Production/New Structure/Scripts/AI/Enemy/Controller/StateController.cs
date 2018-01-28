@@ -384,7 +384,6 @@ namespace Enemy
             {
                 GameMainManager.Instance.minionKillTags.Add(this.enemyStats.name);
                 int listIndex = GameMainManager.Instance.minionKillTags.IndexOf(this.enemyStats.name);
-                Debug.Log(listIndex);
                 GameMainManager.Instance.minionKillCounter.Add(1);
 
             }

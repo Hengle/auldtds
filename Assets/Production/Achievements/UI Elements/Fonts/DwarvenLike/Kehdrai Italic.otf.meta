@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 7d45163e5b4b57e40bfe507a98ffbd55
+timeCreated: 1514465111
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Kehdrai
+  fontNames:
+  - Kehdrai
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 26714a95a3b6c6e499ebff84622f963d, type: 3}
+  - {fileID: 12800000, guid: 6d8c28f6a44bb924b9d2906cd04fc57b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
