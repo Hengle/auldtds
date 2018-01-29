@@ -107,6 +107,8 @@ public class AchievementManager : MonoBehaviour
         if (achiev.achieveType == achievementType.TIME_SURVIVE)
         {
             achievementLogger.gameObject.AddComponent<AchievementCountSurvival>();
+            AchievementCountSurvival achCountTime = achievementLogger.GetComponent<AchievementCountSurvival>();
+            achCountTime.timeToSurvive = achiev.achieveTimeSurvive;
         }
     }
 }

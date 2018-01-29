@@ -28,6 +28,14 @@ MonoBehaviour:
     achieveTimeSurvive: 0
     achieveMinionToKill: 
     achieveMinionToKillCount: 0
+  - achievementTitle: First Blood
+    achievementDescription: Kill one Minion
+    achievementScore: 1
+    achievementSingleGame: 1
+    achieveType: 1
+    achieveTimeSurvive: 0
+    achieveMinionToKill: Goblin
+    achieveMinionToKillCount: 1
   - achievementTitle: Goblin Bane
     achievementDescription: Kill 40 Goblins during a single survival Game
     achievementScore: 20
