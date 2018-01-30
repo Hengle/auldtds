@@ -46,5 +46,9 @@ public class AchievementCountSurvival : MonoBehaviour
         Debug.Log("Updating Server");
         ServerTalk ST = amScript.serverTalkComponent.GetComponent<ServerTalk>();
         StartCoroutine(ST.UpdatePlayerAchievement(this.name, ST.playerHash));
+        if (isAwarded)
+        {
+            Destroy(this, 1.0f);
+        }
     }
 }
