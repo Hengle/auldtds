@@ -7,7 +7,10 @@ public class MoveToChaseTargetAction : EnemyAction
 {
 	public override void Act(Enemy.StateController controller)
 	{
-		MoveToTarget(controller);
+		if(controller.enemyStats.isAlive)
+		{
+			MoveToTarget(controller);
+		}
 	}
 
 	private void MoveToTarget(Enemy.StateController controller)

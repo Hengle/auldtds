@@ -8,7 +8,10 @@ public class BasicAttackEnemyTargetAction : PlayerUnitAction
 {
 	public override void Act(PlayerUnit.StateController controller)
 	{
-		BasicAttackTarget(controller);
+		if(controller.playerUnitStats.isAlive)
+		{
+			BasicAttackTarget(controller);
+		}
 	}
 
 	private void BasicAttackTarget(PlayerUnit.StateController controller)

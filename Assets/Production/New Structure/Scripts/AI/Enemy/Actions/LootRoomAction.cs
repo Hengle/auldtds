@@ -7,7 +7,10 @@ public class LootRoomAction : EnemyAction
 {
 	public override void Act(Enemy.StateController controller)
 	{
-		LootRoomTarget(controller);
+		if(controller.enemyStats.isAlive)
+		{
+			LootRoomTarget(controller);
+		}
 	}
 
 	private void LootRoomTarget(Enemy.StateController controller)

@@ -7,7 +7,10 @@ public class MoveToChaseEnemyTargetAction : PlayerUnitAction
 {
 	public override void Act(PlayerUnit.StateController controller)
 	{
-		MoveToTarget(controller);
+		if(controller.playerUnitStats.isAlive)
+		{
+			MoveToTarget(controller);
+		}
 	}
 
 	private void MoveToTarget(PlayerUnit.StateController controller)
@@ -19,9 +22,9 @@ public class MoveToChaseEnemyTargetAction : PlayerUnitAction
 			controller.navMeshAgent.stoppingDistance = controller.playerUnitStats.attackRange;
 			controller.navMeshAgent.isStopped = false;
 
-			float minionVelocity;
-			minionVelocity = controller.navMeshAgent.velocity.magnitude;
-			controller.anim.SetFloat("UnitVelocity", minionVelocity);
+			float playerUnitVelocity;
+			playerUnitVelocity = controller.navMeshAgent.velocity.magnitude;
+			controller.anim.SetFloat("UnitVelocity", playerUnitVelocity);
 		}
 	}
 }

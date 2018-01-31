@@ -7,7 +7,10 @@ public class BasicAttackAction : EnemyAction
 {
 	public override void Act(Enemy.StateController controller)
 	{
-		BasicAttackTarget(controller);
+		if(controller.enemyStats.isAlive)
+		{
+			BasicAttackTarget(controller);
+		}
 	}
 
 	private void BasicAttackTarget(Enemy.StateController controller)
