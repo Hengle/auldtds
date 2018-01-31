@@ -245,7 +245,8 @@ namespace Enemy
 				int actualCritMultiplier;
 				bool critText;
 
-				int toHitRoll = (Random.Range(1, 21) + toHit);
+				int roll = Random.Range(1, 21);
+				int toHitRoll = (roll + toHit);
 
 				if (chaseTarget == blockItemPointTarget)
 				{
@@ -255,7 +256,7 @@ namespace Enemy
 
 						if ((toHitRoll >= totalAC))
 						{
-							if (toHit >= critScore)
+							if (roll >= critScore)
 							{
 								actualCritMultiplier = critMultiplier;
 								critText = true;

@@ -28453,7 +28453,7 @@ Prefab:
     - target: {fileID: 224811719932066756, guid: af805106bda35f74a8d3de5244a5b92a,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -229.60002
       objectReference: {fileID: 0}
     - target: {fileID: 224393495308545988, guid: af805106bda35f74a8d3de5244a5b92a,
         type: 2}
@@ -39246,6 +39246,22 @@ Prefab:
     - target: {fileID: 100002, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
       propertyPath: InitialModule.startRotationX.scalar

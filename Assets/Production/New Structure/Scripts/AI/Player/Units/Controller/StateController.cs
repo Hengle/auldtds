@@ -197,15 +197,16 @@ namespace PlayerUnit
 				int actualCritMultiplier;
 				bool critText;
 
-				int toHitRoll = (Random.Range(1, 21) + toHit);
+				int roll = Random.Range(1, 21);
+				int toHitRoll = (roll + toHit);
 
-				if (enemyTarget.GetComponent<Enemy.StateController>().enemyStats.currentHealth > 0)
+				if (enemyTarget.GetComponent<Enemy.StateController>().enemyStats.isAlive)
 				{
 					int totalAC = enemyTarget.GetComponent<Enemy.StateController>().enemyStats.baseArmor + enemyTarget.GetComponent<Enemy.StateController>().enemyStats.unitArmor;
 
 					if ((toHitRoll >= totalAC))
 					{
-						if (toHit >= critScore)
+						if (roll >= critScore)
 						{
 							actualCritMultiplier = critMultiplier;
 							critText = true;

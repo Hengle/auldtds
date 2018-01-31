@@ -111,7 +111,6 @@ namespace Trap
                        enemyTarget.GetComponent<Enemy.StateController>().TakeDamage(damageRoll, true);
                     }
                 }
-                
             }
         }
 
