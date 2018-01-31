@@ -16,8 +16,6 @@ public class isRoomOrUnitChangedDecision : EnemyDecision
 
 		if((controller.unitTarget != controller.savedUnitTarget) || (controller.roomTarget != controller.savedRoomTarget) || (controller.CheckPath(controller.savedUnitTarget)) || (!controller.blockItemTarget))
 		{
-			controller.attacking = false;
-
 			return true;
 		}
 		else

@@ -25723,7 +25723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1477618140553118, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
@@ -28344,7 +28344,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1477618140553118, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
@@ -28473,7 +28473,7 @@ Prefab:
     - target: {fileID: 224811719932066756, guid: af805106bda35f74a8d3de5244a5b92a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000051428902
+      value: -0.00002327054
       objectReference: {fileID: 0}
     - target: {fileID: 114624446257530482, guid: af805106bda35f74a8d3de5244a5b92a,
         type: 2}
@@ -37530,7 +37530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1477618140553118, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
@@ -39246,6 +39246,54 @@ Prefab:
     - target: {fileID: 100002, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
       propertyPath: InitialModule.startRotationX.scalar
@@ -46545,7 +46593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1477618140553118, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f92b7696b09e3a4884dce3fd45757c4, type: 2}

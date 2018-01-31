@@ -13,15 +13,10 @@ public class BasicAttackEnemyTargetAction : PlayerUnitAction
 
 	private void BasicAttackTarget(PlayerUnit.StateController controller)
 	{
-		if (!controller.IsChaseTargetTheSame())
-		{
-			controller.StopBasicAttack();
-		}
-
 		if (controller.IsChaseTargetReached())
 		{
 			controller.FaceEnemy();
-			controller.ExecuteBasicAttack();
+			controller.ExecuteAttack();
 		}
 
 	}

@@ -20,7 +20,6 @@ public class IsUnitTargetDecision : EnemyDecision
 		}
 		else
 		{
-			controller.attacking = false;
 			return false;
 		}
 	}

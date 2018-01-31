@@ -12,15 +12,10 @@ public class BasicAttackAction : EnemyAction
 
 	private void BasicAttackTarget(Enemy.StateController controller)
 	{
-		if (!controller.IsChaseTargetTheSame())
-		{
-			controller.StopBasicAttack();
-		}
-
 		if (controller.IsChaseTargetReached())
 		{
 			controller.FaceEnemy();
-			controller.ExecuteBasicAttack();
+			controller.ExecuteAttack();
 
 			UpdateBlockItemEngageList(controller);
 		}
@@ -31,11 +26,6 @@ public class BasicAttackAction : EnemyAction
 		if (controller.chaseTarget == controller.blockItemPointTarget)
 		{
 			controller.blockItemTarget.GetComponent<BlockItem.StateController>().UpdateEngageList(controller.gameObject);
-
-			if(!controller.blockItemTarget.GetComponent<BlockItem.StateController>().CheckEngageList(controller.gameObject))
-			{
-				controller.StopBasicAttack();
-			}
 		}
 			
 

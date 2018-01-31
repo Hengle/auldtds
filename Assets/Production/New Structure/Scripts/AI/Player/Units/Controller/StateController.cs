@@ -22,6 +22,7 @@ namespace PlayerUnit
 		private bool dieOnce;
 		[SerializeField]
 		private List<GameObject> engageEnemiesList;
+		private float nextAttack;
 
 		[HideInInspector]public NavMeshAgent navMeshAgent;
 		//[HideInInspector]
@@ -30,7 +31,6 @@ namespace PlayerUnit
 		[HideInInspector]public Transform savedChaseTarget;
 		[HideInInspector]public bool isChaseTargetReachable;
 		[HideInInspector]public Animator anim;
-		[HideInInspector]public bool attacking;
 		[HideInInspector]public bool fullEngaged;
 		#endregion
 		#region System Functions
@@ -51,7 +51,6 @@ namespace PlayerUnit
 
 		void Start()
 		{
-			attacking = false;
 			dieOnce = true;
 			engageEnemiesList = new List<GameObject>();
 			fullEngaged = false;
@@ -155,26 +154,6 @@ namespace PlayerUnit
 				return false;
 			}
 		}
-
-		public bool IsChaseTargetTheSame()
-		{
-			if(chaseTarget)
-			{
-				if(chaseTarget == savedChaseTarget)
-				{
-					return true;
-				}
-				else
-				{
-					savedChaseTarget = chaseTarget;
-					return false;
-				}
-			}
-			else
-			{
-				return false;
-			}
-		}
 		#endregion
 		#region Take Damage Functions
 		public void TakeDamage(int damage, bool critical)
@@ -191,32 +170,19 @@ namespace PlayerUnit
 		#region AttackAction Functions
 		private void BasicAttack()
 		{
-			if(chaseTarget != null)
+			if(Time.time > nextAttack)
 			{
+				nextAttack = Time.time + playerUnitStats.attackSpeed;
 				anim.SetTrigger("BasicAttackTrigger");
 			}
 		}
 
-		public void ExecuteBasicAttack()
+		public void ExecuteAttack()
 		{
-			if(chaseTarget != null)
+			if(chaseTarget != null && chaseTarget.GetComponent<Enemy.StateController>().enemyStats.isAlive)
 			{
-				if(!attacking)
-				{
-					InvokeRepeating("BasicAttack", 0, playerUnitStats.attackSpeed);
-					attacking = true;
-				}
+				BasicAttack();
 			}
-			else
-			{
-				attacking = false;
-			}
-		}
-
-		public void StopBasicAttack()
-		{
-			CancelInvoke("BasicAttack");
-			attacking = false;
 		}
 
 		public void DoBasicDamage()

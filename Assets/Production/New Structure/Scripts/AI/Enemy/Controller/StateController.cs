@@ -23,6 +23,7 @@ namespace Enemy
 		private bool aiActive;
 		private bool dieOnce;
 		private bool isEnemyLooting;
+		private float nextAttack;
 
 		[HideInInspector]public NavMeshAgent navMeshAgent;
 		//[HideInInspector]
@@ -40,7 +41,7 @@ namespace Enemy
 		[HideInInspector]public bool isChaseTargetReachable;
 		[HideInInspector]public Transform blockItemTarget;
 		[HideInInspector]public Transform blockItemPointTarget;
-		[HideInInspector]public bool attacking;
+
 		#endregion
 		#region System Functions
 		void OnEnable()
@@ -53,7 +54,6 @@ namespace Enemy
 			navMeshAgent = GetComponent<NavMeshAgent>();
 			anim = GetComponent<Animator>();
 			radarForEnemies.GetComponent<SphereCollider>().radius = enemyStats.eyeSight;
-			attacking = false;
 			dieOnce = true;
 			isEnemyLooting = false;
 		}
@@ -195,26 +195,6 @@ namespace Enemy
 			}
 		}
 
-		public bool IsChaseTargetTheSame()
-		{
-			if(chaseTarget)
-			{
-				if(chaseTarget == savedChaseTarget)
-				{
-					return true;
-				}
-				else
-				{
-					savedChaseTarget = chaseTarget;
-					return false;
-				}
-			}
-			else
-			{
-				return false;
-			}
-		}
-
 		public bool IsFullEngagedBlockItemClose()
 		{
 			if(chaseTarget)
@@ -238,32 +218,19 @@ namespace Enemy
 		#region AttackAction Functions
 		private void BasicAttack()
 		{
-			if(chaseTarget != null)
+			if(Time.time > nextAttack)
 			{
+				nextAttack = Time.time + enemyStats.attackSpeed;
 				anim.SetTrigger("BasicAttackTrigger");
 			}
 		}
 
-		public void ExecuteBasicAttack()
+		public void ExecuteAttack()
 		{
-			if(chaseTarget != null)
+			if(chaseTarget != null && chaseTarget.GetComponent<PlayerUnit.StateController>().playerUnitStats.isAlive)
 			{
-				if(!attacking)
-				{
-					InvokeRepeating("BasicAttack", 0, enemyStats.attackSpeed);
-					attacking = true;
-				}
+				BasicAttack();
 			}
-			else
-			{
-				attacking = false;
-			}
-		}
-
-		public void StopBasicAttack()
-		{
-			CancelInvoke("BasicAttack");
-			attacking = false;
 		}
 
 		public void DoBasicDamage()

@@ -19,7 +19,6 @@ public class IsEnemyTargetDecision : PlayerUnitDecision
 		}
 		else
 		{
-			controller.attacking = false;
 			return false;
 		}
 	}
