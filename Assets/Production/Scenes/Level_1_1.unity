@@ -28473,7 +28473,7 @@ Prefab:
     - target: {fileID: 224811719932066756, guid: af805106bda35f74a8d3de5244a5b92a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00002327054
+      value: 0.000051919087
       objectReference: {fileID: 0}
     - target: {fileID: 114624446257530482, guid: af805106bda35f74a8d3de5244a5b92a,
         type: 2}
@@ -39711,6 +39711,62 @@ Prefab:
       propertyPath: InitialModule.startRotationY.scalar
       value: 0.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac8b4331ac31c3e46a7da8ffabe8813d, type: 2}
   m_IsPrefabParent: 0
@@ -47564,6 +47620,11 @@ Prefab:
     - target: {fileID: 4779242048499474, guid: 3a2092d607cad2c4e9dbc29227427cfe, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114801506770321338, guid: 3a2092d607cad2c4e9dbc29227427cfe,
+        type: 2}
+      propertyPath: playerHash
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a2092d607cad2c4e9dbc29227427cfe, type: 2}

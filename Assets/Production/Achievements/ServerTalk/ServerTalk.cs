@@ -32,13 +32,29 @@ public class ServerTalk : MonoBehaviour
 
     public PlayerAchievementList achievementsList = new PlayerAchievementList();
 
+    private void Awake()
+    {
+        playerHash = ServerBehaviorManager.Instance.playerData.playerHash;
+    }
+
     void Start ()
     {
+        if (string.IsNullOrEmpty(playerHash))
+        {
+            Debug.LogWarning("No Player Hash");
+            playerHash = "NoUser";
+        }
+        else
+        {
+            playerHash = ServerBehaviorManager.Instance.playerData.playerHash;
+        }
+
         StartCoroutine(CheckPlayerAchievementStatus());
 	}
     public IEnumerator CheckPlayerAchievementStatus()
     {
         WWWForm form = new WWWForm();
+        playerHash = ServerBehaviorManager.Instance.playerData.playerHash;
         form.AddField("playerHash", playerHash);
 
         UnityWebRequest www = UnityWebRequest.Post(URL2GO, form);
@@ -59,6 +75,7 @@ public class ServerTalk : MonoBehaviour
   
     public IEnumerator UpdatePlayerAchievement(string achievName, string plHash)
     {
+        playerHash = ServerBehaviorManager.Instance.playerData.playerHash;
         Debug.Log("Connecting to Server");
         WWWForm form = new WWWForm();
         form.AddField("playerHash", plHash);
